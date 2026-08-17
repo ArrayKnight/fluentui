@@ -6,7 +6,7 @@
 
 @layer fui.base {
   .root {
-    @apply relative isolate inline-grid min-h-32 align-middle;
+    @apply relative isolate inline-grid min-h-32 gap-x-horizontal-xs gap-y-vertical-none rounded-medium bg-neutral-background-1 py-vertical-none ps-horizontal-m-nudge pe-horizontal-none align-middle;
 
     /* `gridTemplateColumns: '1fr 24px'` — no utility expresses a mixed track list, so the
        px literal rides `--base-scale` directly. It must stay in lockstep with the buttons'
@@ -16,15 +16,9 @@
 
     /* `columnGap: tokens.spacingHorizontalXS` / `rowGap: 0` — the source named the
        horizontal axis for the column gap, so the utility does too. */
-    @apply gap-x-horizontal-xs gap-y-vertical-none;
-
-    background-color: var(--color-neutral-background-1);
 
     /* `padding: 0 0 0 tokens.spacingHorizontalMNudge` expanded to longhands. The compiled
        pair is `padding-left` (ltr) / `padding-right` (rtl) — a pure property flip. */
-    @apply py-vertical-none ps-horizontal-m-nudge pe-horizontal-none;
-
-    border-radius: var(--radius-medium);
 
     &::before {
       @apply pointer-events-none absolute box-border rounded-medium border-t-neutral-stroke-1 border-r-neutral-stroke-1 border-b-neutral-stroke-accessible border-l-neutral-stroke-1;
@@ -44,7 +38,7 @@
     }
 
     &::after {
-      @apply absolute box-border;
+      @apply absolute box-border border-b-compound-brand-stroke;
 
       content: '';
 
@@ -63,7 +57,6 @@
       /* longhands: `:focus-within:active` below overrides the colour alone */
       border-bottom-width: 2px;
       border-bottom-style: solid;
-      border-bottom-color: var(--color-compound-brand-stroke);
 
       clip-path: inset(calc(100% - 2px) 0 0 0);
 
@@ -111,7 +104,7 @@
   }
 
   .input {
-    @apply w-full;
+    @apply w-full bg-transparent px-horizontal-none py-vertical-none text-neutral-foreground-1;
 
     grid-column-start: 1;
     grid-column-end: 2;
@@ -125,13 +118,8 @@
        compiled shorthand: no rule in this module overrides any border longhand here. */
     border: 0;
 
-    @apply px-horizontal-none py-vertical-none;
-
-    color: var(--color-neutral-foreground-1);
-
     /* literal `transparent` (not a theme token) so the colour from the root always shows
        through */
-    background-color: transparent;
 
     /* inherit typography from the root */
     font-family: inherit;
@@ -147,7 +135,7 @@
   }
 
   .button {
-    @apply absolute inline-flex h-16 w-24 items-center justify-center;
+    @apply absolute inline-flex h-16 w-24 items-center justify-center bg-transparent px-5 py-vertical-none text-neutral-foreground-3;
 
     /* nothing in this module overrides a border longhand on this slot */
     border: 0;
@@ -156,8 +144,6 @@
     outline-style: none;
 
     /* literal `transparent` (not a theme token) so the colour from the root shows through */
-    background-color: transparent;
-    color: var(--color-neutral-foreground-3);
 
     /* common button layout */
     grid-column-start: 2;
@@ -165,7 +151,6 @@
     /* `padding: '0 5px 0 5px'` — 5px is not a Fluent spacing step, so the numeric utility
        is the sanctioned fallback (the reset compiles with a `null` rtl class, i.e. the two
        inline sides are equal and never flip). */
-    @apply px-5 py-vertical-none;
 
     @variant active {
       outline-style: none;
@@ -209,12 +194,7 @@
 @layer fui.components.l1 {
   .root {
     @variant size-small {
-      @apply min-h-24 ps-horizontal-s;
-
-      font-family: var(--font-base);
-      font-size: var(--text-base-200);
-      font-weight: var(--font-weight-regular);
-      line-height: var(--leading-base-200);
+      @apply min-h-24 ps-horizontal-s font-base text-base-200 leading-base-200 font-regular;
 
       /* `paddingLeft: tokens.spacingHorizontalS` — an [ltr, rtl] property flip */
     }
@@ -263,8 +243,7 @@
     }
 
     @variant disabled {
-      cursor: not-allowed;
-      background-color: var(--color-transparent-background);
+      @apply cursor-not-allowed bg-transparent-background;
 
       &::before {
         @apply border-t-neutral-stroke-disabled border-r-neutral-stroke-disabled border-b-neutral-stroke-disabled border-l-neutral-stroke-disabled;
@@ -363,9 +342,7 @@
   .root {
     @variant disabled {
       & .input {
-        color: var(--color-neutral-foreground-disabled);
-        cursor: not-allowed;
-        background-color: var(--color-transparent-background);
+        @apply cursor-not-allowed bg-transparent-background text-neutral-foreground-disabled;
 
         &::placeholder {
           @apply text-neutral-foreground-disabled;
@@ -403,8 +380,7 @@
 
   .underline {
     & .button {
-      background-color: transparent;
-      color: var(--color-neutral-foreground-3);
+      @apply bg-transparent text-neutral-foreground-3;
 
       @variant enabled {
         @variant hover {
@@ -428,8 +404,7 @@
 
   .filled-darker {
     & .button {
-      background-color: transparent;
-      color: var(--color-neutral-foreground-3);
+      @apply bg-transparent text-neutral-foreground-3;
 
       @variant enabled {
         @variant hover {
@@ -453,8 +428,7 @@
 
   .filled-lighter {
     & .button {
-      background-color: transparent;
-      color: var(--color-neutral-foreground-3);
+      @apply bg-transparent text-neutral-foreground-3;
 
       @variant enabled {
         @variant hover {

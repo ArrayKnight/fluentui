@@ -7,12 +7,7 @@
 @layer fui.components.l1 {
   /* from useStyles.root — typographyStyles.body1 + layout; textAlign 'left' → logical `start` */
   .root {
-    @apply flex h-full w-full flex-col items-center text-start;
-
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-300);
+    @apply flex h-full w-full flex-col items-center text-start font-base text-base-300 leading-base-300 font-regular;
   }
 
   .chart {
@@ -37,12 +32,7 @@
   }
 
   .tick-label {
-    @apply fill-neutral-foreground-1;
-
-    font-family: var(--font-base);
-    font-size: var(--text-base-100);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-100);
+    @apply fill-neutral-foreground-1 font-base text-base-100 leading-base-100 font-semibold;
   }
 
   .legend-container {

@@ -31,12 +31,10 @@
 
 @layer fui.components.l1 {
   .root {
-    @apply relative box-border inline-flex min-w-250 align-middle;
-
-    border-radius: var(--radius-medium);
+    @apply relative box-border inline-flex min-w-250 rounded-medium align-middle;
 
     &::after {
-      @apply absolute box-border;
+      @apply absolute box-border border-b-compound-brand-stroke;
 
       content: '';
 
@@ -54,7 +52,6 @@
          color alone */
       border-bottom-width: var(--spacing-thick);
       border-bottom-style: solid;
-      border-bottom-color: var(--color-compound-brand-stroke);
 
       clip-path: inset(calc(100% - 2px) 0 0 0);
 
@@ -172,13 +169,7 @@
 @layer fui.components.l1 {
   .root {
     @variant disabled {
-      cursor: not-allowed;
-      background-color: var(--color-transparent-background);
-
-      border-top-color: var(--color-neutral-stroke-disabled);
-      border-right-color: var(--color-neutral-stroke-disabled);
-      border-bottom-color: var(--color-neutral-stroke-disabled);
-      border-left-color: var(--color-neutral-stroke-disabled);
+      @apply cursor-not-allowed border-t-neutral-stroke-disabled border-r-neutral-stroke-disabled border-b-neutral-stroke-disabled border-l-neutral-stroke-disabled bg-transparent-background;
 
       @variant forced-colors {
         border-top-color: GrayText;
@@ -262,21 +253,15 @@
    */
   .root {
     & .button {
-      @apply box-border grid w-full items-center justify-between;
+      @apply box-border grid w-full cursor-pointer items-center justify-between gap-x-horizontal-xxs bg-transparent-background text-start font-base text-neutral-foreground-1;
 
-      background-color: var(--color-transparent-background);
       border-style: none;
-      color: var(--color-neutral-foreground-1);
-      cursor: pointer;
-      font-family: var(--font-base);
       grid-template-columns: [content] 1fr [icon] auto [end];
 
       /* `columnGap: tokens.spacingHorizontalXXS` */
-      @apply gap-x-horizontal-xxs;
 
       /* `textAlign: 'left'` is a `[ltr, rtl]` value flip in the compiled atomics
          (`fsow6f: ["f1o700av","fes3tcz"]`) → the logical keyword */
-      text-align: start;
 
       @variant focus {
         outline-style: none;
@@ -285,12 +270,7 @@
 
     @variant size-small {
       & .button {
-        @apply py-3 ps-horizontal-s pe-horizontal-s-nudge;
-
-        font-family: var(--font-base);
-        font-size: var(--text-base-200);
-        font-weight: var(--font-weight-regular);
-        line-height: var(--leading-base-200);
+        @apply py-3 ps-horizontal-s pe-horizontal-s-nudge font-base text-base-200 leading-base-200 font-regular;
 
         /* SNudge (6) + XXS (2) = 8px, exactly the S step */
       }
@@ -298,12 +278,7 @@
 
     @variant size-medium {
       & .button {
-        @apply py-5 ps-horizontal-m pe-horizontal-m-nudge;
-
-        font-family: var(--font-base);
-        font-size: var(--text-base-300);
-        font-weight: var(--font-weight-regular);
-        line-height: var(--leading-base-300);
+        @apply py-5 ps-horizontal-m pe-horizontal-m-nudge font-base text-base-300 leading-base-300 font-regular;
 
         /* MNudge (10) + XXS (2) = 12px, exactly the M step */
       }
@@ -311,12 +286,7 @@
 
     @variant size-large {
       & .button {
-        @apply gap-x-horizontal-s-nudge py-7 ps-18 pe-horizontal-m;
-
-        font-family: var(--font-base);
-        font-size: var(--text-base-400);
-        font-weight: var(--font-weight-regular);
-        line-height: var(--leading-base-400);
+        @apply gap-x-horizontal-s-nudge py-7 ps-18 pe-horizontal-m font-base text-base-400 leading-base-400 font-regular;
 
         /* `columnGap: spacingHorizontalSNudge` overrides the button's XXS.
            M (12) + SNudge (6) = 18px matches NO spacing step → numeric fallback. */
@@ -339,9 +309,8 @@
 @layer fui.components.l1 {
   .root {
     & .icon {
-      @apply box-border block text-neutral-stroke-accessible;
+      @apply box-border block text-base-500 text-neutral-stroke-accessible;
 
-      font-size: var(--text-base-500);
       grid-column-start: icon;
       grid-column-end: end;
     }
@@ -385,9 +354,8 @@
 
 @layer fui.components.l2 {
   .listbox {
-    @apply box-border rounded-medium;
+    @apply box-border rounded-medium shadow-16;
 
-    box-shadow: var(--shadow-16);
     max-height: 80vh;
   }
 

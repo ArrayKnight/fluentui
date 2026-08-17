@@ -7,30 +7,15 @@
 @layer fui.components.l2 {
   .root {
     @variant size-small {
-      @apply h-24 ps-horizontal-s-nudge pe-horizontal-s-nudge pt-horizontal-s-nudge pb-horizontal-s-nudge;
-
-      font-family: var(--font-base);
-      font-size: var(--text-base-200);
-      font-weight: var(--font-weight-regular);
-      line-height: var(--leading-base-200);
+      @apply h-24 ps-horizontal-s-nudge pe-horizontal-s-nudge pt-horizontal-s-nudge pb-horizontal-s-nudge font-base text-base-200 leading-base-200 font-regular;
     }
 
     @variant size-medium {
-      @apply h-32 ps-horizontal-s-nudge pe-horizontal-s-nudge pt-horizontal-s-nudge pb-horizontal-s-nudge;
-
-      font-family: var(--font-base);
-      font-size: var(--text-base-300);
-      font-weight: var(--font-weight-regular);
-      line-height: var(--leading-base-300);
+      @apply h-32 ps-horizontal-s-nudge pe-horizontal-s-nudge pt-horizontal-s-nudge pb-horizontal-s-nudge font-base text-base-300 leading-base-300 font-regular;
     }
 
     @variant size-large {
-      @apply h-40 ps-horizontal-s pe-horizontal-s pt-horizontal-s pb-horizontal-s;
-
-      font-family: var(--font-base);
-      font-size: var(--text-base-400);
-      font-weight: var(--font-weight-regular);
-      line-height: var(--leading-base-400);
+      @apply h-40 ps-horizontal-s pe-horizontal-s pt-horizontal-s pb-horizontal-s font-base text-base-400 leading-base-400 font-regular;
     }
   }
 }
@@ -47,24 +32,15 @@
   .root {
     @variant current {
       @variant size-small {
-        font-family: var(--font-base);
-        font-size: var(--text-base-200);
-        font-weight: var(--font-weight-semibold);
-        line-height: var(--leading-base-200);
+        @apply font-base text-base-200 leading-base-200 font-semibold;
       }
 
       @variant size-medium {
-        font-family: var(--font-base);
-        font-size: var(--text-base-300);
-        font-weight: var(--font-weight-semibold);
-        line-height: var(--leading-base-300);
+        @apply font-base text-base-300 leading-base-300 font-semibold;
       }
 
       @variant size-large {
-        font-family: var(--font-base);
-        font-size: var(--text-base-400);
-        font-weight: var(--font-weight-semibold);
-        line-height: var(--leading-base-400);
+        @apply font-base text-base-400 leading-base-400 font-semibold;
       }
     }
   }
@@ -111,8 +87,8 @@
   .root {
     @variant current {
       @variant hover {
-        background-color: var(--color-transparent-background);
-        color: var(--color-neutral-foreground-2);
+        @apply bg-transparent-background text-neutral-foreground-2;
+
         cursor: auto;
 
         & .icon {
@@ -121,8 +97,8 @@
       }
 
       @variant disabled {
-        background-color: var(--color-transparent-background);
-        color: var(--color-neutral-foreground-2);
+        @apply bg-transparent-background text-neutral-foreground-2;
+
         cursor: auto;
 
         & .icon {

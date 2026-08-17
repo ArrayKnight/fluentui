@@ -6,9 +6,7 @@
 
 @layer fui.base {
   .root {
-    @apply mt-vertical-l box-border;
-
-    border-radius: var(--radius-medium);
+    @apply mt-vertical-l box-border rounded-medium;
 
     /* Tailwind's `pointer-events-auto` emits `auto`, not `all` — the compiled atomic says
        `all`, so this stays a literal declaration. */

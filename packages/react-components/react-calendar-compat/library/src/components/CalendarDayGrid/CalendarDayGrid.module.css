@@ -36,12 +36,7 @@
 
 @layer fui.components.l1 {
   .day-cell {
-    color: var(--color-neutral-foreground-1);
-
-    @apply relative m-0 cursor-pointer p-horizontal-xxs;
-
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-regular);
+    @apply relative m-0 cursor-pointer p-horizontal-xxs text-base-200 font-regular text-neutral-foreground-1;
 
     @variant forced-colors {
       background-color: Window;
@@ -49,8 +44,7 @@
     }
 
     &.hover-style {
-      color: var(--color-neutral-foreground-1-static);
-      background-color: var(--color-brand-background-inverted-hover);
+      @apply bg-brand-background-inverted-hover text-neutral-foreground-1-static;
 
       @variant forced-colors {
         outline: calc(1px * var(--base-scale)) solid Highlight;
@@ -63,8 +57,7 @@
     }
 
     &.pressed-style {
-      color: var(--color-neutral-foreground-1-static);
-      background-color: var(--color-brand-background-inverted-pressed);
+      @apply bg-brand-background-inverted-pressed text-neutral-foreground-1-static;
 
       @variant forced-colors {
         background-color: Window;
@@ -99,8 +92,7 @@
   }
 
   .day-selected {
-    background-color: var(--color-brand-background-inverted-selected);
-    color: var(--color-neutral-foreground-1-static);
+    @apply bg-brand-background-inverted-selected text-neutral-foreground-1-static;
 
     @variant forced-colors {
       background-color: Highlight;
@@ -120,8 +112,7 @@
     &:where(:hover),
     &.hover-style,
     &.pressed-style {
-      color: var(--color-neutral-foreground-1-static);
-      background-color: var(--color-brand-background-inverted-selected);
+      @apply bg-brand-background-inverted-selected text-neutral-foreground-1-static;
 
       @variant forced-colors {
         background-color: Highlight;
@@ -137,7 +128,7 @@
   }
 
   .day-single-selected {
-    color: var(--color-neutral-foreground-1-static);
+    @apply text-neutral-foreground-1-static;
 
     & > .day-marker {
       @variant forced-colors {
@@ -146,7 +137,7 @@
     }
 
     & > .day-button {
-      border-radius: var(--radius-medium);
+      @apply rounded-medium border-t-brand-stroke-1 border-r-brand-stroke-1 border-b-brand-stroke-1 border-l-brand-stroke-1;
 
       /* `border: '1px solid <token>'` expanded to longhands: `.day-button` below resets
          `border-style` and the forced-colors block re-sets all four colors, so the
@@ -159,10 +150,6 @@
       border-right-style: solid;
       border-bottom-style: solid;
       border-left-style: solid;
-      border-top-color: var(--color-brand-stroke-1);
-      border-right-color: var(--color-brand-stroke-1);
-      border-bottom-color: var(--color-brand-stroke-1);
-      border-left-color: var(--color-brand-stroke-1);
 
       &:where(:not(:hover, :active)) {
         @apply bg-brand-background-inverted-selected;
@@ -198,15 +185,12 @@
   }
 
   .week-number-cell {
-    @apply m-0 box-border h-28 w-28 border-e-neutral-stroke-2 bg-transparent-background p-0 text-neutral-foreground-4;
+    @apply m-0 box-border h-28 w-28 border-e-neutral-stroke-2 bg-transparent-background p-0 text-base-200 font-regular text-neutral-foreground-4;
 
     /* `borderRight: '1px solid <token>'` — rtl-css-js swaps borderRight↔borderLeft, a pure
        PROPERTY flip, so it becomes the `border-inline-end-*` longhands */
     border-inline-end-width: calc(1px * var(--base-scale));
     border-inline-end-style: solid;
-
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-regular);
   }
 
   .day-outside-bounds {
@@ -224,8 +208,7 @@
   }
 
   .lighten-days-outside-navigated-month {
-    color: var(--color-neutral-foreground-4);
-    font-weight: var(--font-weight-regular);
+    @apply font-regular text-neutral-foreground-4;
 
     @variant forced-colors {
       color: GrayText;
@@ -233,17 +216,12 @@
   }
 
   .day-button {
-    background-color: var(--color-transparent-background);
+    @apply h-24 w-24 cursor-pointer overflow-visible bg-transparent-background p-0 text-base-200 text-inherit;
 
     /* `border: 'none'` — the style longhands are the half that carries it for layout and
        paint (react-drawer/InlineDrawer precedent) */
     border-style: none;
 
-    color: inherit;
-
-    @apply h-24 w-24 cursor-pointer overflow-visible p-0;
-
-    font-size: var(--text-base-200);
     font-weight: inherit;
     line-height: calc(24px * var(--base-scale));
 
@@ -257,13 +235,10 @@
   }
 
   .day-is-today {
-    @apply flex items-center justify-center;
-
-    color: var(--color-neutral-foreground-on-brand);
-    font-weight: var(--font-weight-semibold);
+    @apply flex items-center justify-center font-semibold text-neutral-foreground-on-brand;
 
     & > .day-marker {
-      background-color: var(--color-neutral-foreground-on-brand);
+      @apply bg-neutral-foreground-on-brand;
 
       @variant forced-colors {
         background-color: Window;
@@ -280,10 +255,9 @@
   }
 
   .day-marker {
-    background-color: var(--color-brand-foreground-2);
-    border-radius: 100%;
+    @apply absolute bottom-1 m-auto h-4 w-4 bg-brand-foreground-2;
 
-    @apply absolute bottom-1 m-auto h-4 w-4;
+    border-radius: 100%;
 
     /* `left: 0` + `right: 0` — rtl-css-js swaps them, a no-op at 0; written logically */
     inset-inline: 0;
@@ -313,9 +287,8 @@
   }
 
   .day-today-marker {
-    @apply flex h-20 w-20 items-center justify-center;
+    @apply flex h-20 w-20 items-center justify-center bg-brand-background;
 
-    background-color: var(--color-brand-background);
     border-radius: 100%;
     line-height: calc(20px * var(--base-scale));
 

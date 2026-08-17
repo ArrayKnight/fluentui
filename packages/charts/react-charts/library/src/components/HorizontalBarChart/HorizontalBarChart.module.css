@@ -29,12 +29,7 @@
   }
 
   .chart-title {
-    @apply flex justify-between;
-
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-200);
+    @apply flex justify-between font-base text-base-200 leading-base-200 font-regular;
   }
 
   .chart-title-left {
@@ -51,21 +46,11 @@
   }
 
   .chart-title-right {
-    @apply text-neutral-foreground-1;
-
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-300);
+    @apply font-base text-base-300 leading-base-300 font-semibold text-neutral-foreground-1;
   }
 
   .chart-data-text-denominator {
-    @apply text-neutral-foreground-1;
-
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-300);
+    @apply font-base text-base-300 leading-base-300 font-regular text-neutral-foreground-1;
   }
 
   .benchmark-container {
@@ -96,11 +81,7 @@
    * expanded, plus the SVG presentation properties as ordinary CSS.
    */
   .bar-label {
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-200);
-    fill: var(--color-neutral-foreground-1);
+    @apply fill-neutral-foreground-1 font-base text-base-200 leading-base-200 font-semibold;
 
     /* from useStyles.barLabel[HighContrastSelector] — `-ms-high-contrast` is dropped, the
        shared `forced-colors` variant is `@media (forced-colors: active)` only */

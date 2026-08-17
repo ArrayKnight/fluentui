@@ -8,11 +8,10 @@
 
 @layer fui.components.l1 {
   .root {
-    @apply flex flex-row items-center justify-center;
+    @apply flex flex-row items-center justify-center gap-x-horizontal-xs;
 
     /* `columnGap: tokens.spacingHorizontalXS` — an inline-axis property reading a horizontal
        token, so the named utility matches on both counts (D4 amendment). */
-    @apply gap-x-horizontal-xs;
 
     /* from createCustomFocusIndicatorStyle({ outline, borderRadius, borderColor('transparent') }) */
     @variant focus-visible-fui {

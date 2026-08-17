@@ -4,11 +4,10 @@
 
 @layer fui.components.l4 {
   .root {
-    @apply flex flex-col items-stretch;
+    @apply flex flex-col items-stretch gap-y-vertical-xxxl py-40;
+
     /* gridRowGap: spacingVerticalXXXL */
-    @apply gap-y-vertical-xxxl;
     /* padding: '40px 10%' — CSS shorthand expanded to longhands (block px, inline %) */
-    @apply py-40;
 
     min-width: 750px;
     padding-inline: 10%;

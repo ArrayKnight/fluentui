@@ -7,9 +7,7 @@
 @layer fui.components.l1 {
   /* from useRootStyles.normalize — root arg #2 (see the INVERSION note above) */
   .normalize {
-    @apply m-0 box-border p-0;
-
-    box-shadow: none;
+    @apply m-0 box-border p-0 shadow-none;
   }
 
   /* from useRootStyles.base — root arg #3; re-sets `box-sizing` and `padding` from above */
@@ -30,14 +28,12 @@
   }
 
   .month-and-year {
-    @apply inline-block grow items-center overflow-hidden rounded-medium bg-transparent-background py-0 ps-horizontal-m-nudge pe-horizontal-xs text-start text-ellipsis whitespace-nowrap text-neutral-foreground-1;
+    @apply inline-block grow items-center overflow-hidden rounded-medium bg-transparent-background py-0 ps-horizontal-m-nudge pe-horizontal-xs text-start text-base-300 font-semibold text-ellipsis whitespace-nowrap text-neutral-foreground-1;
 
     /* `shorthands.borderStyle('none')` — the four style longhands, i.e. `border-style` */
     border-style: none;
 
     font-family: inherit;
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-semibold);
     line-height: calc(28px * var(--base-scale));
 
     /* `padding: '0 4px 0 10px'` → block 0, inline-start 10px (MNudge), inline-end 4px (XS).
@@ -71,18 +67,12 @@
   }
 
   .header-icon-button {
-    background-color: var(--color-transparent-background);
+    @apply relative block h-28 w-28 overflow-visible rounded-medium bg-transparent-background p-0 text-center text-base-200 text-neutral-foreground-3;
 
     /* `shorthands.borderStyle('none')` — the four style longhands */
     border-style: none;
 
-    border-radius: var(--radius-medium);
-    color: var(--color-neutral-foreground-3);
-
-    @apply relative block h-28 w-28 overflow-visible p-0 text-center;
-
     font-family: inherit;
-    font-size: var(--text-base-200);
     line-height: calc(28px * var(--base-scale));
 
     @variant hover {
@@ -102,9 +92,7 @@
     &,
     &:where(:disabled),
     & button {
-      color: var(--color-neutral-foreground-disabled);
-
-      @apply pointer-events-none;
+      @apply pointer-events-none text-neutral-foreground-disabled;
 
       /* explicit for aria-disabled buttons, which get no default forced-colors disabled
          styling (comment carried over from the Griffel source) */

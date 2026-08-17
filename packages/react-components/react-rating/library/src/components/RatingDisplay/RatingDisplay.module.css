@@ -10,19 +10,14 @@
   }
 
   .label {
-    @apply ms-horizontal-xs text-neutral-foreground-1;
-
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-200);
+    @apply ms-horizontal-xs font-base text-base-200 leading-base-200 font-regular text-neutral-foreground-1;
   }
 }
 
 @layer fui.components.l1 {
   /* from useLabelStyles.strong — valueText arg #3, applied unconditionally to that slot */
   .strong {
-    font-weight: var(--font-weight-semibold);
+    @apply font-semibold;
   }
 }
 
@@ -30,19 +25,13 @@
   .root {
     @variant size-large {
       & .label {
-        @apply ms-horizontal-s-nudge;
-
-        font-size: var(--text-base-300);
-        line-height: var(--leading-base-300);
+        @apply ms-horizontal-s-nudge text-base-300 leading-base-300;
       }
     }
 
     @variant size-extra-large {
       & .label {
-        @apply ms-horizontal-s;
-
-        font-size: var(--text-base-400);
-        line-height: var(--leading-base-400);
+        @apply ms-horizontal-s text-base-400 leading-base-400;
       }
     }
   }

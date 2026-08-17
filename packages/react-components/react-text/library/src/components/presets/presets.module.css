@@ -9,135 +9,84 @@
 @layer fui.components.l2 {
   /* from useBody1Styles.root — typographyStyles.body1 */
   .body1 {
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-300);
+    @apply font-base text-base-300 leading-base-300 font-regular;
   }
 
   /* from useBody1StrongStyles.root — typographyStyles.body1Strong */
   .body1-strong {
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-300);
+    @apply font-base text-base-300 leading-base-300 font-semibold;
   }
 
   /* from useBody1StrongerStyles.root — typographyStyles.body1Stronger */
   .body1-stronger {
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-bold);
-    line-height: var(--leading-base-300);
+    @apply font-base text-base-300 leading-base-300 font-bold;
   }
 
   /* from useBody2Styles.root — typographyStyles.body2 */
   .body2 {
-    font-family: var(--font-base);
-    font-size: var(--text-base-400);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-400);
+    @apply font-base text-base-400 leading-base-400 font-regular;
   }
 
   /* from useCaption1Styles.root — typographyStyles.caption1 */
   .caption1 {
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-200);
+    @apply font-base text-base-200 leading-base-200 font-regular;
   }
 
   /* from useCaption1StrongStyles.root — typographyStyles.caption1Strong */
   .caption1-strong {
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-200);
+    @apply font-base text-base-200 leading-base-200 font-semibold;
   }
 
   /* from useCaption1StrongerStyles.root — typographyStyles.caption1Stronger */
   .caption1-stronger {
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-bold);
-    line-height: var(--leading-base-200);
+    @apply font-base text-base-200 leading-base-200 font-bold;
   }
 
   /* from useCaption2Styles.root — typographyStyles.caption2 */
   .caption2 {
-    font-family: var(--font-base);
-    font-size: var(--text-base-100);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-100);
+    @apply font-base text-base-100 leading-base-100 font-regular;
   }
 
   /* from useCaption2StrongStyles.root — typographyStyles.caption2Strong */
   .caption2-strong {
-    font-family: var(--font-base);
-    font-size: var(--text-base-100);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-100);
+    @apply font-base text-base-100 leading-base-100 font-semibold;
   }
 
   .display {
-    font-family: var(--font-base);
-    font-size: var(--text-hero-1000);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-hero-1000);
+    @apply font-base text-hero-1000 leading-hero-1000 font-semibold;
   }
 
   .large-title {
-    font-family: var(--font-base);
-    font-size: var(--text-hero-900);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-hero-900);
+    @apply font-base text-hero-900 leading-hero-900 font-semibold;
   }
 
   /* from useSubtitle1Styles.root — typographyStyles.subtitle1 */
   .subtitle1 {
-    font-family: var(--font-base);
-    font-size: var(--text-base-500);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-500);
+    @apply font-base text-base-500 leading-base-500 font-semibold;
   }
 
   /* from useSubtitle2Styles.root — typographyStyles.subtitle2 */
   .subtitle2 {
-    font-family: var(--font-base);
-    font-size: var(--text-base-400);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-400);
+    @apply font-base text-base-400 leading-base-400 font-semibold;
   }
 
   /* from useSubtitle2StrongerStyles.root — typographyStyles.subtitle2Stronger */
   .subtitle2-stronger {
-    font-family: var(--font-base);
-    font-size: var(--text-base-400);
-    font-weight: var(--font-weight-bold);
-    line-height: var(--leading-base-400);
+    @apply font-base text-base-400 leading-base-400 font-bold;
   }
 
   /* from useTitle1Styles.root — typographyStyles.title1 */
   .title1 {
-    font-family: var(--font-base);
-    font-size: var(--text-hero-800);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-hero-800);
+    @apply font-base text-hero-800 leading-hero-800 font-semibold;
   }
 
   /* from useTitle2Styles.root — typographyStyles.title2 */
   .title2 {
-    font-family: var(--font-base);
-    font-size: var(--text-hero-700);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-hero-700);
+    @apply font-base text-hero-700 leading-hero-700 font-semibold;
   }
 
   /* from useTitle3Styles.root — typographyStyles.title3 */
   .title3 {
-    font-family: var(--font-base);
-    font-size: var(--text-base-600);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-600);
+    @apply font-base text-base-600 leading-base-600 font-semibold;
   }
 }

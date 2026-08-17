@@ -38,7 +38,7 @@
 @layer fui.components.l2 {
   /* from useStyles.contentWrapper — applied over ItemLayout's `.content-wrapper` */
   .content-wrapper {
-    font-size: var(--text-base-200);
+    @apply text-base-200;
   }
 
   /* from useStyles.truncate — applied over ItemLayout's `.header` and `.content-wrapper` */

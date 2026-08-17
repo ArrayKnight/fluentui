@@ -6,22 +6,15 @@
 
 @layer fui.base {
   .root {
-    @apply relative box-border flex min-h-32 max-w-290 shrink-0 cursor-pointer select-none;
-    @apply gap-horizontal-xs px-horizontal-s-nudge py-vertical-s-nudge;
+    @apply relative box-border flex min-h-32 max-w-290 shrink-0 cursor-pointer gap-horizontal-xs rounded-medium bg-neutral-background-1 px-horizontal-s-nudge py-vertical-s-nudge text-base-300 text-neutral-foreground-2 select-none;
 
     /* the compiled atomic is `align-items:start`, NOT `flex-start` — `items-start` would
        emit the latter. Identical rendering for a flex container, written longhand so the
        byte comparison against the compiled output stays exact. */
     align-items: start;
 
-    border-radius: var(--radius-medium);
-    color: var(--color-neutral-foreground-2);
-    background-color: var(--color-neutral-background-1);
-    font-size: var(--text-base-300);
-
     @variant hover {
-      background-color: var(--color-neutral-background-1-hover);
-      color: var(--color-neutral-foreground-2-hover);
+      @apply bg-neutral-background-1-hover text-neutral-foreground-2-hover;
 
       /* the `.fui-Icon-filled` / `.fui-Icon-regular` swap that belongs here is NOT in this
          block — see the S-J/D27 l1 section at the bottom of this file. */
@@ -37,8 +30,7 @@
 
     @variant hover {
       @variant active {
-        background-color: var(--color-neutral-background-1-pressed);
-        color: var(--color-neutral-foreground-2-pressed);
+        @apply bg-neutral-background-1-pressed text-neutral-foreground-2-pressed;
 
         & .sub-text {
           @apply text-neutral-foreground-3-pressed;
@@ -92,13 +84,7 @@
   /* from useSecondaryContentBaseStyles (makeResetStyles) — typographyStyles.caption1 with
      an explicit lineHeightBase300 override */
   .secondary-content {
-    @apply px-horizontal-xxs;
-
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-300);
-    color: var(--color-neutral-foreground-3);
+    @apply px-horizontal-xxs font-base text-base-200 leading-base-300 font-regular text-neutral-foreground-3;
 
     @variant hover {
       @apply text-neutral-foreground-3-hover;
@@ -128,12 +114,7 @@
   }
 
   .sub-text {
-    @apply text-neutral-foreground-3;
-
-    font-family: var(--font-base);
-    font-size: var(--text-base-100);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-100);
+    @apply font-base text-base-100 leading-base-100 font-regular text-neutral-foreground-3;
   }
 }
 
@@ -143,8 +124,7 @@
   }
 
   .submenu-open {
-    background-color: var(--color-neutral-background-1-hover);
-    color: var(--color-neutral-foreground-2-hover);
+    @apply bg-neutral-background-1-hover text-neutral-foreground-2-hover;
 
     /* the `.fui-Icon-filled` / `.fui-Icon-regular` swap that belongs here is NOT in this
        block — see the S-J/D27 l1 section at the bottom of this file. */
@@ -168,12 +148,10 @@
    * both elements, see the header).
    */
   .disabled {
-    color: var(--color-neutral-foreground-disabled);
+    @apply text-neutral-foreground-disabled;
 
     @variant hover {
-      color: var(--color-neutral-foreground-disabled);
-      background-color: var(--color-neutral-background-1);
-      cursor: not-allowed;
+      @apply cursor-not-allowed bg-neutral-background-1 text-neutral-foreground-disabled;
 
       /* the `.fui-Icon-filled` / `.fui-Icon-regular` swap-BACK that belongs here is NOT in
          this block — see the S-J/D27 l1 section at the bottom of this file. */
@@ -189,8 +167,7 @@
 
     @variant hover {
       @variant active {
-        color: var(--color-neutral-foreground-disabled);
-        background-color: var(--color-neutral-background-1);
+        @apply bg-neutral-background-1 text-neutral-foreground-disabled;
 
         & .sub-text {
           @apply text-neutral-foreground-disabled;
@@ -240,7 +217,7 @@
   }
 
   .sub-text-disabled {
-    color: var(--color-neutral-foreground-disabled);
+    @apply text-neutral-foreground-disabled;
 
     @variant forced-colors {
       color: GrayText;

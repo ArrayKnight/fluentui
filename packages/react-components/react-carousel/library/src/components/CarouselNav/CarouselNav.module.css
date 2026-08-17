@@ -11,15 +11,11 @@
 
 @layer fui.components.l1 {
   .root {
-    @apply flex flex-row items-center justify-center;
-    @apply ms-horizontal-s me-horizontal-s mt-auto mb-auto;
+    @apply ms-horizontal-s me-horizontal-s mt-auto mb-auto flex flex-row items-center justify-center rounded-x-large bg-neutral-background-alpha;
 
     /* `pointer-events: all` is not Tailwind's `pointer-events-auto`; the nav re-enables
        hit-testing inside CarouselNavContainer's `pointer-events: none` overlay. */
     pointer-events: all;
-
-    background-color: var(--color-neutral-background-alpha);
-    border-radius: var(--radius-x-large);
 
     /* MUST stay last — see "ORDERING IS LOAD-BEARING" in the header. */
     @variant focus-visible-fui {

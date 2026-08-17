@@ -6,15 +6,11 @@
 
 @layer fui.components.l1 {
   .root {
-    color: var(--color-neutral-foreground-1);
-    background-color: var(--color-transparent-background);
+    @apply m-0 rounded-medium bg-transparent-background text-neutral-foreground-1;
 
     /* `margin: '0'` — nothing in this component overrides a single margin side, so the
        compiled shorthand is kept (CONVERSION_GUIDE §2 expands shorthands only where a
        longhand competes; the button's padding below is the case that does). */
-    @apply m-0;
-
-    border-radius: var(--radius-medium);
 
     @variant inline {
       @apply inline-block;
@@ -107,25 +103,21 @@
 
     @variant size-small {
       & .button {
-        @apply min-h-32;
+        @apply min-h-32 text-base-200;
 
         /* 32px matches no spacing step → numeric utility (D4) */
-
-        font-size: var(--text-base-200);
       }
     }
 
     @variant size-large {
       & .button {
-        line-height: var(--leading-base-400);
-        font-size: var(--text-base-400);
+        @apply text-base-400 leading-base-400;
       }
     }
 
     @variant size-extra-large {
       & .button {
-        line-height: var(--leading-base-500);
-        font-size: var(--text-base-500);
+        @apply text-base-500 leading-base-500;
       }
     }
 
@@ -139,10 +131,7 @@
 
 @layer fui.components.l1 {
   .expand-icon {
-    @apply flex h-full items-center;
-
-    line-height: var(--leading-base-500);
-    font-size: var(--text-base-500);
+    @apply flex h-full items-center text-base-500 leading-base-500;
   }
 
   .root {
@@ -166,9 +155,6 @@
 
 @layer fui.components.l1 {
   .icon {
-    @apply flex h-full items-center pe-horizontal-s;
-
-    line-height: var(--leading-base-500);
-    font-size: var(--text-base-500);
+    @apply flex h-full items-center pe-horizontal-s text-base-500 leading-base-500;
   }
 }

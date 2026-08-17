@@ -6,7 +6,7 @@
 
 @layer fui.base {
   .root {
-    @apply grid items-center;
+    @apply grid items-center font-base text-base-300 leading-base-300 font-regular;
 
     grid-template-rows: 1fr auto;
     grid-template-columns: auto auto 1fr auto;
@@ -15,15 +15,10 @@
       'expandIcon media description aside';
 
     /* `...typographyStyles.body1` */
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-300);
 
     /* `:active` FIRST, `:hover` SECOND — the compiled reset's order; see the header. */
     @variant active {
-      color: var(--color-neutral-foreground-2-pressed);
-      background-color: var(--color-subtle-background-pressed);
+      @apply bg-subtle-background-pressed text-neutral-foreground-2-pressed;
 
       & .expand-icon {
         @apply text-neutral-foreground-3-pressed;
@@ -31,8 +26,7 @@
     }
 
     @variant hover {
-      color: var(--color-neutral-foreground-2-hover);
-      background-color: var(--color-subtle-background-hover);
+      @apply bg-subtle-background-hover text-neutral-foreground-2-hover;
 
       & .expand-icon {
         @apply text-neutral-foreground-3-hover;
@@ -62,15 +56,11 @@
   }
 
   .description {
-    @apply ps-horizontal-s pe-horizontal-xs pb-vertical-m-nudge;
+    @apply ps-horizontal-s pe-horizontal-xs pb-vertical-m-nudge font-base text-base-200 leading-base-200 font-regular;
 
     grid-area: description;
 
     /* `...typographyStyles.caption1` */
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-200);
 
     /* `padding: 0 <spacingHorizontalXS> <spacingVerticalMNudge> <spacingHorizontalS>`
        expanded to longhands (cookbook §2) */
@@ -140,7 +130,7 @@
   }
 
   .transparent {
-    background-color: var(--color-transparent-background);
+    @apply bg-transparent-background;
 
     @variant hover {
       @apply bg-transparent-background-hover;
@@ -155,19 +145,11 @@
 @layer fui.components.l1 {
   .root {
     @variant size-medium {
-      font-family: var(--font-base);
-      font-size: var(--text-base-300);
-      font-weight: var(--font-weight-regular);
-      line-height: var(--leading-base-300);
+      @apply font-base text-base-300 leading-base-300 font-regular;
     }
 
     @variant size-small {
-      @apply min-h-24;
-
-      font-family: var(--font-base);
-      font-size: var(--text-base-200);
-      font-weight: var(--font-weight-regular);
-      line-height: var(--leading-base-200);
+      @apply min-h-24 font-base text-base-200 leading-base-200 font-regular;
     }
   }
 }

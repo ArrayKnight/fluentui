@@ -13,9 +13,7 @@
 
 @layer fui.components.l1 {
   .elevated {
-    @apply overflow-hidden rounded-x-large;
-
-    box-shadow: var(--shadow-16);
+    @apply overflow-hidden rounded-x-large shadow-16;
   }
 }
 

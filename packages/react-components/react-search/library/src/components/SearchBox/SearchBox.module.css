@@ -110,10 +110,8 @@
 
 @layer fui.base {
   .dismiss {
-    @apply box-border flex;
-
-    color: var(--color-neutral-foreground-3); /* "icon color" in the design spec */
-    cursor: pointer;
+    @apply box-border flex cursor-pointer text-neutral-foreground-3;
+    /* "icon color" in the design spec */
 
     & > svg {
       font-size: calc(20px * var(--base-scale));

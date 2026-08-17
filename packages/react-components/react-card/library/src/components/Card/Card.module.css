@@ -6,7 +6,7 @@
 
 @layer fui.base {
   .root {
-    @apply relative box-border flex overflow-hidden;
+    @apply relative box-border flex overflow-hidden text-neutral-foreground-1;
 
     border-radius: var(--fui-Card--border-radius);
 
@@ -15,8 +15,6 @@
        either longhand set, so there is no Griffel priority machinery to expand away. */
     padding: var(--fui-Card--size);
     gap: var(--fui-Card--size);
-
-    color: var(--color-neutral-foreground-1);
 
     /* Border set on an ::after pseudo-element so CardPreview can render behind it. */
     &::after {
@@ -85,8 +83,7 @@
 
 @layer fui.components.l1 {
   .filled {
-    background-color: var(--color-neutral-background-1);
-    box-shadow: var(--shadow-4);
+    @apply bg-neutral-background-1 shadow-4;
 
     &::after {
       @apply border-t-transparent-stroke border-r-transparent-stroke border-b-transparent-stroke border-l-transparent-stroke;
@@ -94,8 +91,7 @@
   }
 
   .filled-alternative {
-    background-color: var(--color-neutral-background-2);
-    box-shadow: var(--shadow-4);
+    @apply bg-neutral-background-2 shadow-4;
 
     &::after {
       @apply border-t-transparent-stroke border-r-transparent-stroke border-b-transparent-stroke border-l-transparent-stroke;
@@ -103,8 +99,7 @@
   }
 
   .outline {
-    background-color: var(--color-transparent-background);
-    box-shadow: none;
+    @apply bg-transparent-background shadow-none;
 
     &::after {
       @apply border-t-neutral-stroke-1 border-r-neutral-stroke-1 border-b-neutral-stroke-1 border-l-neutral-stroke-1;
@@ -112,8 +107,7 @@
   }
 
   .subtle {
-    background-color: var(--color-subtle-background);
-    box-shadow: none;
+    @apply bg-subtle-background shadow-none;
 
     &::after {
       @apply border-t-transparent-stroke border-r-transparent-stroke border-b-transparent-stroke border-l-transparent-stroke;
@@ -124,19 +118,14 @@
 @layer fui.components.l1 {
   .filled {
     @variant interactive {
-      @apply cursor-pointer;
-
-      background-color: var(--color-neutral-background-1);
-      box-shadow: var(--shadow-4);
+      @apply cursor-pointer bg-neutral-background-1 shadow-4;
 
       &::after {
         @apply border-t-transparent-stroke border-r-transparent-stroke border-b-transparent-stroke border-l-transparent-stroke;
       }
 
       @variant hover {
-        @apply bg-neutral-background-1-hover text-neutral-foreground-1-hover;
-
-        box-shadow: var(--shadow-8);
+        @apply bg-neutral-background-1-hover text-neutral-foreground-1-hover shadow-8;
       }
 
       @variant active {
@@ -147,19 +136,14 @@
 
   .filled-alternative {
     @variant interactive {
-      @apply cursor-pointer;
-
-      background-color: var(--color-neutral-background-2);
-      box-shadow: var(--shadow-4);
+      @apply cursor-pointer bg-neutral-background-2 shadow-4;
 
       &::after {
         @apply border-t-transparent-stroke border-r-transparent-stroke border-b-transparent-stroke border-l-transparent-stroke;
       }
 
       @variant hover {
-        @apply bg-neutral-background-2-hover text-neutral-foreground-2-hover;
-
-        box-shadow: var(--shadow-8);
+        @apply bg-neutral-background-2-hover text-neutral-foreground-2-hover shadow-8;
       }
 
       @variant active {
@@ -170,18 +154,14 @@
 
   .outline {
     @variant interactive {
-      @apply cursor-pointer;
-
-      background-color: var(--color-transparent-background);
-      box-shadow: none;
+      @apply cursor-pointer bg-transparent-background shadow-none;
 
       &::after {
         @apply border-t-neutral-stroke-1 border-r-neutral-stroke-1 border-b-neutral-stroke-1 border-l-neutral-stroke-1;
       }
 
       @variant hover {
-        color: var(--color-neutral-foreground-1-hover);
-        background-color: var(--color-transparent-background-hover);
+        @apply bg-transparent-background-hover text-neutral-foreground-1-hover;
 
         &::after {
           @apply border-t-neutral-stroke-1-hover border-r-neutral-stroke-1-hover border-b-neutral-stroke-1-hover border-l-neutral-stroke-1-hover;
@@ -189,7 +169,7 @@
       }
 
       @variant active {
-        background-color: var(--color-transparent-background-pressed);
+        @apply bg-transparent-background-pressed;
 
         &::after {
           @apply border-t-neutral-stroke-1-pressed border-r-neutral-stroke-1-pressed border-b-neutral-stroke-1-pressed border-l-neutral-stroke-1-pressed;
@@ -200,10 +180,7 @@
 
   .subtle {
     @variant interactive {
-      @apply cursor-pointer;
-
-      background-color: var(--color-subtle-background);
-      box-shadow: none;
+      @apply cursor-pointer bg-subtle-background shadow-none;
 
       &::after {
         @apply border-t-transparent-stroke border-r-transparent-stroke border-b-transparent-stroke border-l-transparent-stroke;
@@ -223,7 +200,7 @@
 @layer fui.components.l1 {
   .filled {
     @variant selected {
-      background-color: var(--color-neutral-background-1-selected);
+      @apply bg-neutral-background-1-selected;
 
       &::after {
         @apply border-t-neutral-stroke-1-selected border-r-neutral-stroke-1-selected border-b-neutral-stroke-1-selected border-l-neutral-stroke-1-selected;
@@ -237,7 +214,7 @@
 
   .filled-alternative {
     @variant selected {
-      background-color: var(--color-neutral-background-2-selected);
+      @apply bg-neutral-background-2-selected;
 
       &::after {
         @apply border-t-neutral-stroke-1-selected border-r-neutral-stroke-1-selected border-b-neutral-stroke-1-selected border-l-neutral-stroke-1-selected;
@@ -251,7 +228,7 @@
 
   .outline {
     @variant selected {
-      background-color: var(--color-transparent-background-selected);
+      @apply bg-transparent-background-selected;
 
       &::after {
         @apply border-t-neutral-stroke-1-selected border-r-neutral-stroke-1-selected border-b-neutral-stroke-1-selected border-l-neutral-stroke-1-selected;
@@ -265,7 +242,7 @@
 
   .subtle {
     @variant selected {
-      background-color: var(--color-subtle-background-selected);
+      @apply bg-subtle-background-selected;
 
       &::after {
         @apply border-t-neutral-stroke-1-selected border-r-neutral-stroke-1-selected border-b-neutral-stroke-1-selected border-l-neutral-stroke-1-selected;
@@ -379,16 +356,7 @@
    */
   .root {
     @variant disabled {
-      @apply cursor-not-allowed select-none;
-
-      color: var(--color-neutral-foreground-disabled);
-      background-color: var(--color-neutral-background-disabled);
-      box-shadow: var(--shadow-2);
-
-      border-top-color: var(--color-neutral-stroke-disabled);
-      border-right-color: var(--color-neutral-stroke-disabled);
-      border-bottom-color: var(--color-neutral-stroke-disabled);
-      border-left-color: var(--color-neutral-stroke-disabled);
+      @apply cursor-not-allowed border-t-neutral-stroke-disabled border-r-neutral-stroke-disabled border-b-neutral-stroke-disabled border-l-neutral-stroke-disabled bg-neutral-background-disabled text-neutral-foreground-disabled shadow-2 select-none;
 
       &::before {
         @apply absolute;
@@ -404,16 +372,7 @@
 
       /* the `'&:hover, &:active': disabledStyles` restatement */
       @variant hover {
-        @apply cursor-not-allowed select-none;
-
-        color: var(--color-neutral-foreground-disabled);
-        background-color: var(--color-neutral-background-disabled);
-        box-shadow: var(--shadow-2);
-
-        border-top-color: var(--color-neutral-stroke-disabled);
-        border-right-color: var(--color-neutral-stroke-disabled);
-        border-bottom-color: var(--color-neutral-stroke-disabled);
-        border-left-color: var(--color-neutral-stroke-disabled);
+        @apply cursor-not-allowed border-t-neutral-stroke-disabled border-r-neutral-stroke-disabled border-b-neutral-stroke-disabled border-l-neutral-stroke-disabled bg-neutral-background-disabled text-neutral-foreground-disabled shadow-2 select-none;
 
         &::before {
           @apply absolute;
@@ -429,16 +388,7 @@
       }
 
       @variant active {
-        @apply cursor-not-allowed select-none;
-
-        color: var(--color-neutral-foreground-disabled);
-        background-color: var(--color-neutral-background-disabled);
-        box-shadow: var(--shadow-2);
-
-        border-top-color: var(--color-neutral-stroke-disabled);
-        border-right-color: var(--color-neutral-stroke-disabled);
-        border-bottom-color: var(--color-neutral-stroke-disabled);
-        border-left-color: var(--color-neutral-stroke-disabled);
+        @apply cursor-not-allowed border-t-neutral-stroke-disabled border-r-neutral-stroke-disabled border-b-neutral-stroke-disabled border-l-neutral-stroke-disabled bg-neutral-background-disabled text-neutral-foreground-disabled shadow-2 select-none;
 
         &::before {
           @apply absolute;
@@ -459,24 +409,14 @@
 @layer fui.components.l1 {
   .outline {
     @variant disabled {
-      background-color: var(--color-transparent-background);
-      box-shadow: none;
-
-      border-top-color: var(--color-neutral-stroke-disabled);
-      border-right-color: var(--color-neutral-stroke-disabled);
-      border-bottom-color: var(--color-neutral-stroke-disabled);
-      border-left-color: var(--color-neutral-stroke-disabled);
+      @apply border-t-neutral-stroke-disabled border-r-neutral-stroke-disabled border-b-neutral-stroke-disabled border-l-neutral-stroke-disabled bg-transparent-background shadow-none;
 
       @variant hover {
-        @apply bg-transparent-background;
-
-        box-shadow: none;
+        @apply bg-transparent-background shadow-none;
       }
 
       @variant active {
-        @apply bg-transparent-background;
-
-        box-shadow: none;
+        @apply bg-transparent-background shadow-none;
       }
 
       &::after {

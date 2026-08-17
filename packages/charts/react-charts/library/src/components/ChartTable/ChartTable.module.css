@@ -16,14 +16,8 @@
   /* from useStyles.headerCell — typographyStyles.caption1 with its fontWeight overridden
    * to semibold, + colors/padding/border; textAlign 'left' → logical `start` */
   .header-cell {
-    @apply p-horizontal-s text-start;
+    @apply bg-neutral-background-3 p-horizontal-s text-start font-base text-base-200 leading-base-200 font-semibold text-neutral-foreground-1;
 
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-200);
-    background-color: var(--color-neutral-background-3);
-    color: var(--color-neutral-foreground-1);
     border: var(--spacing-thick) solid var(--color-neutral-stroke-2);
 
     @variant forced-colors {
@@ -34,13 +28,8 @@
 
   /* from useStyles.bodyCell — typographyStyles.caption1 + colors/padding/border */
   .body-cell {
-    @apply p-horizontal-s text-start;
+    @apply p-horizontal-s text-start font-base text-base-200 leading-base-200 font-regular text-neutral-foreground-1;
 
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-200);
-    color: var(--color-neutral-foreground-1);
     border: var(--spacing-thick) solid var(--color-neutral-stroke-2);
 
     @variant forced-colors {
@@ -49,18 +38,14 @@
   }
 
   .chart-title {
-    @apply mb-vertical-s fill-neutral-foreground-1 text-center;
+    @apply mb-vertical-s fill-neutral-foreground-1 text-center font-base text-base-100 leading-base-100 font-semibold;
 
-    font-family: var(--font-base);
-    font-size: var(--text-base-100);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-100);
     forced-color-adjust: auto;
   }
 
   /* from useStyles.svgTooltip — the background <rect> SVGTooltipText draws behind the title */
   .svg-tooltip {
-    fill: var(--color-neutral-background-1);
+    @apply fill-neutral-background-1;
 
     @variant forced-colors {
       fill: Canvas;

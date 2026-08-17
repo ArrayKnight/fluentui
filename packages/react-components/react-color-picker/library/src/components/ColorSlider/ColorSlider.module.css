@@ -35,7 +35,7 @@
 @layer fui.components.l1 {
   /* rail arg #2 — from useRailStyles.rail */
   .rail {
-    @apply pointer-events-none relative;
+    @apply pointer-events-none relative outline-transparent-stroke;
 
     grid-row-start: 2;
     grid-row-end: 2;
@@ -44,7 +44,6 @@
     forced-color-adjust: none;
     outline-width: var(--spacing-thin);
     outline-style: solid;
-    outline-color: var(--color-transparent-stroke);
 
     &::before {
       @apply absolute;
@@ -126,7 +125,7 @@
 @layer fui.components.l1 {
   /* thumb arg #2 — from useThumbStyles.thumb */
   .thumb {
-    @apply pointer-events-none absolute;
+    @apply pointer-events-none absolute rounded-circular shadow-4;
 
     grid-row-start: 2;
     grid-row-end: 2;
@@ -136,9 +135,7 @@
     height: var(--fui-Slider__thumb--size);
     outline-style: none;
     forced-color-adjust: none;
-    border-radius: var(--radius-circular);
     border: var(--spacing-thin) solid var(--color-neutral-foreground-4);
-    box-shadow: var(--shadow-4);
     background-color: var(--fui-Slider__thumb--color);
 
     &::before {

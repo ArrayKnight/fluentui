@@ -17,23 +17,13 @@
   /* from usePrimaryTextBaseClassName (makeResetStyles) — compiled `.rvj41k9`,
      `...typographyStyles.body1` expanded to the four longhands it compiles to */
   .primary-text-base {
-    @apply block text-neutral-foreground-1;
-
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-300);
+    @apply block font-base text-base-300 leading-base-300 font-regular text-neutral-foreground-1;
   }
 
   /* from useOptionalTextBaseClassName (makeResetStyles) — compiled `.rp1pf9e`,
      `...typographyStyles.caption1` expanded */
   .optional-text-base {
-    @apply block text-neutral-foreground-2;
-
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-200);
+    @apply block font-base text-base-200 leading-base-200 font-regular text-neutral-foreground-2;
   }
 }
 
@@ -111,24 +101,15 @@
   /* from useTextStyles.caption1/.subtitle2/.body1 — typographyStyles expanded to longhands.
      These beat the two `fui.base` text resets, reproducing Griffel's d-beats-r buckets. */
   .caption1 {
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-200);
+    @apply font-base text-base-200 leading-base-200 font-regular;
   }
 
   .subtitle2 {
-    font-family: var(--font-base);
-    font-size: var(--text-base-400);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-400);
+    @apply font-base text-base-400 leading-base-400 font-semibold;
   }
 
   .body1 {
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-300);
+    @apply font-base text-base-300 leading-base-300 font-regular;
   }
 
   .text-before-align-to-primary {

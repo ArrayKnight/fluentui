@@ -21,7 +21,7 @@
   }
 
   .extra-small {
-    font-size: var(--text-base-200);
+    @apply text-base-200;
   }
 
   .table-root {
@@ -97,7 +97,7 @@
   .brand,
   .neutral {
     @variant forced-colors {
-      @apply box-border;
+      @apply box-border rounded-medium;
 
       border-top-width: 2px;
       border-right-width: 2px;
@@ -111,7 +111,6 @@
       border-right-color: transparent;
       border-bottom-color: transparent;
       border-left-color: transparent;
-      border-radius: var(--radius-medium);
 
       /* NATIVE `:focus-visible` — this is what Griffel emitted (`.f1kvufhq:focus-visible`),
          not keyborg's `[data-fui-focus-visible]`. */

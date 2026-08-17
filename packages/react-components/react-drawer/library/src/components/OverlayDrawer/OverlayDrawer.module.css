@@ -12,14 +12,12 @@
 
 @layer fui.base {
   .root {
-    @apply fixed box-border flex flex-col items-start justify-start overflow-hidden;
+    @apply fixed box-border flex flex-col items-start justify-start overflow-hidden bg-neutral-background-1 text-neutral-foreground-1;
 
     width: var(--fui-Drawer--size);
     max-width: 100vw;
     height: auto;
     max-height: 100vh;
-    background-color: var(--color-neutral-background-1);
-    color: var(--color-neutral-foreground-1);
     top: 0;
     bottom: 0;
 

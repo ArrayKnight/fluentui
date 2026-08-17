@@ -52,7 +52,7 @@
 
 @layer fui.components.l1 {
   .wave {
-    background-color: var(--color-neutral-stencil-1);
+    @apply bg-neutral-stencil-1;
 
     &::after {
       animation-name: skeleton-wave;
@@ -96,7 +96,7 @@
   }
 
   .translucent {
-    background-color: var(--color-neutral-stencil-1-alpha);
+    @apply bg-neutral-stencil-1-alpha;
 
     &::after {
       background-image: linear-gradient(
@@ -120,7 +120,7 @@
   }
 
   .translucent-pulse {
-    background-color: transparent;
+    @apply bg-transparent;
 
     &::after {
       @apply bg-neutral-stencil-1-alpha;

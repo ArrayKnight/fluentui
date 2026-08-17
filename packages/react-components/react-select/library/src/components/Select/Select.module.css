@@ -6,9 +6,7 @@
 
 @layer fui.components.l1 {
   .root {
-    @apply relative box-border flex flex-nowrap items-center;
-
-    font-family: var(--font-base);
+    @apply relative box-border flex flex-nowrap items-center font-base;
 
     &::after {
       @apply absolute box-border;
@@ -74,14 +72,13 @@
 
 @layer fui.components.l1 {
   .select {
-    @apply box-border max-w-full grow cursor-pointer;
+    @apply box-border max-w-full grow cursor-pointer appearance-none rounded-medium text-neutral-foreground-1 shadow-none;
 
     /* compiled: `-webkit-appearance:none;-moz-appearance:none;appearance:none`. The
        `-moz-` alias is dropped — Firefox has supported the unprefixed property since 80
        (2020), well below this repo's baseline; `-webkit-` is kept because Safari needed
        it for <select> until 15.4. */
     -webkit-appearance: none;
-    appearance: none;
 
     border-top-width: 1px;
     border-right-width: 1px;
@@ -95,10 +92,6 @@
     border-right-color: transparent;
     border-bottom-color: transparent;
     border-left-color: transparent;
-
-    border-radius: var(--radius-medium);
-    box-shadow: none;
-    color: var(--color-neutral-foreground-1);
 
     /* `padding-bottom: 0` + `padding-top: 0`; the size slices own the inline axis */
     padding-block: 0;
@@ -116,52 +109,37 @@
   .root {
     @variant size-small {
       & .select {
-        @apply h-24;
+        @apply h-24 font-base text-base-200 leading-base-200 font-regular;
 
         /* spacingHorizontalSNudge (6px) + spacingHorizontalXXS (2px) */
         padding-inline-start: calc((6px + 2px) * var(--base-scale));
 
         /* spacingHorizontalSNudge (6px) + icon width (16px) + spacingHorizontalXXS (2px) ×2 */
         padding-inline-end: calc((6px + 16px + 2px + 2px) * var(--base-scale));
-
-        font-family: var(--font-base);
-        font-size: var(--text-base-200);
-        font-weight: var(--font-weight-regular);
-        line-height: var(--leading-base-200);
       }
     }
 
     @variant size-medium {
       & .select {
-        @apply h-32;
+        @apply h-32 font-base text-base-300 leading-base-300 font-regular;
 
         /* spacingHorizontalMNudge (10px) + spacingHorizontalXXS (2px) */
         padding-inline-start: calc((10px + 2px) * var(--base-scale));
 
         /* spacingHorizontalMNudge (10px) + icon width (20px) + spacingHorizontalXXS (2px) ×2 */
         padding-inline-end: calc((10px + 20px + 2px + 2px) * var(--base-scale));
-
-        font-family: var(--font-base);
-        font-size: var(--text-base-300);
-        font-weight: var(--font-weight-regular);
-        line-height: var(--leading-base-300);
       }
     }
 
     @variant size-large {
       & .select {
-        @apply h-40;
+        @apply h-40 font-base text-base-400 leading-base-400 font-regular;
 
         /* spacingHorizontalM (12px) + spacingHorizontalSNudge (6px) */
         padding-inline-start: calc((12px + 6px) * var(--base-scale));
 
         /* spacingHorizontalM (12px) + icon width (24px) + spacingHorizontalSNudge (6px) ×2 */
         padding-inline-end: calc((12px + 24px + 6px + 6px) * var(--base-scale));
-
-        font-family: var(--font-base);
-        font-size: var(--text-base-400);
-        font-weight: var(--font-weight-regular);
-        line-height: var(--leading-base-400);
       }
     }
   }
@@ -192,11 +170,10 @@
    * the bottom edge is redrawn — so the top/inline edges stay `1px solid transparent`.
    */
   .underline {
-    background-color: var(--color-transparent-background);
+    @apply border-b-neutral-stroke-accessible bg-transparent-background;
 
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    border-bottom-color: var(--color-neutral-stroke-accessible);
 
     /* corners look strange if rounded */
     border-radius: 0;
@@ -305,9 +282,7 @@
 
 @layer fui.components.l1 {
   .icon {
-    @apply pointer-events-none absolute box-border block;
-
-    color: var(--color-neutral-stroke-accessible);
+    @apply pointer-events-none absolute box-border block text-neutral-stroke-accessible;
 
     /* the SVG must have display: block for accurate positioning, otherwise an extra
        inline space is inserted after the svg element */
@@ -319,7 +294,7 @@
   .root {
     @variant disabled {
       & .icon {
-        color: var(--color-neutral-foreground-disabled);
+        @apply text-neutral-foreground-disabled;
 
         @variant forced-colors {
           color: GrayText;

@@ -6,17 +6,10 @@
 
 @layer fui.components.l1 {
   .root {
-    @apply box-border w-max max-w-300 min-w-138 overflow-x-hidden rounded-medium bg-neutral-background-1 px-horizontal-xs py-vertical-xs text-neutral-foreground-1;
-
-    box-shadow: var(--shadow-16);
+    @apply box-border w-max max-w-300 min-w-138 overflow-x-hidden rounded-medium bg-neutral-background-1 px-horizontal-xs py-vertical-xs font-base text-base-300 leading-base-300 font-regular text-neutral-foreground-1 shadow-16;
 
     /* kept as the compiled shorthand (`border:1px solid var(--color-transparent-stroke)`) —
        nothing in this package re-declares any border longhand on this element. */
     border: 1px solid var(--color-transparent-stroke);
-
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-300);
   }
 }

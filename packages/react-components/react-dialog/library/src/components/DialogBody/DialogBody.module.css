@@ -6,20 +6,17 @@
 
 @layer fui.base {
   .root {
+    @apply box-border grid gap-horizontal-s;
+
     overflow: unset;
 
     /* DIALOG_GAP = '8px' → the S spacing step (D4 amendment) */
-    @apply gap-horizontal-s;
-
-    @apply grid;
 
     /* Compiled as two declarations: `100dvh` wins where it parses, `100vh` is the floor
        everywhere else. The viewport unit does not scale; the `24px` inside it does, so it
        stays in lockstep with DialogSurface's `p-horizontal-xxl`. */
     max-height: calc(100vh - 2 * calc(24px * var(--base-scale)));
     max-height: calc(100dvh - 2 * calc(24px * var(--base-scale)));
-
-    @apply box-border;
 
     grid-template-rows: auto 1fr;
     grid-template-columns: 1fr 1fr auto;

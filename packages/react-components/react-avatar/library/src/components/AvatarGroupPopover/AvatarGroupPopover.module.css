@@ -6,16 +6,10 @@
 
 @layer fui.components.l1 {
   .trigger-button {
-    @apply relative inline-flex shrink-0 items-center justify-center p-0;
-
-    color: var(--color-neutral-foreground-1);
-    background-color: var(--color-neutral-background-1);
-    border-radius: var(--radius-circular);
+    @apply relative inline-flex shrink-0 items-center justify-center rounded-circular border-s-neutral-stroke-1 border-e-neutral-stroke-1 bg-neutral-background-1 p-0 text-neutral-foreground-1;
 
     border-block-start-color: var(--color-neutral-stroke-1);
-    border-inline-end-color: var(--color-neutral-stroke-1);
     border-block-end-color: var(--color-neutral-stroke-1);
-    border-inline-start-color: var(--color-neutral-stroke-1);
 
     border-block-start-style: solid;
     border-inline-end-style: solid;
@@ -118,43 +112,36 @@
    * - `typographyStyles.*` expands to its four compiled atomics; every preset in this ramp shares `fontFamilyBase` + `fontWeightSemibold` (`fk6fouc` / `fl43uef`), so those two are hoisted onto the class itself and only size/line-height vary per bucket.
    */
   .indicator-count {
-    font-family: var(--font-base);
-    font-weight: var(--font-weight-semibold);
+    @apply font-base font-semibold;
 
     /* size <= 24 — typographyStyles.caption2Strong */
     &:where([data-size='16'], [data-size='20'], [data-size='24']) {
-      font-size: var(--text-base-100);
-      line-height: var(--leading-base-100);
+      @apply text-base-100 leading-base-100;
     }
 
     /* size <= 28 — typographyStyles.caption1Strong */
     &:where([data-size='28']) {
-      font-size: var(--text-base-200);
-      line-height: var(--leading-base-200);
+      @apply text-base-200 leading-base-200;
     }
 
     /* size <= 40 — typographyStyles.body1Strong */
     &:where([data-size='32'], [data-size='36'], [data-size='40']) {
-      font-size: var(--text-base-300);
-      line-height: var(--leading-base-300);
+      @apply text-base-300 leading-base-300;
     }
 
     /* size <= 56 — typographyStyles.subtitle2 */
     &:where([data-size='48'], [data-size='56']) {
-      font-size: var(--text-base-400);
-      line-height: var(--leading-base-400);
+      @apply text-base-400 leading-base-400;
     }
 
     /* size <= 96 — typographyStyles.subtitle1 */
     &:where([data-size='64'], [data-size='72'], [data-size='96']) {
-      font-size: var(--text-base-500);
-      line-height: var(--leading-base-500);
+      @apply text-base-500 leading-base-500;
     }
 
     /* else — typographyStyles.title3 */
     &:where([data-size='120'], [data-size='128']) {
-      font-size: var(--text-base-600);
-      line-height: var(--leading-base-600);
+      @apply text-base-600 leading-base-600;
     }
   }
 

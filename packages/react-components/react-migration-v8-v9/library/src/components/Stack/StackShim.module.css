@@ -143,7 +143,7 @@
   }
 
   .justify-content-stretch {
-    justify-content: stretch;
+    @apply justify-stretch;
   }
 
   .justify-content-space-between {

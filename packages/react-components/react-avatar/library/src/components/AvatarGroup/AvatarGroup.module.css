@@ -11,7 +11,8 @@
   }
 
   .pie {
-    background-color: var(--color-transparent-stroke);
+    @apply bg-transparent-stroke;
+
     clip-path: circle(50%);
 
     @variant forced-colors {

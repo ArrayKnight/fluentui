@@ -10,21 +10,12 @@
   }
 
   .tooltip {
-    @apply pointer-events-none absolute flex flex-col rounded-small bg-neutral-background-1 p-horizontal-s text-center text-neutral-foreground-1;
-
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-300);
+    @apply pointer-events-none absolute flex flex-col rounded-small bg-neutral-background-1 p-horizontal-s text-center font-base text-base-300 leading-base-300 font-regular text-neutral-foreground-1;
   }
 
   .bar-label {
-    @apply fill-neutral-foreground-1;
+    @apply fill-neutral-foreground-1 font-base text-base-200 leading-base-200 font-semibold;
 
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-200);
     forced-color-adjust: auto;
   }
 }

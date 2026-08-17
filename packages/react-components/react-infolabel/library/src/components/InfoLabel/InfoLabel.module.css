@@ -7,9 +7,10 @@
 @layer fui.components.l2 {
   /* from useLabelStyles.base — label slot arg #2 (atomics f12kltsn / fpo1scq / f1ym3bx4) */
   .label {
+    @apply text-inherit;
+
     vertical-align: top;
     cursor: inherit;
-    color: inherit;
 
     @variant disabled {
       @variant forced-colors {

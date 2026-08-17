@@ -69,12 +69,7 @@
 
 @layer fui.base {
   .root {
-    @apply relative inline-block size-32 shrink-0 align-middle;
-
-    border-radius: var(--radius-circular);
-    font-family: var(--font-base);
-    font-weight: var(--font-weight-semibold);
-    font-size: var(--text-base-300);
+    @apply relative inline-block size-32 shrink-0 rounded-circular align-middle font-base text-base-300 font-semibold;
 
     &::before,
     &::after {
@@ -118,11 +113,10 @@
    * initials and icon slots, exactly as the Griffel source shared it.
    */
   .icon-initials {
-    @apply absolute box-border flex h-full w-full items-center justify-center text-center select-none;
+    @apply absolute box-border flex h-full w-full items-center justify-center text-center leading-none select-none;
 
     inset-block-start: 0;
     inset-inline-start: 0;
-    line-height: 1;
     border: var(--spacing-thin) solid var(--color-transparent-stroke);
     border-radius: inherit;
 
@@ -240,23 +234,23 @@
      * rule: 32/36/40 keep `fontSizeBase300` from the reset.
      */
     &:where([data-size='16'], [data-size='20'], [data-size='24']) {
-      font-size: var(--text-base-100);
+      @apply text-base-100;
     }
 
     &:where([data-size='28']) {
-      font-size: var(--text-base-200);
+      @apply text-base-200;
     }
 
     &:where([data-size='48'], [data-size='56']) {
-      font-size: var(--text-base-400);
+      @apply text-base-400;
     }
 
     &:where([data-size='64'], [data-size='72'], [data-size='96']) {
-      font-size: var(--text-base-500);
+      @apply text-base-500;
     }
 
     &:where([data-size='120'], [data-size='128']) {
-      font-size: var(--text-base-600);
+      @apply text-base-600;
     }
 
     &:where([data-size='16']) :where(.icon) {
@@ -362,19 +356,19 @@
     /* arg 13 — from useStyles.shadow4 / .shadow8 / .shadow16 / .shadow28. */
     @variant active-appearance-shadow-or-ring-shadow {
       &:where([data-size='16'], [data-size='20'], [data-size='24'], [data-size='28'])::after {
-        box-shadow: var(--shadow-4);
+        @apply shadow-4;
       }
 
       &:where([data-size='32'], [data-size='36'], [data-size='40'], [data-size='48'])::after {
-        box-shadow: var(--shadow-8);
+        @apply shadow-8;
       }
 
       &:where([data-size='56'], [data-size='64'])::after {
-        box-shadow: var(--shadow-16);
+        @apply shadow-16;
       }
 
       &:where([data-size='72'], [data-size='96'], [data-size='120'], [data-size='128'])::after {
-        box-shadow: var(--shadow-28);
+        @apply shadow-28;
       }
     }
   }

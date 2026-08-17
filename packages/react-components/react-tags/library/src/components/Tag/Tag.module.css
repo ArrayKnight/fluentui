@@ -26,7 +26,7 @@
   }
 
   .rounded {
-    border-radius: var(--radius-medium);
+    @apply rounded-medium;
 
     @variant focus-visible-fui {
       @apply rounded-medium;
@@ -39,7 +39,7 @@
      * secondary text, primary text has a negative margin that covers the border.
      */
     @media (forced-colors: active) {
-      position: relative;
+      @apply relative;
 
       &::before {
         @apply absolute;
@@ -55,7 +55,7 @@
   }
 
   .circular {
-    border-radius: var(--radius-circular);
+    @apply rounded-circular;
 
     @variant focus-visible-fui {
       @apply rounded-circular;
@@ -64,7 +64,7 @@
     }
 
     @media (forced-colors: active) {
-      position: relative;
+      @apply relative;
 
       &::before {
         @apply absolute rounded-circular;
@@ -79,15 +79,11 @@
   }
 
   .secondary-text {
-    @apply px-horizontal-xxs whitespace-nowrap;
+    @apply px-horizontal-xxs font-base text-base-100 leading-base-100 font-regular whitespace-nowrap;
 
     grid-area: secondary;
 
     /* typographyStyles.caption2 */
-    font-family: var(--font-base);
-    font-size: var(--text-base-100);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-100);
   }
 }
 
@@ -119,13 +115,7 @@
 @layer fui.components.l1 {
   /* from useRootStyles.selected — root arg #4, written after the appearance blocks */
   .selected {
-    background-color: var(--color-brand-background);
-    color: var(--color-neutral-foreground-on-brand);
-
-    border-top-color: var(--color-brand-stroke-1);
-    border-inline-end-color: var(--color-brand-stroke-1);
-    border-bottom-color: var(--color-brand-stroke-1);
-    border-inline-start-color: var(--color-brand-stroke-1);
+    @apply border-s-brand-stroke-1 border-e-brand-stroke-1 border-t-brand-stroke-1 border-b-brand-stroke-1 bg-brand-background text-neutral-foreground-on-brand;
 
     @variant forced-colors {
       forced-color-adjust: none;
@@ -146,9 +136,7 @@
     }
 
     @variant size-extra-small {
-      @apply h-20;
-
-      position: relative;
+      @apply relative h-20;
 
       /*
        * Increase clickable area to meet WCAG 2.2 AA
@@ -266,25 +254,16 @@
 
     /* typographyStyles.body1 */
     @variant size-medium {
-      font-family: var(--font-base);
-      font-size: var(--text-base-300);
-      font-weight: var(--font-weight-regular);
-      line-height: var(--leading-base-300);
+      @apply font-base text-base-300 leading-base-300 font-regular;
     }
 
     /* typographyStyles.caption1 */
     @variant size-small {
-      font-family: var(--font-base);
-      font-size: var(--text-base-200);
-      font-weight: var(--font-weight-regular);
-      line-height: var(--leading-base-200);
+      @apply font-base text-base-200 leading-base-200 font-regular;
     }
 
     @variant size-extra-small {
-      font-family: var(--font-base);
-      font-size: var(--text-base-200);
-      font-weight: var(--font-weight-regular);
-      line-height: var(--leading-base-200);
+      @apply font-base text-base-200 leading-base-200 font-regular;
     }
   }
 
@@ -301,15 +280,11 @@
   }
 
   .primary-text-with-secondary-text {
-    @apply -mt-vertical-xxs;
+    @apply -mt-vertical-xxs font-base text-base-200 leading-base-200 font-regular;
 
     grid-area: primary;
 
     /* typographyStyles.caption1 */
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-200);
 
     /* compiled `margin-top:-2px`; the literal matches the XXS step, and the block axis
        takes the vertical token (react-persona precedent) */

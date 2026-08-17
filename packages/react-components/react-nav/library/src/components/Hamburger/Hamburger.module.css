@@ -7,9 +7,7 @@
 @layer fui.components.l2 {
   /* arg #2 — from useStyles.root */
   .root {
-    @apply no-underline;
-
-    background-color: var(--color-neutral-background-4);
+    @apply bg-neutral-background-4 no-underline;
 
     /* from `border: 'none'` — see the header */
     border-block-start-style: none;

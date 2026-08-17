@@ -79,9 +79,7 @@
    */
   .root {
     @variant hover {
-      background-color: var(--color-transparent-background-hover);
-      color: var(--color-neutral-foreground-2-brand-hover);
-      cursor: pointer;
+      @apply cursor-pointer bg-transparent-background-hover text-neutral-foreground-2-brand-hover;
 
       @variant active {
         @apply bg-transparent-background-pressed text-neutral-foreground-2-brand-pressed;
@@ -121,17 +119,11 @@
   }
 
   .info-small-medium {
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-200);
+    @apply font-base text-base-200 leading-base-200 font-regular;
   }
 
   .info-large {
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-300);
+    @apply font-base text-base-300 leading-base-300 font-regular;
   }
 }
 

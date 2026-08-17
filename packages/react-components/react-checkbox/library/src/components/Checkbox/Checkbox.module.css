@@ -11,9 +11,7 @@
 
 @layer fui.base {
   .root {
-    @apply relative inline-flex max-w-fit cursor-pointer align-middle;
-
-    color: var(--color-neutral-foreground-3);
+    @apply relative inline-flex max-w-fit cursor-pointer align-middle text-neutral-foreground-3;
 
     @variant focus {
       outline-style: none;
@@ -85,7 +83,7 @@
 
     @variant enabled {
       @variant checked {
-        color: var(--color-neutral-foreground-1);
+        @apply text-neutral-foreground-1;
 
         --fui-Checkbox__indicator--backgroundColor: var(--color-compound-brand-background);
         --fui-Checkbox__indicator--color: var(--color-neutral-foreground-inverted);
@@ -105,7 +103,7 @@
 
     @variant enabled {
       @variant indeterminate {
-        color: var(--color-neutral-foreground-1);
+        @apply text-neutral-foreground-1;
 
         --fui-Checkbox__indicator--borderColor: var(--color-compound-brand-stroke);
         --fui-Checkbox__indicator--color: var(--color-compound-brand-foreground-1);
@@ -123,9 +121,7 @@
     }
 
     @variant disabled {
-      @apply cursor-default;
-
-      color: var(--color-neutral-foreground-disabled);
+      @apply cursor-default text-neutral-foreground-disabled;
 
       --fui-Checkbox__indicator--borderColor: var(--color-neutral-stroke-disabled);
       --fui-Checkbox__indicator--color: var(--color-neutral-foreground-disabled);

@@ -7,15 +7,12 @@
 @layer fui.base {
   /* from useRootBaseStyle (makeResetStyles) — root arg #2 */
   .root {
-    @apply inset-0;
+    @apply fixed inset-0 m-auto box-border block h-fit max-w-600 rounded-x-large border-t-transparent-stroke border-r-transparent-stroke border-b-transparent-stroke border-l-transparent-stroke bg-neutral-background-1 p-horizontal-xxl text-neutral-foreground-1 shadow-64;
 
     /* SURFACE_PADDING = '24px', exactly the XXL spacing step (D4 amendment).
        Kept as the `padding` shorthand, matching the compiled `padding:24px`: the only
        longhand that competes is `padding-inline-end` in the short-screen block, which is
        written LATER in this same rule and therefore wins. */
-    @apply p-horizontal-xxl;
-
-    @apply m-auto;
 
     /* `borderStyle: 'none'` — kept verbatim for the source trail. It is immediately
        re-set to `solid` by the `border` shorthand that follows it in the Griffel source
@@ -32,14 +29,6 @@
     border-right-style: solid;
     border-bottom-style: solid;
     border-left-style: solid;
-    border-top-color: var(--color-transparent-stroke);
-    border-right-color: var(--color-transparent-stroke);
-    border-bottom-color: var(--color-transparent-stroke);
-    border-left-color: var(--color-transparent-stroke);
-
-    border-radius: var(--radius-x-large);
-
-    @apply block;
 
     /* compiled: `-webkit-user-select:unset;-moz-user-select:unset;user-select:unset`. The
        `-moz-` alias is dropped — Firefox has supported the unprefixed property since 69
@@ -50,22 +39,14 @@
 
     visibility: unset;
 
-    @apply fixed h-fit max-w-600;
-
     /* Compiled as two declarations, not a fallback list Griffel invented: `100dvh` wins
        where it parses and `100vh` is the floor everywhere else. Both are viewport units,
        so neither rides `--base-scale`. */
     max-height: 100vh;
     max-height: 100dvh;
 
-    @apply box-border;
-
-    background-color: var(--color-neutral-background-1);
-    color: var(--color-neutral-foreground-1);
-
     /* Same value as DialogSurfaceMotion's last keyframe, so an opted-out surfaceMotion
        still renders correctly (comment carried over from the Griffel source). */
-    box-shadow: var(--shadow-64);
 
     @variant focus {
       outline-style: none;

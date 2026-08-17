@@ -47,7 +47,7 @@
      this family whose utility name is not stable across Tailwind majors, and the compiled
      Griffel value is unambiguous. */
   .justify-content-stretch {
-    justify-content: stretch;
+    @apply justify-stretch;
   }
 
   .justify-content-space-around {

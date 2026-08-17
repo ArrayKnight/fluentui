@@ -6,13 +6,9 @@
 
 @layer fui.base {
   .root {
-    @apply pe-horizontal-m;
+    @apply pe-horizontal-m font-base text-base-300 leading-base-300 font-regular;
 
     /* from typographyStyles.body1 */
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-300);
 
     grid-area: body;
   }

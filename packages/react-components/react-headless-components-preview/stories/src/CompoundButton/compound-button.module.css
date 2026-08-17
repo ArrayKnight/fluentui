@@ -79,8 +79,9 @@
 }
 
 .action:active:not(:disabled, [data-disabled], [data-disabled-focusable], [aria-disabled='true']) {
+  @apply shadow-none;
+
   border-color: var(--accent-strong);
-  box-shadow: none;
 }
 
 .action:focus-visible {
@@ -92,12 +93,11 @@
 .action[data-disabled],
 .action[data-disabled-focusable],
 .action[aria-disabled='true'] {
-  @apply cursor-not-allowed;
+  @apply cursor-not-allowed shadow-none;
 
   border-color: var(--border);
   background: var(--surface-muted);
   color: var(--text-faint);
-  box-shadow: none;
 }
 
 .action[data-disabled-focusable]:focus-visible,

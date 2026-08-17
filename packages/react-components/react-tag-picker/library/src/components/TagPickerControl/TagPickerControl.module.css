@@ -6,20 +6,16 @@
 
 @layer fui.components.l1 {
   .root {
-    @apply relative box-border flex min-w-250 flex-wrap items-center;
-
-    border-radius: var(--radius-medium);
+    @apply relative box-border flex min-w-250 flex-wrap items-center gap-x-horizontal-xxs rounded-medium ps-horizontal-m;
 
     /* `columnGap: tokens.spacingHorizontalXXS` */
-    @apply gap-x-horizontal-xxs;
 
     /* `paddingLeft: tokens.spacingHorizontalM` */
-    @apply ps-horizontal-m;
 
     padding-inline-end: calc(calc(12px * var(--base-scale)) + var(--fui-TagPickerControl-aside-width, 0px));
 
     &::after {
-      @apply absolute box-border;
+      @apply absolute box-border border-b-compound-brand-stroke;
 
       content: '';
 
@@ -34,7 +30,6 @@
       /* longhands: `:focus-within:active` below overrides the color alone */
       border-bottom-width: var(--spacing-thick);
       border-bottom-style: solid;
-      border-bottom-color: var(--color-compound-brand-stroke);
 
       clip-path: inset(calc(100% - 2px) 0 0 0);
 
@@ -154,13 +149,7 @@
 @layer fui.components.l1 {
   .root {
     @variant disabled {
-      cursor: not-allowed;
-      background-color: var(--color-transparent-background);
-
-      border-top-color: var(--color-neutral-stroke-disabled);
-      border-right-color: var(--color-neutral-stroke-disabled);
-      border-bottom-color: var(--color-neutral-stroke-disabled);
-      border-left-color: var(--color-neutral-stroke-disabled);
+      @apply cursor-not-allowed border-t-neutral-stroke-disabled border-r-neutral-stroke-disabled border-b-neutral-stroke-disabled border-l-neutral-stroke-disabled bg-transparent-background;
 
       @variant forced-colors {
         border-top-color: GrayText;
@@ -282,9 +271,7 @@
 @layer fui.components.l1 {
   .root {
     & .icon {
-      @apply box-border flex cursor-pointer items-center justify-center self-start text-neutral-stroke-accessible;
-
-      font-size: var(--text-base-500);
+      @apply box-border flex cursor-pointer items-center justify-center self-start text-base-500 text-neutral-stroke-accessible;
     }
 
     @variant size-medium {

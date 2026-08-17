@@ -6,22 +6,9 @@
 
 @layer fui.base {
   .root {
-    @apply relative box-border inline-flex h-20 min-w-20 items-center justify-center;
-
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-200);
-
-    @apply ps-horizontal-s-nudge pe-horizontal-s-nudge pt-vertical-none pb-vertical-none;
-
-    border-radius: var(--radius-circular);
+    @apply relative box-border inline-flex h-20 min-w-20 items-center justify-center rounded-circular border-t-transparent-stroke border-r-transparent-stroke border-b-transparent-stroke border-l-transparent-stroke ps-horizontal-s-nudge pe-horizontal-s-nudge pt-vertical-none pb-vertical-none font-base text-base-200 leading-base-200 font-semibold;
 
     /* transparent stroke rather than no border, so the edge survives high contrast */
-    border-top-color: var(--color-transparent-stroke);
-    border-right-color: var(--color-transparent-stroke);
-    border-bottom-color: var(--color-transparent-stroke);
-    border-left-color: var(--color-transparent-stroke);
 
     &::after {
       @apply absolute;
@@ -39,9 +26,7 @@
   }
 
   .icon {
-    @apply -ms-horizontal-xxs -me-horizontal-xxs mt-vertical-none mb-vertical-none flex;
-
-    line-height: 1;
+    @apply -ms-horizontal-xxs -me-horizontal-xxs mt-vertical-none mb-vertical-none flex leading-none;
 
     /* `margin: 0 calc(-1 * textPadding)` — textPadding = tokens.spacingHorizontalXXS */
 
@@ -53,10 +38,7 @@
 @layer fui.components.l1 {
   .root {
     @variant size-small-or-below {
-      font-family: var(--font-base);
-      font-size: var(--text-base-100);
-      font-weight: var(--font-weight-semibold);
-      line-height: var(--leading-base-100);
+      @apply font-base text-base-100 leading-base-100 font-semibold;
     }
 
     /* arg #4 — from useRootStyles[size]. `medium` is `{}` (all of it set by the reset). */
@@ -113,7 +95,7 @@
   }
 
   .rounded {
-    border-radius: var(--radius-medium);
+    @apply rounded-medium;
 
     @variant size-small-or-below {
       @apply rounded-small;

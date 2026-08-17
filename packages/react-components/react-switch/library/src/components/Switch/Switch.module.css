@@ -22,9 +22,8 @@
   }
 
   .indicator {
-    @apply pointer-events-none box-border h-20 w-40 shrink-0;
+    @apply pointer-events-none mt-vertical-s mr-horizontal-s mb-vertical-s ml-horizontal-s box-border h-20 w-40 shrink-0 rounded-circular;
 
-    border-radius: var(--radius-circular);
     /* `border: 1px solid` — kept as the compiled shorthand; its implied
        `border-color: currentcolor` is what the `.input ~ .indicator` colour rules below
        replace (they outrank it on specificity inside this same layer). */
@@ -37,7 +36,6 @@
     /* `margin: var(--spacing-vertical-s) var(--spacing-horizontal-s)` expanded to longhands and
        then to the named spacing utilities (D4 amendment); no rtl class was compiled, so the
        inline sides stay physical. */
-    @apply mt-vertical-s mr-horizontal-s mb-vertical-s ml-horizontal-s;
 
     transition-duration: var(--duration-normal);
     transition-timing-function: var(--ease-easy-ease);
@@ -345,8 +343,8 @@
     /* from useLabelStyles.sizeSmall — label arg #4; re-sets the two margins above */
     @variant size-small {
       & .label {
-        font-size: var(--text-base-200);
-        line-height: var(--leading-base-200);
+        @apply text-base-200 leading-base-200;
+
         margin-bottom: calc((16px * var(--base-scale) - var(--leading-base-200)) / 2);
         margin-top: calc((16px * var(--base-scale) - var(--leading-base-200)) / 2);
       }

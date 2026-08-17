@@ -7,12 +7,7 @@
 @layer fui.components.l1 {
   /* from useStyles.root — typographyStyles.body1 + layout; textAlign 'left' → logical `start` */
   .root {
-    @apply flex h-full w-full flex-col items-center text-start;
-
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-300);
+    @apply flex h-full w-full flex-col items-center text-start font-base text-base-300 leading-base-300 font-regular;
   }
 
   .chart {
@@ -21,21 +16,16 @@
 
   .limits,
   .sublabel {
-    @apply fill-neutral-foreground-1;
+    @apply fill-neutral-foreground-1 font-base text-base-200 leading-base-200 font-semibold;
 
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-200);
     forced-color-adjust: auto;
   }
 
   /* from useStyles.chartValue — fontWeight only; the size comes from a `fontSize` ATTRIBUTE
    * the component computes per breakpoint (BREAKPOINTS), not from CSS */
   .chart-value {
-    @apply fill-neutral-foreground-1;
+    @apply fill-neutral-foreground-1 font-semibold;
 
-    font-weight: var(--font-weight-semibold);
     forced-color-adjust: auto;
   }
 
@@ -45,7 +35,7 @@
 
   /* from useStyles.svgTooltip — the background <rect> SVGTooltipText draws behind the title */
   .svg-tooltip {
-    fill: var(--color-neutral-background-1);
+    @apply fill-neutral-background-1;
 
     @variant forced-colors {
       fill: Canvas;
@@ -53,12 +43,8 @@
   }
 
   .chart-title {
-    @apply mb-vertical-s fill-neutral-foreground-1 text-center;
+    @apply mb-vertical-s fill-neutral-foreground-1 text-center font-base text-base-100 leading-base-100 font-semibold;
 
-    font-family: var(--font-base);
-    font-size: var(--text-base-100);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-100);
     forced-color-adjust: auto;
   }
 
@@ -87,9 +73,8 @@
   /* from useStyles.calloutContentX — typographyStyles.caption1 with its lineHeight
    * overridden by a frozen 16px literal, + opacity */
   .callout-content-x {
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-regular);
+    @apply font-base text-base-200 font-regular;
+
     line-height: 16px;
     opacity: 0.85;
   }
@@ -98,12 +83,8 @@
    * paddingLeft 8px → logical start. The coloured left border is an inline style the
    * component writes per data point (`borderInlineStart: 4px solid <color>`). */
   .callout-block-container {
-    @apply mt-13 block ps-horizontal-s text-neutral-foreground-1;
+    @apply mt-13 block ps-horizontal-s font-base text-base-300 leading-base-300 font-semibold text-neutral-foreground-1;
 
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-300);
     forced-color-adjust: none;
   }
 
@@ -112,21 +93,16 @@
   }
 
   .callout-legend-text {
-    @apply text-neutral-foreground-2;
+    @apply font-base text-base-200 leading-base-200 font-regular text-neutral-foreground-2;
 
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-200);
     forced-color-adjust: auto;
   }
 
   /* from useStyles.calloutContentY — typographyStyles.body1Strong with its lineHeight
    * overridden by a frozen 22px literal */
   .callout-content-y {
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-semibold);
+    @apply font-base text-base-300 font-semibold;
+
     line-height: 22px;
     forced-color-adjust: auto;
   }
@@ -134,12 +110,8 @@
   /* from useStyles.descriptionMessage — typographyStyles.caption1 + color/margins/border.
    * 10px sits on the MNudge spacing step; `border-top`'s `1px` is a frozen literal. */
   .description-message {
-    @apply mt-vertical-m-nudge pt-vertical-m-nudge text-neutral-foreground-1;
+    @apply mt-vertical-m-nudge pt-vertical-m-nudge font-base text-base-200 leading-base-200 font-regular text-neutral-foreground-1;
 
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-200);
     border-top: 1px solid var(--color-neutral-stroke-1);
   }
 

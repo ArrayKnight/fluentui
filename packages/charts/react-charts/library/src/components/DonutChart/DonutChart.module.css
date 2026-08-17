@@ -7,12 +7,7 @@
 @layer fui.components.l1 {
   /* from useStyles.root — typographyStyles.body1 + layout; textAlign 'left' → logical `start` */
   .root {
-    @apply flex h-full w-full flex-col text-start;
-
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-300);
+    @apply flex h-full w-full flex-col text-start font-base text-base-300 leading-base-300 font-regular;
   }
 
   .chart {
@@ -26,14 +21,7 @@
   }
 
   .axis-annotation {
-    @apply text-center not-italic;
-
-    font-family: var(--font-base);
-    font-size: var(--text-base-100);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-100);
-    color: var(--color-neutral-foreground-2);
-    fill: var(--color-neutral-foreground-1);
+    @apply fill-neutral-foreground-1 text-center font-base text-base-100 leading-base-100 font-semibold text-neutral-foreground-2 not-italic;
 
     @variant forced-colors {
       fill: CanvasText;
@@ -41,18 +29,14 @@
   }
 
   .chart-title {
-    @apply mb-vertical-s fill-neutral-foreground-1 text-center;
+    @apply mb-vertical-s fill-neutral-foreground-1 text-center font-base text-base-100 leading-base-100 font-semibold;
 
-    font-family: var(--font-base);
-    font-size: var(--text-base-100);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-100);
     forced-color-adjust: auto;
   }
 
   /* from useStyles.svgTooltip — the background <rect> SVGTooltipText draws behind the title */
   .svg-tooltip {
-    fill: var(--color-neutral-background-1);
+    @apply fill-neutral-background-1;
 
     @variant forced-colors {
       fill: Canvas;

@@ -6,13 +6,9 @@
 
 @layer fui.base {
   .root {
-    @apply m-0;
+    @apply m-0 font-base text-base-500 leading-base-500 font-semibold;
 
     /* from typographyStyles.subtitle1 */
-    font-family: var(--font-base);
-    font-size: var(--text-base-500);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-500);
 
     grid-row-start: 1;
     grid-row-end: 1;
@@ -29,21 +25,13 @@
   }
 
   .action-button {
-    overflow: visible;
-
-    @apply p-0;
+    @apply relative box-content cursor-pointer overflow-visible p-0 text-inherit;
 
     border-style: none;
 
-    @apply relative;
-
-    box-sizing: content-box;
     background-color: inherit;
-    color: inherit;
     font-family: inherit;
     font-size: inherit;
-
-    @apply cursor-pointer;
 
     /* `lineHeight: 0` — a unitless number, not a length, so no spacing utility applies
        (`leading-0` would emit `line-height: calc(var(--spacing) * 0)`, a LENGTH). The button

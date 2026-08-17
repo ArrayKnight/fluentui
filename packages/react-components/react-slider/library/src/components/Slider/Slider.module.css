@@ -136,9 +136,7 @@
   /* ═══ rail ═══════════════════════════════════════════════════════════════════════ */
 
   .rail {
-    @apply pointer-events-none relative;
-
-    border-radius: var(--radius-x-large);
+    @apply pointer-events-none relative rounded-x-large outline-transparent-stroke;
 
     /* grid line NUMBERS, not design values — written literally, as in every other
        converted module (react-card, react-dialog). */
@@ -161,7 +159,6 @@
 
     outline-width: calc(1px * var(--base-scale));
     outline-style: solid;
-    outline-color: var(--color-transparent-stroke);
 
     &::before {
       @apply absolute;
@@ -226,13 +223,13 @@
   /* ═══ thumb ══════════════════════════════════════════════════════════════════════ */
 
   .thumb {
+    @apply pointer-events-none absolute rounded-circular;
+
     --fui-Slider__thumb--position: clamp(
       var(--fui-Slider__inner-thumb--radius),
       var(--fui-Slider--progress),
       calc(100% - var(--fui-Slider__inner-thumb--radius))
     );
-
-    @apply pointer-events-none absolute;
 
     grid-row-start: 2;
     grid-row-end: 2;
@@ -244,12 +241,11 @@
 
     outline-style: none;
     forced-color-adjust: none;
-    border-radius: var(--radius-circular);
     box-shadow: 0 0 0 calc(var(--fui-Slider__thumb--size) * 0.2) var(--color-neutral-background-1) inset;
     background-color: var(--fui-Slider__thumb--color);
 
     &::before {
-      @apply absolute box-border;
+      @apply absolute box-border rounded-circular;
 
       content: '';
 
@@ -258,8 +254,6 @@
       /* compiled `[left:0px, right:0px]` — property flip, identical value */
       inset-inline-start: 0px;
       inset-inline-end: 0px;
-
-      border-radius: var(--radius-circular);
 
       /* Kept as the `border` shorthand because that is what Griffel compiled
          (`.f1fsco4d::before{border:calc(…) solid var(--color-neutral-stroke-1)}`) and because

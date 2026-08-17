@@ -6,14 +6,9 @@
 
 @layer fui.base {
   .secondary-text {
-    @apply mt-vertical-xxs text-neutral-foreground-3;
+    @apply mt-vertical-xxs font-base text-base-200 leading-base-200 font-regular text-neutral-foreground-3;
 
     /* tokens.spacingVerticalXXS → named spacing utility (D4 amendment) */
-
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-200);
   }
 
   .validation-message-icon {

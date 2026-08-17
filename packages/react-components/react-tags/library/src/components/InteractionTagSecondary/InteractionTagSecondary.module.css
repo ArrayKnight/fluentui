@@ -38,8 +38,8 @@
 
 @layer fui.components.l1 {
   .filled {
-    background-color: var(--color-neutral-background-3);
-    color: var(--color-neutral-foreground-2);
+    @apply bg-neutral-background-3 text-neutral-foreground-2;
+
     border-top-width: 0;
     border-bottom-width: 0;
 
@@ -66,14 +66,9 @@
   }
 
   .outline {
-    background-color: var(--color-subtle-background);
-    color: var(--color-neutral-foreground-2);
+    @apply border-s-neutral-stroke-1 border-e-neutral-stroke-1 border-t-neutral-stroke-1 border-b-neutral-stroke-1 bg-subtle-background text-neutral-foreground-2;
 
     /* shorthands.borderColor(...) → the four longhands the compiler emits, in its order */
-    border-top-color: var(--color-neutral-stroke-1);
-    border-inline-end-color: var(--color-neutral-stroke-1);
-    border-bottom-color: var(--color-neutral-stroke-1);
-    border-inline-start-color: var(--color-neutral-stroke-1);
 
     @variant hover {
       @apply cursor-pointer bg-subtle-background-hover text-neutral-foreground-2-brand-hover;
@@ -95,10 +90,9 @@
   }
 
   .brand {
-    background-color: var(--color-brand-background-2);
-    color: var(--color-brand-foreground-2);
+    @apply border-s-brand-stroke-2 bg-brand-background-2 text-brand-foreground-2;
+
     /* divider */
-    border-inline-start-color: var(--color-brand-stroke-2);
     border-top-width: 0;
     border-bottom-width: 0;
 
@@ -169,11 +163,9 @@
     }
 
     @variant size-extra-small {
+      @apply relative ps-5 pe-5;
+
       font-size: calc(12px * var(--base-scale));
-
-      @apply ps-5 pe-5;
-
-      position: relative;
 
       /*
        * Increase clickable area to meet WCAG 2.2 AA
@@ -207,15 +199,12 @@
   /* from useRootStyles.selected — arg #6, written last so it beats the appearance blocks
      in both the plain and the forced-colors cascades */
   .selected {
+    @apply border-s-neutral-stroke-on-brand-2 border-e-brand-stroke-1 border-t-brand-stroke-1 border-b-brand-stroke-1 text-neutral-foreground-on-brand;
+
     /* compiled as the `background` SHORTHAND (Griffel priority -2), not background-color */
     background: var(--color-brand-background);
-    color: var(--color-neutral-foreground-on-brand);
 
-    border-top-color: var(--color-brand-stroke-1);
-    border-inline-end-color: var(--color-brand-stroke-1);
-    border-bottom-color: var(--color-brand-stroke-1);
     /* divider — declared last in the Griffel source, after shorthands.borderColor */
-    border-inline-start-color: var(--color-neutral-stroke-on-brand-2);
 
     @variant hover {
       @apply bg-brand-background-hover text-neutral-foreground-on-brand;

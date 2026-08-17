@@ -7,11 +7,7 @@
 @layer fui.base {
   /* from useBaseStyle (makeResetStyles) — arg #2 */
   .root {
-    @apply box-border max-w-full min-w-24 grow;
-
-    background-color: var(--color-transparent-background);
-    color: var(--color-neutral-foreground-1);
-    font-family: var(--font-base);
+    @apply box-border max-w-full min-w-24 grow bg-transparent-background font-base text-neutral-foreground-1;
 
     /* compiled `border:none`; the field's border is drawn by TagPickerControl */
     border-style: none;
@@ -38,30 +34,15 @@
 @layer fui.components.l1 {
   .root {
     @variant size-medium {
-      @apply px-horizontal-none py-vertical-s-nudge;
-
-      font-family: var(--font-base);
-      font-size: var(--text-base-300);
-      font-weight: var(--font-weight-regular);
-      line-height: var(--leading-base-300);
+      @apply px-horizontal-none py-vertical-s-nudge font-base text-base-300 leading-base-300 font-regular;
     }
 
     @variant size-large {
-      @apply px-horizontal-none py-vertical-m-nudge;
-
-      font-family: var(--font-base);
-      font-size: var(--text-base-300);
-      font-weight: var(--font-weight-regular);
-      line-height: var(--leading-base-300);
+      @apply px-horizontal-none py-vertical-m-nudge font-base text-base-300 leading-base-300 font-regular;
     }
 
     @variant size-extra-large {
-      @apply px-horizontal-none py-vertical-m;
-
-      font-family: var(--font-base);
-      font-size: var(--text-base-300);
-      font-weight: var(--font-weight-regular);
-      line-height: var(--leading-base-300);
+      @apply px-horizontal-none py-vertical-m font-base text-base-300 leading-base-300 font-regular;
     }
   }
 }
@@ -69,9 +50,7 @@
 @layer fui.components.l1 {
   .root {
     @variant disabled {
-      color: var(--color-neutral-foreground-disabled);
-      background-color: var(--color-transparent-background);
-      cursor: not-allowed;
+      @apply cursor-not-allowed bg-transparent-background text-neutral-foreground-disabled;
 
       &::placeholder {
         @apply text-neutral-foreground-disabled;

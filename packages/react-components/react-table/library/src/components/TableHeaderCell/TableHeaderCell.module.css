@@ -9,9 +9,7 @@
  * ───────────────────────────────────────────────────────────────────────────────────── */
 @layer fui.components.l1 {
   .root {
-    @apply relative ps-horizontal-s pe-horizontal-s pt-0 pb-0;
-
-    font-weight: var(--font-weight-regular);
+    @apply relative ps-horizontal-s pe-horizontal-s pt-0 pb-0 font-regular;
   }
 
   .table-root {

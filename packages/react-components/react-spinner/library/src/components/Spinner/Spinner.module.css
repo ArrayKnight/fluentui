@@ -119,7 +119,7 @@
   }
 
   .spinner {
-    @apply relative shrink-0;
+    @apply relative shrink-0 bg-brand-stroke-2-contrast text-brand-stroke-1;
 
     /* Use a mask to create the ring shape of the spinner. */
     -webkit-mask-image: radial-gradient(
@@ -134,9 +134,6 @@
       white calc(100% - var(--fui-Spinner--strokeWidth)) calc(100% - 1px),
       transparent 100%
     );
-
-    background-color: var(--color-brand-stroke-2-contrast);
-    color: var(--color-brand-stroke-1);
 
     animation-duration: 1.5s;
     animation-iteration-count: infinite;
@@ -325,73 +322,49 @@
   .root {
     @variant size-extra-tiny {
       & .label {
-        font-family: var(--font-base);
-        font-size: var(--text-base-300);
-        font-weight: var(--font-weight-regular);
-        line-height: var(--leading-base-300);
+        @apply font-base text-base-300 leading-base-300 font-regular;
       }
     }
 
     @variant size-tiny {
       & .label {
-        font-family: var(--font-base);
-        font-size: var(--text-base-300);
-        font-weight: var(--font-weight-regular);
-        line-height: var(--leading-base-300);
+        @apply font-base text-base-300 leading-base-300 font-regular;
       }
     }
 
     @variant size-extra-small {
       & .label {
-        font-family: var(--font-base);
-        font-size: var(--text-base-300);
-        font-weight: var(--font-weight-regular);
-        line-height: var(--leading-base-300);
+        @apply font-base text-base-300 leading-base-300 font-regular;
       }
     }
 
     @variant size-small {
       & .label {
-        font-family: var(--font-base);
-        font-size: var(--text-base-300);
-        font-weight: var(--font-weight-regular);
-        line-height: var(--leading-base-300);
+        @apply font-base text-base-300 leading-base-300 font-regular;
       }
     }
 
     @variant size-medium {
       & .label {
-        font-family: var(--font-base);
-        font-size: var(--text-base-400);
-        font-weight: var(--font-weight-semibold);
-        line-height: var(--leading-base-400);
+        @apply font-base text-base-400 leading-base-400 font-semibold;
       }
     }
 
     @variant size-large {
       & .label {
-        font-family: var(--font-base);
-        font-size: var(--text-base-400);
-        font-weight: var(--font-weight-semibold);
-        line-height: var(--leading-base-400);
+        @apply font-base text-base-400 leading-base-400 font-semibold;
       }
     }
 
     @variant size-extra-large {
       & .label {
-        font-family: var(--font-base);
-        font-size: var(--text-base-400);
-        font-weight: var(--font-weight-semibold);
-        line-height: var(--leading-base-400);
+        @apply font-base text-base-400 leading-base-400 font-semibold;
       }
     }
 
     @variant size-huge {
       & .label {
-        font-family: var(--font-base);
-        font-size: var(--text-base-500);
-        font-weight: var(--font-weight-semibold);
-        line-height: var(--leading-base-500);
+        @apply font-base text-base-500 leading-base-500 font-semibold;
       }
     }
   }

@@ -150,12 +150,7 @@
 
 @layer fui.components.l1 {
   .overflow-label {
-    @apply ms-horizontal-s text-neutral-foreground-1;
-
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-300);
+    @apply ms-horizontal-s font-base text-base-300 leading-base-300 font-regular text-neutral-foreground-1;
   }
 }
 

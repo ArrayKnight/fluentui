@@ -235,10 +235,9 @@
 
 /* Avatars inside the popover don't overlap, so drop the ring + offset. */
 .overflowList .avatar {
-  @apply ms-0 h-28 w-28;
+  @apply ms-0 h-28 w-28 shadow-none;
 
   border: 0;
-  box-shadow: none;
   font-size: calc(11px * var(--base-scale));
 }
 

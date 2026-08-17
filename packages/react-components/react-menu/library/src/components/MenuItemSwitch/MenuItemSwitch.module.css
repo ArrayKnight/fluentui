@@ -6,9 +6,8 @@
 
 @layer fui.base {
   .switch-indicator {
-    @apply me-horizontal-xs box-border h-20 w-40 shrink-0;
+    @apply me-horizontal-xs box-border h-20 w-40 shrink-0 rounded-circular;
 
-    border-radius: var(--radius-circular);
     border: var(--spacing-thin) solid var(--color-neutral-stroke-accessible);
     line-height: 0;
     fill: currentColor;

@@ -17,12 +17,8 @@
 
   /* from useStyles.calloutContentX — typographyStyles.caption1 + opacity/color */
   .callout-content-x {
-    @apply text-neutral-foreground-2;
+    @apply font-base text-base-200 leading-base-200 font-regular text-neutral-foreground-2;
 
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-200);
     opacity: 0.8;
   }
 
@@ -34,15 +30,14 @@
    * - `line-height: 22px` is a frozen LITERAL in the source (not a token), carried verbatim.
    */
   .callout-block-container-cartesian {
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-200);
+    @apply font-base text-base-200 leading-base-200 font-regular;
+
     forced-color-adjust: none;
   }
 
   .callout-block-container-non-cartesian {
-    font-size: var(--text-hero-700);
+    @apply text-hero-700;
+
     line-height: 22px;
     forced-color-adjust: none;
   }
@@ -62,12 +57,8 @@
   }
 
   .callout-legend-text {
-    @apply mb-vertical-xs text-neutral-foreground-2;
+    @apply mb-vertical-xs font-base text-base-200 leading-base-200 font-regular text-neutral-foreground-2;
 
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-200);
     forced-color-adjust: auto;
   }
 
@@ -80,50 +71,32 @@
    * title2 respectively; authored AFTER the base because they are the later argument.
    */
   .callout-content-y-cartesian {
-    font-family: var(--font-base);
-    font-size: var(--text-base-400);
-    font-weight: var(--font-weight-bold);
-    line-height: var(--leading-base-400);
+    @apply font-base text-base-400 leading-base-400 font-bold;
   }
 
   .callout-content-y-non-cartesian {
-    font-family: var(--font-base);
-    font-size: var(--text-hero-700);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-hero-700);
+    @apply font-base text-hero-700 leading-hero-700 font-semibold;
   }
 
   /*
    * - `border-top`'s `1px` is a frozen LITERAL in the source (not a strokeWidth token), carried verbatim.
    */
   .description-message {
-    @apply mt-vertical-m-nudge pt-vertical-m-nudge text-neutral-foreground-2;
+    @apply mt-vertical-m-nudge pt-vertical-m-nudge font-base text-base-200 leading-base-200 font-regular text-neutral-foreground-2;
 
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-200);
     border-top: 1px solid var(--color-neutral-stroke-2);
   }
 
   /* from useStyles.ratio — typographyStyles.caption2 + marginLeft → logical start */
   .ratio {
-    @apply ms-horizontal-s-nudge text-neutral-foreground-1;
-
-    font-family: var(--font-base);
-    font-size: var(--text-base-100);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-100);
+    @apply ms-horizontal-s-nudge font-base text-base-100 leading-base-100 font-regular text-neutral-foreground-1;
   }
 
   /* from useStyles.numerator and useStyles.denominator — both typographyStyles.caption2Strong,
    * identical atomic sets, so one rule emits both locals. */
   .numerator,
   .denominator {
-    font-family: var(--font-base);
-    font-size: var(--text-base-100);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-100);
+    @apply font-base text-base-100 leading-base-100 font-semibold;
   }
 
   .callout-info-container {

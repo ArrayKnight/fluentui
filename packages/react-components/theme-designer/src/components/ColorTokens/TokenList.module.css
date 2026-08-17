@@ -71,6 +71,6 @@
   }
 
   .output {
-    font-size: var(--text-base-200);
+    @apply text-base-200;
   }
 }

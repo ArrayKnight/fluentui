@@ -14,11 +14,7 @@
 
   /* from useStyles.barLabel — typographyStyles.caption1Strong + fill + HC stroke */
   .bar-label {
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-200);
-    fill: var(--color-neutral-foreground-1);
+    @apply fill-neutral-foreground-1 font-base text-base-200 leading-base-200 font-semibold;
 
     @variant forced-colors {
       stroke: CanvasText;

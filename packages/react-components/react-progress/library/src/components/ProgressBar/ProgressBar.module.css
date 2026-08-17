@@ -63,9 +63,7 @@
 
 @layer fui.components.l1 {
   .root {
-    @apply block w-full overflow-hidden;
-
-    background-color: var(--color-neutral-background-6);
+    @apply block w-full overflow-hidden bg-neutral-background-6;
 
     /* Griffel bucket `m` wins over `d` — beats the background-color above. */
     @variant forced-colors {

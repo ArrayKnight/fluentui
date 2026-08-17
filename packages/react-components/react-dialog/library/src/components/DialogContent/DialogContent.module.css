@@ -6,16 +6,11 @@
 
 @layer fui.base {
   .root {
+    @apply -m-thick box-border min-h-32 overflow-y-auto p-thick font-base text-base-300 leading-base-300 font-regular;
+
     /* `padding: tokens.strokeWidthThick` / `margin: calc(tokens.strokeWidthThick * -1)` */
-    @apply -m-thick p-thick;
 
     /* from typographyStyles.body1 */
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-300);
-
-    @apply box-border min-h-32 overflow-y-auto;
 
     grid-row-start: 2;
     grid-row-end: 2;

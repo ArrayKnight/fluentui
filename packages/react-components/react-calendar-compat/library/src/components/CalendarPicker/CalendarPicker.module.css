@@ -7,9 +7,7 @@
 @layer fui.components.l1 {
   /* from useRootStyles.normalize — root arg #2 (see the INVERSION note above) */
   .normalize {
-    @apply m-0 box-border p-0;
-
-    box-shadow: none;
+    @apply m-0 box-border p-0 shadow-none;
   }
 
   /* from useRootStyles.base — root arg #3; re-sets `box-sizing` and `padding` from above */
@@ -24,14 +22,12 @@
   }
 
   .current-item-button {
-    @apply grow overflow-visible rounded-medium bg-transparent-background py-0 ps-horizontal-m-nudge pe-horizontal-xs text-start text-inherit;
+    @apply grow overflow-visible rounded-medium bg-transparent-background py-0 ps-horizontal-m-nudge pe-horizontal-xs text-start text-base-300 font-semibold text-inherit;
 
     /* `shorthands.borderStyle('none')` — the four style longhands, i.e. `border-style` */
     border-style: none;
 
     font-family: inherit;
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-semibold);
 
     /* `padding: '0 4px 0 10px'` → block 0, inline-start 10px (MNudge), inline-end 4px (XS) */
 
@@ -63,19 +59,13 @@
   }
 
   .navigation-button {
-    background-color: var(--color-transparent-background);
+    @apply relative block h-28 min-h-28 w-28 min-w-28 overflow-visible rounded-medium bg-transparent-background p-0 text-center text-base-200 text-neutral-foreground-1;
 
     /* `border: 'none'` — the style longhands are the half that carries it for layout and
        paint (react-drawer/InlineDrawer precedent) */
     border-style: none;
 
-    border-radius: var(--radius-medium);
-    color: var(--color-neutral-foreground-1);
-
-    @apply relative block h-28 min-h-28 w-28 min-w-28 overflow-visible p-0 text-center;
-
     font-family: inherit;
-    font-size: var(--text-base-200);
     line-height: calc(28px * var(--base-scale));
 
     @variant hover {
@@ -105,23 +95,16 @@
   }
 
   .item-button {
-    background-color: var(--color-transparent-background);
+    @apply my-0 ms-horizontal-none me-horizontal-m h-40 min-h-40 w-40 min-w-40 overflow-visible rounded-medium bg-transparent-background p-0 text-base-200 text-neutral-foreground-3;
 
     /* `border: 'none'` — style longhands */
     border-style: none;
 
-    border-radius: var(--radius-medium);
-    color: var(--color-neutral-foreground-3);
-
-    @apply h-40 min-h-40 w-40 min-w-40 overflow-visible p-0;
-
     font-family: inherit;
-    font-size: var(--text-base-200);
     line-height: calc(40px * var(--base-scale));
 
     /* `margin: '0 12px 0 0'` → block 0, inline-end 12px (the M step), inline-start 0.
        rtl-css-js swaps the 2nd/4th values, which the logical utilities express directly. */
-    @apply my-0 ms-horizontal-none me-horizontal-m;
 
     /* `marginRight: 0` → margin-inline-end. Structural pseudo-classes stay raw (0-2-0),
        matching the compiled atomics — they must beat the flat `me-horizontal-m` above. */
@@ -134,14 +117,11 @@
     }
 
     & div {
-      font-weight: var(--font-weight-regular);
+      @apply font-regular;
     }
 
     @variant hover {
-      background-color: var(--color-brand-background-inverted-hover);
-      color: var(--color-neutral-foreground-1-static);
-
-      @apply cursor-pointer;
+      @apply cursor-pointer bg-brand-background-inverted-hover text-neutral-foreground-1-static;
 
       outline: calc(1px * var(--base-scale)) solid var(--color-transparent-stroke);
 
@@ -155,7 +135,7 @@
 
     @variant hover {
       @variant active {
-        background-color: var(--color-brand-background-inverted-pressed);
+        @apply bg-brand-background-inverted-pressed;
 
         @variant forced-colors {
           background-color: Window;
@@ -167,9 +147,7 @@
   }
 
   .highlight-current {
-    background-color: var(--color-brand-background);
-    color: var(--color-neutral-foreground-on-brand);
-    font-weight: var(--font-weight-semibold);
+    @apply bg-brand-background font-semibold text-neutral-foreground-on-brand;
 
     @variant forced-colors {
       background-color: WindowText;
@@ -179,8 +157,7 @@
 
     &:where(:hover),
     &:where(:hover):where(:active) {
-      background-color: var(--color-brand-background);
-      color: var(--color-neutral-foreground-on-brand);
+      @apply bg-brand-background text-neutral-foreground-on-brand;
 
       @variant forced-colors {
         background-color: WindowText;
@@ -191,9 +168,7 @@
   }
 
   .highlight-selected {
-    background-color: var(--color-brand-background-inverted-selected);
-    color: var(--color-neutral-foreground-1-static);
-    font-weight: var(--font-weight-semibold);
+    @apply bg-brand-background-inverted-selected font-semibold text-neutral-foreground-1-static;
 
     @variant forced-colors {
       background-color: Highlight;
@@ -202,12 +177,11 @@
     }
 
     & div {
-      font-weight: var(--font-weight-semibold);
+      @apply font-semibold;
     }
 
     @variant hover {
-      background-color: var(--color-brand-background-inverted-selected);
-      color: var(--color-neutral-foreground-1-static);
+      @apply bg-brand-background-inverted-selected text-neutral-foreground-1-static;
 
       @variant forced-colors {
         background-color: Highlight;

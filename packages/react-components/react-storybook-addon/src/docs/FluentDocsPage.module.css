@@ -4,10 +4,7 @@
 
 @layer fui.components.l2 {
   .video-preview {
-    @apply flex flex-col gap-horizontal-m px-horizontal-m py-vertical-m;
-
-    border-radius: var(--radius-small);
-    background-color: var(--color-neutral-background-2);
+    @apply flex flex-col gap-horizontal-m rounded-small bg-neutral-background-2 px-horizontal-m py-vertical-m;
 
     &:hover {
       @apply bg-neutral-background-2-hover;

@@ -82,7 +82,7 @@
 
 @layer fui.components.l1 {
   .rounded {
-    border-radius: var(--radius-medium);
+    @apply rounded-medium;
 
     @variant focus-visible-fui {
       @apply rounded-medium;
@@ -90,7 +90,7 @@
   }
 
   .circular {
-    border-radius: var(--radius-circular);
+    @apply rounded-circular;
 
     @variant focus-visible-fui {
       @apply rounded-circular;
@@ -98,7 +98,7 @@
   }
 
   .square {
-    border-radius: var(--radius-none);
+    @apply rounded-none;
 
     @variant focus-visible-fui {
       @apply rounded-none;

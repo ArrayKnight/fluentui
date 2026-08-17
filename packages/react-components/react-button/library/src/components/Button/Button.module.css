@@ -6,19 +6,9 @@
 
 @layer fui.base {
   .root {
-    @apply m-horizontal-none box-border inline-flex items-center justify-center overflow-hidden align-middle no-underline;
+    @apply m-horizontal-none box-border inline-flex min-w-96 items-center justify-center overflow-hidden rounded-medium bg-neutral-background-1 px-horizontal-m py-5 align-middle font-base text-base-300 leading-base-300 font-semibold text-neutral-foreground-1 no-underline;
 
-    @apply min-w-96 px-horizontal-m py-5;
-
-    background-color: var(--color-neutral-background-1);
-    color: var(--color-neutral-foreground-1);
     border: var(--spacing-thin) solid var(--color-neutral-stroke-1);
-    border-radius: var(--radius-medium);
-
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-300);
 
     outline-style: none;
 
@@ -120,7 +110,7 @@
 
 @layer fui.components.l1 {
   .outline {
-    background-color: var(--color-transparent-background);
+    @apply bg-transparent-background;
 
     @variant hover {
       @apply bg-transparent-background-hover;
@@ -132,12 +122,12 @@
   }
 
   .primary {
-    background-color: var(--color-brand-background);
+    @apply bg-brand-background text-neutral-foreground-on-brand;
+
     border-top-color: transparent;
     border-right-color: transparent;
     border-bottom-color: transparent;
     border-left-color: transparent;
-    color: var(--color-neutral-foreground-on-brand);
 
     @variant hover {
       @apply bg-brand-background-hover text-neutral-foreground-on-brand;
@@ -187,20 +177,20 @@
   }
 
   .subtle {
-    background-color: var(--color-subtle-background);
+    @apply bg-subtle-background text-neutral-foreground-2;
+
     border-top-color: transparent;
     border-right-color: transparent;
     border-bottom-color: transparent;
     border-left-color: transparent;
-    color: var(--color-neutral-foreground-2);
 
     @variant hover {
-      background-color: var(--color-subtle-background-hover);
+      @apply bg-subtle-background-hover text-neutral-foreground-2-hover;
+
       border-top-color: transparent;
       border-right-color: transparent;
       border-bottom-color: transparent;
       border-left-color: transparent;
-      color: var(--color-neutral-foreground-2-hover);
 
       /* The `.fui-Icon-filled` / `.fui-Icon-regular` swap that belongs here lives in the
          l1 icon-swap block at the bottom of this file (D27 / S-J batch 1). `.icon` below is
@@ -212,12 +202,12 @@
     }
 
     @variant hover-active {
-      background-color: var(--color-subtle-background-pressed);
+      @apply bg-subtle-background-pressed text-neutral-foreground-2-pressed;
+
       border-top-color: transparent;
       border-right-color: transparent;
       border-bottom-color: transparent;
       border-left-color: transparent;
-      color: var(--color-neutral-foreground-2-pressed);
 
       /* Icon swap in the l1 block at the bottom of this file (D27 / S-J batch 1). `.icon`
          is this module's own local and its colour rule stays here. */
@@ -247,12 +237,12 @@
   }
 
   .transparent {
-    background-color: var(--color-transparent-background);
+    @apply bg-transparent-background text-neutral-foreground-2;
+
     border-top-color: transparent;
     border-right-color: transparent;
     border-bottom-color: transparent;
     border-left-color: transparent;
-    color: var(--color-neutral-foreground-2);
 
     @variant hover {
       @apply bg-transparent-background-hover text-neutral-foreground-2-brand-hover;
@@ -295,21 +285,13 @@
 @layer fui.components.l1 {
   .root {
     @variant size-small {
-      @apply min-w-64 rounded-medium px-horizontal-s py-3;
+      @apply min-w-64 rounded-medium px-horizontal-s py-3 text-base-200 leading-base-200 font-regular;
 
       /* `padding: buttonSpacingSmall(3px) tokens.spacingHorizontalS`; 3px and 64px match no step */
-
-      font-size: var(--text-base-200);
-      font-weight: var(--font-weight-regular);
-      line-height: var(--leading-base-200);
     }
 
     @variant size-large {
-      @apply min-w-96 rounded-medium px-horizontal-l py-vertical-s;
-
-      font-size: var(--text-base-400);
-      font-weight: var(--font-weight-semibold);
-      line-height: var(--leading-base-400);
+      @apply min-w-96 rounded-medium px-horizontal-l py-vertical-s text-base-400 leading-base-400 font-semibold;
     }
 
     /* from useIconStyles.small — icon slot arg #4, keyed off the root's data-size */
@@ -336,28 +318,14 @@
     }
 
     @variant disabled-any {
-      background-color: var(--color-neutral-background-disabled);
-      border-top-color: var(--color-neutral-stroke-disabled);
-      border-right-color: var(--color-neutral-stroke-disabled);
-      border-bottom-color: var(--color-neutral-stroke-disabled);
-      border-left-color: var(--color-neutral-stroke-disabled);
-      color: var(--color-neutral-foreground-disabled);
-
-      cursor: not-allowed;
+      @apply cursor-not-allowed border-t-neutral-stroke-disabled border-r-neutral-stroke-disabled border-b-neutral-stroke-disabled border-l-neutral-stroke-disabled bg-neutral-background-disabled text-neutral-foreground-disabled;
 
       & .icon {
         @apply text-neutral-foreground-disabled;
       }
 
       @variant hover {
-        background-color: var(--color-neutral-background-disabled);
-        border-top-color: var(--color-neutral-stroke-disabled);
-        border-right-color: var(--color-neutral-stroke-disabled);
-        border-bottom-color: var(--color-neutral-stroke-disabled);
-        border-left-color: var(--color-neutral-stroke-disabled);
-        color: var(--color-neutral-foreground-disabled);
-
-        cursor: not-allowed;
+        @apply cursor-not-allowed border-t-neutral-stroke-disabled border-r-neutral-stroke-disabled border-b-neutral-stroke-disabled border-l-neutral-stroke-disabled bg-neutral-background-disabled text-neutral-foreground-disabled;
 
         /* The icon swap-BACK that belongs here is in the l1 icon-swap block at the bottom of
            this file, written LAST there so it still beats the appearance swaps (D27 / S-J
@@ -369,14 +337,7 @@
       }
 
       @variant hover-active {
-        background-color: var(--color-neutral-background-disabled);
-        border-top-color: var(--color-neutral-stroke-disabled);
-        border-right-color: var(--color-neutral-stroke-disabled);
-        border-bottom-color: var(--color-neutral-stroke-disabled);
-        border-left-color: var(--color-neutral-stroke-disabled);
-        color: var(--color-neutral-foreground-disabled);
-
-        cursor: not-allowed;
+        @apply cursor-not-allowed border-t-neutral-stroke-disabled border-r-neutral-stroke-disabled border-b-neutral-stroke-disabled border-l-neutral-stroke-disabled bg-neutral-background-disabled text-neutral-foreground-disabled;
 
         /* The icon swap-BACK that belongs here is in the l1 icon-swap block at the bottom of
            this file, written LAST there so it still beats the appearance swaps (D27 / S-J
@@ -447,7 +408,7 @@
 
   .outline {
     @variant disabled-any {
-      background-color: var(--color-transparent-background);
+      @apply bg-transparent-background;
 
       @variant hover {
         @apply bg-transparent-background;
@@ -486,10 +447,8 @@
      * `appearance === 'primary'`, i.e. exactly when this class is on the element.
      */
     @variant focus-visible-fui {
-      border-top-color: var(--color-stroke-focus-2);
-      border-right-color: var(--color-stroke-focus-2);
-      border-bottom-color: var(--color-stroke-focus-2);
-      border-left-color: var(--color-stroke-focus-2);
+      @apply border-t-stroke-focus-2 border-r-stroke-focus-2 border-b-stroke-focus-2 border-l-stroke-focus-2;
+
       box-shadow:
         var(--shadow-2),
         0 0 0 var(--spacing-thin) var(--color-stroke-focus-2) inset,
@@ -523,7 +482,8 @@
 
   .subtle {
     @variant disabled-any {
-      background-color: var(--color-transparent-background);
+      @apply bg-transparent-background;
+
       border-top-color: transparent;
       border-right-color: transparent;
       border-bottom-color: transparent;
@@ -551,7 +511,8 @@
 
   .transparent {
     @variant disabled-any {
-      background-color: var(--color-transparent-background);
+      @apply bg-transparent-background;
+
       border-top-color: transparent;
       border-right-color: transparent;
       border-bottom-color: transparent;
@@ -592,7 +553,7 @@
   }
 
   .circular {
-    border-radius: var(--radius-circular);
+    @apply rounded-circular;
 
     @variant focus-visible-fui {
       @apply rounded-circular;
@@ -600,7 +561,7 @@
   }
 
   .square {
-    border-radius: var(--radius-none);
+    @apply rounded-none;
 
     @variant focus-visible-fui {
       @apply rounded-none;

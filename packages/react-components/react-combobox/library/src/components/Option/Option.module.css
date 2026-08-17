@@ -67,20 +67,11 @@
 
 @layer fui.components.l1 {
   .root {
-    @apply relative flex items-center;
-
-    border-radius: var(--radius-medium);
-    color: var(--color-neutral-foreground-1);
-    cursor: pointer;
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    line-height: var(--leading-base-300);
+    @apply relative flex cursor-pointer items-center gap-x-horizontal-xs rounded-medium px-horizontal-s py-vertical-s-nudge font-base text-base-300 leading-base-300 text-neutral-foreground-1;
 
     /* `columnGap: tokens.spacingHorizontalXS` */
-    @apply gap-x-horizontal-xs;
 
     /* `padding: spacingVerticalSNudge spacingHorizontalS` */
-    @apply px-horizontal-s py-vertical-s-nudge;
 
     &:where([data-activedescendant-focusvisible])::after {
       @apply pointer-events-none absolute rounded-medium border-stroke-focus-2;
@@ -97,8 +88,7 @@
     }
 
     @variant disabled-control {
-      color: var(--color-neutral-foreground-disabled);
-      cursor: default;
+      @apply cursor-default text-neutral-foreground-disabled;
 
       @variant forced-colors {
         color: GrayText;
@@ -109,9 +99,7 @@
 
 @layer fui.components.l1 {
   .check-icon {
-    @apply invisible -ms-horizontal-xxs me-horizontal-xxs shrink-0;
-
-    font-size: var(--text-base-400);
+    @apply invisible -ms-horizontal-xxs me-horizontal-xxs shrink-0 text-base-400;
   }
 
   .multiselect-check {
@@ -143,7 +131,7 @@
   }
 
   .check-disabled {
-    color: var(--color-neutral-foreground-disabled);
+    @apply text-neutral-foreground-disabled;
 
     @variant forced-colors {
       color: GrayText;
@@ -159,8 +147,7 @@
   .root {
     @variant enabled-control {
       @variant hover {
-        background-color: var(--color-neutral-background-1-hover);
-        color: var(--color-neutral-foreground-1-hover);
+        @apply bg-neutral-background-1-hover text-neutral-foreground-1-hover;
 
         & .check-icon {
           @apply border-t-neutral-foreground-1-hover border-r-neutral-foreground-1-hover border-b-neutral-foreground-1-hover border-l-neutral-foreground-1-hover;
@@ -168,8 +155,7 @@
       }
 
       @variant active {
-        background-color: var(--color-neutral-background-1-pressed);
-        color: var(--color-neutral-foreground-1-pressed);
+        @apply bg-neutral-background-1-pressed text-neutral-foreground-1-pressed;
 
         & .check-icon {
           @apply border-t-neutral-foreground-1-hover border-r-neutral-foreground-1-hover border-b-neutral-foreground-1-hover border-l-neutral-foreground-1-hover;

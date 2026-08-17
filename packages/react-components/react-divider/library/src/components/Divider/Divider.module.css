@@ -6,12 +6,7 @@
 
 @layer fui.components.l1 {
   .root {
-    @apply relative box-border flex grow flex-row items-center text-center;
-
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-200);
+    @apply relative box-border flex grow flex-row items-center text-center font-base text-base-200 leading-base-200 font-regular;
 
     &::before,
     &::after {
@@ -146,7 +141,7 @@
 @layer fui.components.l1 {
   /* from useBaseStyles.brand — shorthands.borderColor() expanded to four longhands */
   .brand {
-    color: var(--color-brand-foreground-1);
+    @apply text-brand-foreground-1;
 
     &::before,
     &::after {
@@ -155,7 +150,7 @@
   }
 
   .default {
-    color: var(--color-neutral-foreground-2);
+    @apply text-neutral-foreground-2;
 
     &::before,
     &::after {
@@ -164,7 +159,7 @@
   }
 
   .subtle {
-    color: var(--color-neutral-foreground-3);
+    @apply text-neutral-foreground-3;
 
     &::before,
     &::after {
@@ -173,7 +168,7 @@
   }
 
   .strong {
-    color: var(--color-neutral-foreground-1);
+    @apply text-neutral-foreground-1;
 
     &::before,
     &::after {

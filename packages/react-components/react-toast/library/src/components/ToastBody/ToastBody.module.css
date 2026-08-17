@@ -6,14 +6,10 @@
 
 @layer fui.base {
   .root {
-    @apply pt-vertical-s-nudge text-neutral-foreground-1;
+    @apply pt-vertical-s-nudge text-base-300 leading-base-300 font-regular text-neutral-foreground-1;
 
     grid-column-start: 2;
     grid-column-end: 3;
-
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-300);
 
     /* Tailwind's `break-words` is `overflow-wrap: break-word`, a DIFFERENT property —
        the compiled atomic sets `word-break`, so this stays a literal declaration. */
@@ -21,13 +17,11 @@
   }
 
   .subtitle {
-    @apply pt-vertical-xs text-neutral-foreground-2;
+    @apply pt-vertical-xs text-base-200 font-regular text-neutral-foreground-2;
 
     grid-column-start: 2;
     grid-column-end: 3;
 
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-regular);
     /* see the header note — the source really does use the FONT SIZE token here */
     line-height: var(--text-base-200);
   }

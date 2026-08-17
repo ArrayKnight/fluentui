@@ -13,12 +13,8 @@
 
   /* from useStyles.insideDonutString — typographyStyles.title2 + fill/forced-color-adjust */
   .inside-donut-string {
-    @apply fill-neutral-foreground-1;
+    @apply fill-neutral-foreground-1 font-base text-hero-700 leading-hero-700 font-semibold;
 
-    font-family: var(--font-base);
-    font-size: var(--text-hero-700);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-hero-700);
     forced-color-adjust: auto;
   }
 }

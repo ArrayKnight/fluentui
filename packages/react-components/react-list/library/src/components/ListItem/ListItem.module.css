@@ -6,10 +6,11 @@
 
 @layer fui.base {
   .root {
+    @apply list-none;
+
     padding: 0;
     margin: 0;
     text-indent: 0;
-    list-style-type: none;
 
     @variant focus-visible-fui {
       @apply rounded-medium;

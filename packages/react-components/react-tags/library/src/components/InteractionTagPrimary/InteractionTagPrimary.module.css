@@ -6,8 +6,9 @@
 
 @layer fui.base {
   .root {
+    @apply inline-grid h-full items-center bg-transparent text-inherit;
+
     /* reset default button style */
-    color: inherit;
     font-family: inherit;
     padding: 0;
     border-style: none;
@@ -16,9 +17,6 @@
     -webkit-appearance: button;
     appearance: button;
     text-align: unset;
-    background-color: transparent;
-
-    @apply inline-grid h-full items-center;
 
     grid-template-areas:
       'media primary  '
@@ -39,14 +37,14 @@
   }
 
   .rounded {
-    border-radius: var(--radius-medium);
+    @apply rounded-medium;
 
     /*
      * Pseudo element to draw the border for windows high contrast mode — when the tag has
      * secondary text, primary text has a negative margin that covers the border.
      */
     @media (forced-colors: active) {
-      position: relative;
+      @apply relative;
 
       &::before {
         @apply absolute;
@@ -62,10 +60,10 @@
   }
 
   .circular {
-    border-radius: var(--radius-circular);
+    @apply rounded-circular;
 
     @media (forced-colors: active) {
-      position: relative;
+      @apply relative;
 
       &::before {
         @apply absolute;
@@ -84,7 +82,7 @@
 @layer fui.components.l1 {
   .circular-without-secondary-action {
     @media (forced-colors: active) {
-      position: relative;
+      @apply relative;
 
       &::before {
         border-inline-end: var(--spacing-thin) solid transparent;
@@ -99,8 +97,7 @@
   /* from useRootStyles[appearance] — arg #4, the ENABLED branch. The `.fui-Icon-*` halves
      of `outline`'s hover/active are NOT here — see the S-J/D27 l1 section at the bottom. */
   .filled {
-    background-color: var(--color-neutral-background-3);
-    color: var(--color-neutral-foreground-2);
+    @apply bg-neutral-background-3 text-neutral-foreground-2;
 
     @variant hover {
       @apply cursor-pointer bg-neutral-background-3-hover text-neutral-foreground-2-hover;
@@ -122,14 +119,9 @@
   }
 
   .outline {
-    background-color: var(--color-subtle-background);
-    color: var(--color-neutral-foreground-2);
+    @apply border-s-neutral-stroke-1 border-e-neutral-stroke-1 border-t-neutral-stroke-1 border-b-neutral-stroke-1 bg-subtle-background text-neutral-foreground-2;
 
     /* shorthands.borderColor(...) → the four longhands the compiler emits, in its order */
-    border-top-color: var(--color-neutral-stroke-1);
-    border-inline-end-color: var(--color-neutral-stroke-1);
-    border-bottom-color: var(--color-neutral-stroke-1);
-    border-inline-start-color: var(--color-neutral-stroke-1);
 
     @variant hover {
       @apply cursor-pointer bg-subtle-background-hover text-neutral-foreground-2-hover;
@@ -155,8 +147,7 @@
   }
 
   .brand {
-    background-color: var(--color-brand-background-2);
-    color: var(--color-brand-foreground-2);
+    @apply bg-brand-background-2 text-brand-foreground-2;
 
     @variant hover {
       @apply cursor-pointer bg-brand-background-2-hover text-compound-brand-foreground-1-hover;
@@ -195,14 +186,10 @@
   /* from useRootStyles.selected — arg #5, written after the appearance blocks. Its
      `.fui-Icon-filled` colour halves sit in the S-J/D27 l1 section at the bottom of this file. */
   .selected {
+    @apply border-s-brand-stroke-1 border-e-brand-stroke-1 border-t-brand-stroke-1 border-b-brand-stroke-1 text-neutral-foreground-on-brand;
+
     /* compiled as the `background` SHORTHAND (Griffel priority -2), not background-color */
     background: var(--color-brand-background);
-    color: var(--color-neutral-foreground-on-brand);
-
-    border-top-color: var(--color-brand-stroke-1);
-    border-inline-end-color: var(--color-brand-stroke-1);
-    border-bottom-color: var(--color-brand-stroke-1);
-    border-inline-start-color: var(--color-brand-stroke-1);
 
     @variant hover {
       @apply bg-brand-background-hover text-neutral-foreground-on-brand;
@@ -241,9 +228,7 @@
     }
 
     @variant size-extra-small {
-      @apply pe-5;
-
-      position: relative;
+      @apply relative pe-5;
 
       /*
        * Increase clickable area to meet WCAG 2.2 AA

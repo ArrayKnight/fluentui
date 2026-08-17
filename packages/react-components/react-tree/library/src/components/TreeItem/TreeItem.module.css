@@ -10,10 +10,7 @@
    * createCustomFocusIndicatorStyle rules (see the ALTITUDE note above).
    */
   .root {
-    @apply relative box-border flex cursor-pointer flex-col pe-horizontal-none;
-
-    background-color: var(--color-subtle-background);
-    color: var(--color-neutral-foreground-2);
+    @apply relative box-border flex cursor-pointer flex-col bg-subtle-background pe-horizontal-none text-neutral-foreground-2;
 
     /* createCustomFocusIndicatorStyle draws its own ring, so the browser default is
        removed here. Both rules are reproduced even though `:focus-visible` is a strict

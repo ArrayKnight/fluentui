@@ -11,27 +11,19 @@
 
 @layer fui.components.l1 {
   .root {
+    @apply m-horizontal-none box-border inline cursor-pointer bg-transparent p-horizontal-none text-start font-base text-base-300 font-regular text-brand-foreground-link select-text;
+
     /* `margin: 0` / `padding: 0` px literals → the `none` spacing step (D4 amendment) */
-    @apply m-horizontal-none box-border p-horizontal-none select-text;
 
     /* `text-align: left` compiles to an [ltr, rtl] pair (`f1o700av` / `fes3tcz`,
        left ↔ right) — a pure flip, so the logical keyword is exact. */
-    @apply text-start;
 
     /* `display: inline` is written out rather than `@apply inline`: `inline` is also the
        name of this component's data-attribute variant below, and keeping the two apart
        matters more than the utility. */
-    display: inline;
 
-    background-color: transparent;
-    color: var(--color-brand-foreground-link);
-    cursor: pointer;
     overflow: inherit;
     text-overflow: inherit;
-
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-regular);
 
     text-decoration-line: none;
     text-decoration-thickness: var(--spacing-thin);
@@ -71,7 +63,7 @@
   }
 
   .subtle {
-    color: var(--color-neutral-foreground-2-link);
+    @apply text-neutral-foreground-2-link;
 
     @variant hover {
       @apply text-neutral-foreground-2-link-hover;
@@ -91,7 +83,7 @@
    * this slice and `.brand` below; that is the Griffel source verbatim, not a typo.
    */
   .inverted {
-    color: var(--color-brand-foreground-inverted);
+    @apply text-brand-foreground-inverted;
 
     @variant hover {
       @apply text-brand-foreground-inverted;
@@ -103,7 +95,7 @@
   }
 
   .brand {
-    color: var(--color-neutral-foreground-inverted-link);
+    @apply text-neutral-foreground-inverted-link;
 
     @variant hover {
       @apply text-neutral-foreground-inverted-link-hover;

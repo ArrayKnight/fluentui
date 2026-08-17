@@ -6,21 +6,15 @@
 
 @layer fui.components.l1 {
   .root {
-    color: var(--color-neutral-foreground-1);
-    background-color: var(--color-neutral-background-1);
+    @apply rounded-medium bg-neutral-background-1 font-base text-base-300 leading-base-300 font-regular text-neutral-foreground-1;
 
     /* Kept as the compiled shorthands (`.ft85np5{border-radius:…}`, `.f9ggezi{border:1px
        solid …}`): no rule in this module sets any of their longhands, so there is no Griffel
        shorthand-vs-longhand priority left for the cascade to get wrong. Same call as
        react-tooltip, whose root slice is the same pair of declarations. */
-    border-radius: var(--radius-medium);
     border: 1px solid var(--color-transparent-stroke);
 
     /* ...typographyStyles.body1 */
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-300);
 
     filter: drop-shadow(0 0 2px var(--color-neutral-shadow-ambient))
       drop-shadow(0 8px 16px var(--color-neutral-shadow-key));

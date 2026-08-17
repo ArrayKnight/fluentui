@@ -41,15 +41,10 @@
 @layer fui.base {
   /* arg #2 — from the shared useRootDefaultClassName (makeResetStyles) */
   .root {
-    @apply relative box-border flex w-full cursor-pointer items-start text-start normal-case no-underline;
-    @apply gap-vertical-l py-vertical-m-nudge ps-horizontal-m-nudge pe-horizontal-s;
+    @apply relative box-border flex w-full cursor-pointer items-start gap-vertical-l rounded-medium bg-neutral-background-4 py-vertical-m-nudge ps-horizontal-m-nudge pe-horizontal-s text-start font-base text-base-300 leading-base-300 font-regular text-neutral-foreground-2 normal-case no-underline;
 
     /* `start`, not `flex-start`: `justify-start` would emit the other keyword */
     justify-content: start;
-
-    background-color: var(--color-neutral-background-4);
-    border-radius: var(--radius-medium);
-    color: var(--color-neutral-foreground-2);
 
     /* from `border: 'none'` — see the header */
     border-block-start-style: none;
@@ -62,10 +57,6 @@
     transition-property: background-color;
 
     /* typographyStyles.body1 */
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-300);
 
     @variant hover {
       @apply bg-neutral-background-4-hover;
@@ -119,10 +110,7 @@
 @layer fui.components.l1 {
   /* arg #5 — from the shared useContentStyles.selected (typographyStyles.body1Strong) */
   .selected {
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-300);
+    @apply font-base text-base-300 leading-base-300 font-semibold;
   }
 }
 

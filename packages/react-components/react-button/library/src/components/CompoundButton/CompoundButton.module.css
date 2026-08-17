@@ -37,24 +37,15 @@
   }
 
   .small {
-    @apply px-horizontal-s pt-horizontal-s pb-horizontal-m-nudge;
-
-    font-size: var(--text-base-300);
-    line-height: var(--leading-base-300);
+    @apply px-horizontal-s pt-horizontal-s pb-horizontal-m-nudge text-base-300 leading-base-300;
   }
 
   .medium {
-    @apply px-horizontal-m pt-14 pb-horizontal-l;
-
-    font-size: var(--text-base-300);
-    line-height: var(--leading-base-300);
+    @apply px-horizontal-m pt-14 pb-horizontal-l text-base-300 leading-base-300;
   }
 
   .large {
-    @apply px-horizontal-l pt-18 pb-horizontal-xl;
-
-    font-size: var(--text-base-400);
-    line-height: var(--leading-base-400);
+    @apply px-horizontal-l pt-18 pb-horizontal-xl text-base-400 leading-base-400;
   }
 
   .disabled {
@@ -178,20 +169,21 @@
   }
 
   .secondary-content {
+    @apply font-regular;
+
     line-height: 100%;
-    font-weight: var(--font-weight-regular);
   }
 
   .secondary-content-small {
-    font-size: var(--text-base-200);
+    @apply text-base-200;
   }
 
   .secondary-content-medium {
-    font-size: var(--text-base-200);
+    @apply text-base-200;
   }
 
   .secondary-content-large {
-    font-size: var(--text-base-300);
+    @apply text-base-300;
   }
 }
 

@@ -6,9 +6,6 @@
 
 @layer fui.components.l1 {
   .root {
-    @apply flex h-32 items-center px-horizontal-s text-neutral-foreground-3;
-
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-semibold);
+    @apply flex h-32 items-center px-horizontal-s text-base-200 font-semibold text-neutral-foreground-3;
   }
 }

@@ -6,10 +6,9 @@
 
 @layer fui.base {
   .root {
-    /* DIALOG_GAP = '8px' → the S spacing step (D4 amendment) */
-    @apply gap-horizontal-s;
+    @apply box-border flex h-fit gap-horizontal-s;
 
-    @apply box-border flex h-fit;
+    /* DIALOG_GAP = '8px' → the S spacing step (D4 amendment) */
 
     grid-row-start: 3;
     grid-row-end: 3;

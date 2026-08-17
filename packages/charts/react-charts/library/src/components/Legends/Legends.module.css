@@ -50,12 +50,8 @@
   }
 
   .text {
-    @apply text-neutral-foreground-1;
+    @apply font-base text-base-200 leading-base-200 font-regular text-neutral-foreground-1;
 
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-200);
     forced-color-adjust: auto;
   }
 
@@ -94,8 +90,7 @@
 @layer fui.components.l2 {
   /* from useStyles.legend — applied as the `className` of a react-button `<Button>` */
   .legend {
-    @apply min-w-0 cursor-pointer items-center capitalize;
-    @apply px-horizontal-s py-vertical-s;
+    @apply min-w-0 cursor-pointer items-center px-horizontal-s py-vertical-s capitalize;
 
     justify-content: left;
 
@@ -129,10 +124,9 @@
   }
 
   .resizable-area {
-    @apply relative start-1/2 top-auto max-w-800 min-w-200;
+    @apply relative start-1/2 top-auto max-w-800 min-w-200 text-start;
 
     /* textAlign 'left' → logical `start` (Griffel mirrored it to `right` in RTL) */
-    text-align: start;
 
     /* value-level RTL: Griffel mirrors translate(-50%, 0) → translate(50%, 0) */
     transform: translate(-50%, 0);

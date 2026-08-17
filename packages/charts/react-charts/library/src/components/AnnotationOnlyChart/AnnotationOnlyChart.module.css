@@ -8,9 +8,7 @@
   /* from useStyles.root — only body1's fontFamily was spread in the source
    * (`typographyStyles.body1.fontFamily`), not the full preset */
   .root {
-    @apply relative flex flex-col gap-y-vertical-s bg-neutral-background-1 text-neutral-foreground-1;
-
-    font-family: var(--font-base);
+    @apply relative flex flex-col gap-y-vertical-s bg-neutral-background-1 font-base text-neutral-foreground-1;
   }
 
   .content {

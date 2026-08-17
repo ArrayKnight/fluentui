@@ -42,15 +42,13 @@
 
 @layer fui.components.l1 {
   .thumb {
-    @apply pointer-events-none absolute;
+    @apply pointer-events-none absolute rounded-circular shadow-4;
 
     width: var(--fui-Slider__thumb--size);
     height: var(--fui-Slider__thumb--size);
     outline-style: none;
     forced-color-adjust: none;
-    border-radius: var(--radius-circular);
     border: var(--spacing-thin) solid var(--color-neutral-foreground-4);
-    box-shadow: var(--shadow-4);
     background-color: var(--fui-Area__thumb--color);
     transform: translate(-50%, 50%);
     inset-inline-start: var(--fui-AreaX--progress);

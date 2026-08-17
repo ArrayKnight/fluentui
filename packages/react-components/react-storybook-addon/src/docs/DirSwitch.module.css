@@ -8,10 +8,7 @@
    * declarations exactly as react-text's presets.module.css does for the same preset.
    */
   .label {
-    font-family: var(--font-base);
-    font-size: var(--text-base-400);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-400);
+    @apply font-base text-base-400 leading-base-400 font-semibold;
   }
 }
 

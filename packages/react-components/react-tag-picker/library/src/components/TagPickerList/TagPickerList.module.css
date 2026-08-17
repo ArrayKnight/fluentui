@@ -6,9 +6,8 @@
 
 @layer fui.components.l2 {
   .root {
-    @apply box-border rounded-medium;
+    @apply box-border rounded-medium shadow-16;
 
-    box-shadow: var(--shadow-16);
     max-height: 80vh;
   }
 

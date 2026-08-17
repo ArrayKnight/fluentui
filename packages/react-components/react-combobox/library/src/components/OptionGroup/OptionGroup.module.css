@@ -6,12 +6,11 @@
 
 @layer fui.components.l1 {
   .root {
-    @apply flex flex-col;
+    @apply flex flex-col gap-y-horizontal-xxs;
 
     /* `rowGap: tokens.spacingHorizontalXXS` — the source named the horizontal token for a
        block-axis property; reproduced verbatim (the axis word names the TOKEN, not the
        axis it is applied to — `--spacing-*` is axis-agnostic). */
-    @apply gap-y-horizontal-xxs;
 
     &:not(:last-child)::after {
       @apply -mx-horizontal-xs mt-vertical-none mb-vertical-xs block border-b-neutral-stroke-2 pb-horizontal-xs;
@@ -32,11 +31,7 @@
   }
 
   .label {
-    @apply block rounded-medium px-horizontal-s-nudge py-horizontal-s text-neutral-foreground-3;
-
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-200);
+    @apply block rounded-medium px-horizontal-s-nudge py-horizontal-s text-base-200 leading-base-200 font-semibold text-neutral-foreground-3;
 
     /* `padding: spacingHorizontalS spacingHorizontalSNudge` — the source named horizontal
        tokens on both axes; reproduced verbatim. */

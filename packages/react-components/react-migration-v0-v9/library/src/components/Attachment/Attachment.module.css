@@ -6,10 +6,8 @@
 
 @layer fui.base {
   .root {
-    @apply relative me-2 mb-2 inline-flex min-h-32 w-full max-w-424 items-center ps-11 pe-3 pt-7 pb-7;
+    @apply relative me-2 mb-2 inline-flex min-h-32 w-full max-w-424 items-center bg-neutral-background-6 ps-11 pe-3 pt-7 pb-7 text-neutral-foreground-1;
 
-    background-color: var(--color-neutral-background-6);
-    color: var(--color-neutral-foreground-1);
     box-shadow: 0 0.2rem 0.4rem -0.075rem var(--color-neutral-shadow-ambient);
 
     /* Raw px literals, not `strokeWidthThin` / a radius token — written as the base-scale

@@ -8,7 +8,7 @@
   /* ═══ button slot — useTabButtonStyles_unstable ══════════════════════════════════ */
 
   .button {
-    @apply relative grid shrink-0 items-center overflow-hidden normal-case;
+    @apply relative grid shrink-0 cursor-pointer items-center overflow-hidden rounded-medium font-base leading-base-300 normal-case;
 
     grid-auto-flow: column;
     grid-template-columns: auto;
@@ -19,11 +19,7 @@
        are other full shorthands (`.circular*`) plus the focus indicator's four
        `border-*-color` longhands, which are written after them. */
     border: none;
-    border-radius: var(--radius-medium);
 
-    cursor: pointer;
-    font-family: var(--font-base);
-    line-height: var(--leading-base-300);
     outline-style: none;
 
     @variant horizontal {
@@ -70,7 +66,8 @@
   /* ── circular appearances (`subtle-circular`, `filled-circular`) ─────────────────── */
 
   .circular {
-    border-radius: var(--radius-circular);
+    @apply rounded-circular;
+
     border: solid var(--spacing-thin) var(--color-transparent-stroke);
 
     & .icon {
@@ -95,8 +92,7 @@
   }
 
   .circular-subtle {
-    background-color: var(--color-subtle-background);
-    color: var(--color-neutral-foreground-2);
+    @apply bg-subtle-background text-neutral-foreground-2;
 
     @variant enabled {
       @variant hover {
@@ -118,9 +114,9 @@
   }
 
   .circular-subtle-selected {
-    background-color: var(--color-brand-background-2);
+    @apply bg-brand-background-2 text-brand-foreground-2;
+
     border: solid var(--spacing-thin) var(--color-compound-brand-stroke);
-    color: var(--color-brand-foreground-2);
 
     @variant enabled {
       @variant hover {
@@ -152,8 +148,7 @@
   }
 
   .circular-filled {
-    background-color: var(--color-neutral-background-3);
-    color: var(--color-neutral-foreground-2);
+    @apply bg-neutral-background-3 text-neutral-foreground-2;
 
     @variant enabled {
       @variant hover {
@@ -180,8 +175,7 @@
   }
 
   .circular-filled-selected {
-    background-color: var(--color-brand-background);
-    color: var(--color-neutral-foreground-on-brand);
+    @apply bg-brand-background text-neutral-foreground-on-brand;
 
     @variant enabled {
       @variant hover {
@@ -222,7 +216,7 @@
   /* ── regular appearances (`transparent`, `subtle`) ───────────────────────────────── */
 
   .subtle {
-    background-color: var(--color-subtle-background);
+    @apply bg-subtle-background;
 
     & .icon {
       @apply text-neutral-foreground-2;
@@ -234,7 +228,7 @@
 
     @variant enabled {
       @variant hover {
-        background-color: var(--color-subtle-background-hover);
+        @apply bg-subtle-background-hover;
 
         & .icon {
           @apply text-neutral-foreground-2-hover;
@@ -246,7 +240,7 @@
       }
 
       @variant active {
-        background-color: var(--color-subtle-background-pressed);
+        @apply bg-subtle-background-pressed;
 
         & .icon {
           @apply text-neutral-foreground-2-pressed;
@@ -260,7 +254,7 @@
   }
 
   .transparent {
-    background-color: var(--color-transparent-background);
+    @apply bg-transparent-background;
 
     & .icon {
       @apply text-neutral-foreground-2;
@@ -272,7 +266,7 @@
 
     @variant enabled {
       @variant hover {
-        background-color: var(--color-transparent-background-hover);
+        @apply bg-transparent-background-hover;
 
         & .icon {
           @apply text-neutral-foreground-2-hover;
@@ -284,7 +278,7 @@
       }
 
       @variant active {
-        background-color: var(--color-transparent-background-pressed);
+        @apply bg-transparent-background-pressed;
 
         & .icon {
           @apply text-neutral-foreground-2-pressed;
@@ -331,7 +325,7 @@
 
   /* from useRootStyles.disabled — arg r9 (mutually exclusive with `.selected` above) */
   .disabled {
-    background-color: var(--color-transparent-background);
+    @apply bg-transparent-background;
 
     & .icon {
       @apply text-neutral-foreground-disabled;
@@ -693,33 +687,19 @@
   /* ═══ content slot — useTabContentStyles_unstable ════════════════════════════════ */
 
   .content {
-    @apply overflow-hidden px-horizontal-xxs py-vertical-none;
-
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-300);
+    @apply overflow-hidden px-horizontal-xxs py-vertical-none font-base text-base-300 leading-base-300 font-regular;
   }
 
   .content-large {
-    font-family: var(--font-base);
-    font-size: var(--text-base-400);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-400);
+    @apply font-base text-base-400 leading-base-400 font-regular;
   }
 
   .content-selected {
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-300);
+    @apply font-base text-base-300 leading-base-300 font-semibold;
   }
 
   .content-large-selected {
-    font-family: var(--font-base);
-    font-size: var(--text-base-400);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-400);
+    @apply font-base text-base-400 leading-base-400 font-semibold;
   }
 
   .content-no-icon-before {

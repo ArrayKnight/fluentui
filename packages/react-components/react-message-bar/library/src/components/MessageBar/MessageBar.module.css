@@ -18,10 +18,9 @@
   }
 
   .icon {
-    @apply me-horizontal-s flex items-center text-neutral-foreground-3;
+    @apply me-horizontal-s flex items-center text-base-500 text-neutral-foreground-3;
 
     grid-area: icon;
-    font-size: var(--text-base-500);
   }
 
   .bottom-reflow-spacer {

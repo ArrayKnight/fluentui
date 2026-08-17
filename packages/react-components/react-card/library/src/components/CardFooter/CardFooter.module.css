@@ -6,12 +6,11 @@
 
 @layer fui.components.l1 {
   .root {
-    @apply flex flex-row;
+    @apply flex flex-row gap-horizontal-m;
 
     /* `gap: '12px'` — a px literal that lands exactly on the M spacing step, so it takes
        the named utility (D4 amendment). The row direction makes this an inline-axis gap,
        hence `horizontal`. Emitted as the `gap` shorthand, matching `.fsbu5mz{gap:12px}`. */
-    @apply gap-horizontal-m;
   }
 
   .action {

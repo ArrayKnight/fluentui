@@ -6,21 +6,16 @@
 
 @layer fui.components.l1 {
   .root {
-    @apply relative m-0 box-border inline-flex align-top;
-
-    @apply ps-horizontal-none pe-horizontal-none;
+    @apply relative m-0 box-border inline-flex rounded-medium ps-horizontal-none pe-horizontal-none align-top;
 
     padding-block-start: 0; /* spacingVerticalNone */
     padding-block-end: var(--spacing-thick);
 
-    border-radius: var(--radius-medium);
-
     @variant disabled {
-      background-color: var(--color-transparent-background);
+      @apply border-neutral-stroke-disabled bg-transparent-background;
 
       border-width: var(--spacing-thin);
       border-style: solid;
-      border-color: var(--color-neutral-stroke-disabled);
 
       /* shorthands.borderColor('GrayText') → four longhands; the compiled [ltr, rtl]
          pair only swaps left↔right and carries the same value, so the flip is a no-op. */
@@ -36,9 +31,10 @@
 
 @layer fui.components.l1 {
   .filled {
+    @apply border-transparent-stroke;
+
     border-width: var(--spacing-thin);
     border-style: solid;
-    border-color: var(--color-transparent-stroke);
 
     @variant hover {
       @apply border-t-transparent-stroke-interactive border-r-transparent-stroke-interactive border-b-transparent-stroke-interactive border-l-transparent-stroke-interactive;
@@ -62,21 +58,17 @@
   }
 
   .filled-darker-shadow {
-    @apply border-transparent-stroke-interactive bg-neutral-background-3;
+    @apply border-transparent-stroke-interactive bg-neutral-background-3 shadow-2;
 
     border-width: var(--spacing-thin);
     border-style: solid;
-
-    box-shadow: var(--shadow-2);
   }
 
   .filled-lighter-shadow {
-    @apply border-transparent-stroke-interactive bg-neutral-background-1;
+    @apply border-transparent-stroke-interactive bg-neutral-background-1 shadow-2;
 
     border-width: var(--spacing-thin);
     border-style: solid;
-
-    box-shadow: var(--shadow-2);
   }
 
   .outline {
@@ -91,12 +83,11 @@
   .root {
     @variant enabled {
       &::after {
-        @apply absolute box-border;
+        @apply absolute -start-1 -end-1 -bottom-1 box-border border-b-compound-brand-stroke;
 
         content: '';
 
         /* left/right → logical; the compiled [ltr, rtl] pair carries -1px both ways. */
-        @apply -start-1 -end-1 -bottom-1;
 
         /* Maintaining the correct corner radius: the whole border-radius is used as the
            height and only the bottom corners get radii, so the radius is not reduced to
@@ -112,7 +103,6 @@
            the clipPath trims them. `inset()` right/left are both 0 → no RTL flip. */
         border-bottom-width: var(--spacing-thick);
         border-bottom-style: solid;
-        border-bottom-color: var(--color-compound-brand-stroke);
         clip-path: inset(calc(100% - var(--spacing-thick)) 0 0 0);
 
         /* Animation for focus OUT. `transition-delay: var(--ease-accelerate-mid)` is a
@@ -194,7 +184,7 @@
 
 @layer fui.components.l1 {
   .textarea {
-    @apply m-0 box-border h-full grow;
+    @apply m-0 box-border h-full grow bg-transparent font-base text-neutral-foreground-1;
 
     /* shorthands.borderStyle('none') → four longhands; the compiled [ltr, rtl] pair
        swaps left↔right, so the inline sides use logical properties. */
@@ -202,10 +192,6 @@
     border-inline-end-style: none;
     border-block-end-style: none;
     border-inline-start-style: none;
-
-    background-color: transparent;
-    color: var(--color-neutral-foreground-1);
-    font-family: var(--font-base);
 
     /* disable the default browser outline */
     outline-style: none;
@@ -217,44 +203,29 @@
     }
 
     @variant size-small {
-      @apply max-h-200 min-h-40 px-horizontal-s py-vertical-xs;
+      @apply max-h-200 min-h-40 px-horizontal-s py-vertical-xs font-base text-base-200 leading-base-200 font-regular;
 
       /* padding-block: spacingVerticalXS. padding-inline: the Griffel source sums
          spacingHorizontalSNudge (6) + spacingHorizontalXXS (2) = 8px, which IS the S
          step — the same collapse react-input documents on its own
          `horizontalPadding.combined.small`. */
-
-      font-family: var(--font-base);
-      font-size: var(--text-base-200);
-      font-weight: var(--font-weight-regular);
-      line-height: var(--leading-base-200);
     }
 
     @variant size-medium {
-      @apply max-h-260 min-h-52 px-horizontal-m py-vertical-s-nudge;
+      @apply max-h-260 min-h-52 px-horizontal-m py-vertical-s-nudge font-base text-base-300 leading-base-300 font-regular;
 
       /* padding-block: spacingVerticalSNudge. padding-inline: spacingHorizontalMNudge
          (10) + spacingHorizontalXXS (2) = 12px = the M step (react-input's
          `horizontalPadding.combined.medium` records the same identity). */
-
-      font-family: var(--font-base);
-      font-size: var(--text-base-300);
-      font-weight: var(--font-weight-regular);
-      line-height: var(--leading-base-300);
     }
 
     @variant size-large {
-      @apply max-h-320 min-h-64 px-14 py-vertical-s;
+      @apply max-h-320 min-h-64 px-14 py-vertical-s font-base text-base-400 leading-base-400 font-regular;
 
       /* padding-block: spacingVerticalS. padding-inline: spacingHorizontalM (12) +
          spacingHorizontalXXS (2) = 14px, which matches NO spacing step, so the numeric
          utility is the sanctioned fallback — same scale (`--spacing` is
          `calc(1px * var(--base-scale))`, so px-14 === calc(14px * var(--base-scale))). */
-
-      font-family: var(--font-base);
-      font-size: var(--text-base-400);
-      font-weight: var(--font-weight-regular);
-      line-height: var(--leading-base-400);
     }
   }
 }
@@ -265,23 +236,22 @@
   }
 
   .both {
-    resize: both;
+    @apply resize;
   }
 
   .horizontal {
-    resize: horizontal;
+    @apply resize-x;
   }
 
   .vertical {
-    resize: vertical;
+    @apply resize-y;
   }
 }
 
 @layer fui.components.l1 {
   .textarea {
     @variant disabled {
-      color: var(--color-neutral-foreground-disabled);
-      cursor: not-allowed;
+      @apply cursor-not-allowed text-neutral-foreground-disabled;
 
       &::placeholder {
         @apply text-neutral-foreground-disabled;

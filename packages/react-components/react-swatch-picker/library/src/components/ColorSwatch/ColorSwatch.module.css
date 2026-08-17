@@ -99,7 +99,7 @@
 
 @layer fui.components.l1 {
   .rounded {
-    border-radius: var(--radius-medium);
+    @apply rounded-medium;
 
     @variant focus-visible-fui {
       @apply rounded-medium;
@@ -107,7 +107,7 @@
   }
 
   .circular {
-    border-radius: var(--radius-circular);
+    @apply rounded-circular;
 
     @variant focus-visible-fui {
       @apply rounded-circular;
@@ -115,7 +115,7 @@
   }
 
   .square {
-    border-radius: var(--radius-none);
+    @apply rounded-none;
 
     @variant focus-visible-fui {
       @apply rounded-none;
@@ -204,16 +204,14 @@
   .root {
     @variant disabled {
       @variant hover {
-        @apply cursor-not-allowed;
-
-        box-shadow: none;
+        @apply cursor-not-allowed shadow-none;
       }
     }
 
     @variant forced-colors {
       @variant disabled {
         @variant hover {
-          box-shadow: none;
+          @apply shadow-none;
         }
       }
     }

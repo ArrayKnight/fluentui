@@ -47,12 +47,10 @@
 
 @layer fui.components.l2 {
   .brand-primary {
-    color: var(--color-brand-foreground-1);
-    background-color: var(--color-neutral-foreground-on-brand);
+    @apply bg-neutral-foreground-on-brand text-brand-foreground-1;
 
     @variant hover {
-      color: var(--color-compound-brand-foreground-1-hover);
-      background-color: var(--color-neutral-foreground-on-brand);
+      @apply bg-neutral-foreground-on-brand text-compound-brand-foreground-1-hover;
 
       @variant active {
         @apply bg-neutral-foreground-on-brand text-compound-brand-foreground-1-pressed;

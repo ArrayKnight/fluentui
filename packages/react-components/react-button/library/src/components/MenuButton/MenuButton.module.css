@@ -62,24 +62,21 @@
   }
 
   .menu-icon-small {
-    @apply size-12;
+    @apply size-12 leading-base-200;
 
     font-size: calc(12px * var(--base-scale));
-    line-height: var(--leading-base-200);
   }
 
   .menu-icon-medium {
-    @apply size-12;
+    @apply size-12 leading-base-200;
 
     font-size: calc(12px * var(--base-scale));
-    line-height: var(--leading-base-200);
   }
 
   .menu-icon-large {
-    @apply size-16;
+    @apply size-16 leading-base-400;
 
     font-size: calc(16px * var(--base-scale));
-    line-height: var(--leading-base-400);
   }
 
   /*

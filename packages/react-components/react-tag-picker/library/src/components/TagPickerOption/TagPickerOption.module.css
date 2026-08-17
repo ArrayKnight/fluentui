@@ -19,13 +19,10 @@
 
   /* from useSecondaryContentBaseStyle (makeResetStyles) — `typographyStyles.caption1` spread */
   .secondary-content {
+    @apply font-base text-base-200 leading-base-200 font-regular;
+
     grid-column-start: 2;
     grid-row-start: 2;
-
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-200);
   }
 }
 

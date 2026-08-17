@@ -9,18 +9,12 @@
      "Base styles similar to regular menu item. Right now excludes icon color, hover active
      style for secondary text." (source comment) */
   .root {
-    @apply relative box-border flex min-h-32 max-w-290 shrink-0 cursor-pointer select-none;
-    @apply gap-horizontal-xs px-horizontal-s-nudge py-vertical-xs;
+    @apply relative box-border flex min-h-32 max-w-290 shrink-0 cursor-pointer gap-horizontal-xs rounded-medium bg-neutral-background-1 px-horizontal-s-nudge py-vertical-xs text-base-300 text-neutral-foreground-2 select-none;
 
     /* the compiled atomic is `align-items:start`, NOT `flex-start` — `items-start` would
        emit the latter. Identical rendering for a flex container, written longhand so the
        byte comparison against the compiled output stays exact. */
     align-items: start;
-
-    border-radius: var(--radius-medium);
-    color: var(--color-neutral-foreground-2);
-    background-color: var(--color-neutral-background-1);
-    font-size: var(--text-base-300);
 
     /* from createFocusOutlineStyle() — the default ring. `fui-focus-outline` carries the
        compiled declarations; the selector stays here (D6, including its hardcoded 2px). */

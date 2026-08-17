@@ -16,8 +16,7 @@
     grid-area: layout;
 
     @variant hover {
-      color: var(--color-neutral-foreground-2-hover);
-      background-color: var(--color-subtle-background-hover);
+      @apply bg-subtle-background-hover text-neutral-foreground-2-hover;
 
       & .expand-icon {
         @apply text-neutral-foreground-3-hover;
@@ -25,8 +24,7 @@
     }
 
     @variant active {
-      color: var(--color-neutral-foreground-2-pressed);
-      background-color: var(--color-subtle-background-pressed);
+      @apply bg-subtle-background-pressed text-neutral-foreground-2-pressed;
 
       & .expand-icon {
         @apply text-neutral-foreground-3-pressed;
@@ -58,10 +56,7 @@
   /* from useIconBaseStyles (makeResetStyles) — shared by iconBefore arg #2 and
      iconAfter arg #2 (one Griffel reset class, one module class) */
   .icon {
-    @apply flex items-center text-neutral-foreground-2;
-
-    line-height: var(--leading-base-500);
-    font-size: var(--text-base-500);
+    @apply flex items-center text-base-500 leading-base-500 text-neutral-foreground-2;
   }
 
   .actions {
@@ -99,7 +94,7 @@
   }
 
   .transparent {
-    background-color: var(--color-transparent-background);
+    @apply bg-transparent-background;
 
     @variant hover {
       @apply bg-transparent-background-hover;
@@ -114,19 +109,11 @@
 @layer fui.components.l1 {
   .root {
     @variant size-medium {
-      font-family: var(--font-base);
-      font-size: var(--text-base-300);
-      font-weight: var(--font-weight-regular);
-      line-height: var(--leading-base-300);
+      @apply font-base text-base-300 leading-base-300 font-regular;
     }
 
     @variant size-small {
-      @apply min-h-24;
-
-      font-family: var(--font-base);
-      font-size: var(--text-base-200);
-      font-weight: var(--font-weight-regular);
-      line-height: var(--leading-base-200);
+      @apply min-h-24 font-base text-base-200 leading-base-200 font-regular;
     }
   }
 }

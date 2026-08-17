@@ -7,16 +7,10 @@
 
 @layer fui.components.l1 {
   .root {
-    @apply box-content overflow-hidden;
-    @apply ps-0 pe-0 pt-0 pb-0;
-    @apply ms-horizontal-xs me-horizontal-xs mt-0 mb-0;
-    @apply h-40 w-40;
+    @apply ms-horizontal-xs me-horizontal-xs mt-0 mb-0 box-content h-40 w-40 overflow-hidden rounded-small border-s-transparent-stroke border-e-transparent-stroke ps-0 pe-0 pt-0 pb-0;
 
     border-block-start-color: var(--color-transparent-stroke);
-    border-inline-end-color: var(--color-transparent-stroke);
-    border-inline-start-color: var(--color-transparent-stroke);
     border-block-end-color: var(--color-transparent-stroke);
-    border-radius: var(--radius-small);
 
     @variant hover {
       @apply cursor-pointer;

@@ -19,18 +19,15 @@
    * shared verbatim by useStyles.annotation and useStyles.annotationNoDefaults */
   .annotation,
   .annotation-no-defaults {
-    @apply pointer-events-none absolute flex items-center justify-center rounded-medium px-horizontal-s py-vertical-xs text-center whitespace-pre-wrap text-neutral-foreground-1;
+    @apply pointer-events-none absolute flex items-center justify-center rounded-medium px-horizontal-s py-vertical-xs text-center font-base text-base-200 leading-base-200 font-regular whitespace-pre-wrap text-neutral-foreground-1;
 
-    font-family: var(--font-base);
-    font-size: var(--text-base-200);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-200);
     z-index: 2;
   }
 
   /* from useStyles.annotation — the default chrome `hideDefaultStyles` removes */
   .annotation {
-    box-shadow: var(--shadow-16);
+    @apply shadow-16;
+
     border: 1px solid var(--color-neutral-stroke-1);
   }
 

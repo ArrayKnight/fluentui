@@ -6,11 +6,9 @@
 
 @layer fui.base {
   .root {
+    @apply font-base text-base-300 leading-base-300 font-semibold;
+
     /* from typographyStyles.body1Strong */
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-base-300);
 
     &::after {
       content: ' ';

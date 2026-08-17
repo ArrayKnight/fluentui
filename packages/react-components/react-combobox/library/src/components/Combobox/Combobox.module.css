@@ -6,16 +6,14 @@
 
 @layer fui.components.l1 {
   .root {
-    @apply relative box-border inline-grid min-w-250 items-center justify-between align-middle;
+    @apply relative box-border inline-grid min-w-250 items-center justify-between gap-x-horizontal-xxs rounded-medium align-middle;
 
     grid-template-columns: 1fr auto;
-    border-radius: var(--radius-medium);
 
     /* `columnGap: tokens.spacingHorizontalXXS` */
-    @apply gap-x-horizontal-xxs;
 
     &::after {
-      @apply absolute box-border;
+      @apply absolute box-border border-b-compound-brand-stroke;
 
       content: '';
 
@@ -32,7 +30,6 @@
       /* longhands: `:focus-within:active` below overrides the color alone */
       border-bottom-width: var(--spacing-thick);
       border-bottom-style: solid;
-      border-bottom-color: var(--color-compound-brand-stroke);
 
       clip-path: inset(calc(100% - 2px) 0 0 0);
 
@@ -153,13 +150,7 @@
 @layer fui.components.l1 {
   .root {
     @variant disabled {
-      cursor: not-allowed;
-      background-color: var(--color-transparent-background);
-
-      border-top-color: var(--color-neutral-stroke-disabled);
-      border-right-color: var(--color-neutral-stroke-disabled);
-      border-bottom-color: var(--color-neutral-stroke-disabled);
-      border-left-color: var(--color-neutral-stroke-disabled);
+      @apply cursor-not-allowed border-t-neutral-stroke-disabled border-r-neutral-stroke-disabled border-b-neutral-stroke-disabled border-l-neutral-stroke-disabled bg-transparent-background;
 
       @variant forced-colors {
         border-top-color: GrayText;
@@ -251,16 +242,12 @@
 @layer fui.components.l1 {
   .root {
     & .input {
-      @apply self-stretch;
+      @apply self-stretch bg-transparent-background font-base text-neutral-foreground-1;
 
       /* literal `colorTransparentBackground` so the root's background shows through */
-      background-color: var(--color-transparent-background);
 
       /* the input itself never has a border — the root draws it */
       border-style: none;
-
-      color: var(--color-neutral-foreground-1);
-      font-family: var(--font-base);
 
       /* disable the default browser outline */
       @variant focus {
@@ -276,12 +263,7 @@
 
     @variant size-small {
       & .input {
-        @apply py-vertical-none ps-horizontal-s pe-horizontal-none;
-
-        font-family: var(--font-base);
-        font-size: var(--text-base-200);
-        font-weight: var(--font-weight-regular);
-        line-height: var(--leading-base-200);
+        @apply py-vertical-none ps-horizontal-s pe-horizontal-none font-base text-base-200 leading-base-200 font-regular;
 
         /* SNudge (6) + XXS (2) = 8px, exactly the S step */
       }
@@ -289,12 +271,7 @@
 
     @variant size-medium {
       & .input {
-        @apply py-vertical-none ps-horizontal-m pe-horizontal-none;
-
-        font-family: var(--font-base);
-        font-size: var(--text-base-300);
-        font-weight: var(--font-weight-regular);
-        line-height: var(--leading-base-300);
+        @apply py-vertical-none ps-horizontal-m pe-horizontal-none font-base text-base-300 leading-base-300 font-regular;
 
         /* MNudge (10) + XXS (2) = 12px, exactly the M step */
       }
@@ -302,12 +279,7 @@
 
     @variant size-large {
       & .input {
-        @apply py-vertical-none ps-18 pe-horizontal-none;
-
-        font-family: var(--font-base);
-        font-size: var(--text-base-400);
-        font-weight: var(--font-weight-regular);
-        line-height: var(--leading-base-400);
+        @apply py-vertical-none ps-18 pe-horizontal-none font-base text-base-400 leading-base-400 font-regular;
 
         /* M (12) + SNudge (6) = 18px, which matches NO spacing step, so the numeric utility
            is the sanctioned fallback. Same scale: `--spacing` is `calc(1px * var(--base-scale))`,
@@ -317,9 +289,7 @@
 
     @variant disabled {
       & .input {
-        color: var(--color-neutral-foreground-disabled);
-        background-color: var(--color-transparent-background);
-        cursor: not-allowed;
+        @apply cursor-not-allowed bg-transparent-background text-neutral-foreground-disabled;
 
         &::placeholder {
           @apply text-neutral-foreground-disabled;
@@ -332,11 +302,7 @@
 @layer fui.components.l1 {
   .root {
     & .icon {
-      @apply relative box-border block;
-
-      color: var(--color-neutral-stroke-accessible);
-      cursor: pointer;
-      font-size: var(--text-base-500);
+      @apply relative box-border block cursor-pointer text-base-500 text-neutral-stroke-accessible;
 
       &::after {
         @apply absolute;
@@ -405,9 +371,8 @@
 
 @layer fui.components.l2 {
   .listbox {
-    @apply box-border rounded-medium;
+    @apply box-border rounded-medium shadow-16;
 
-    box-shadow: var(--shadow-16);
     max-height: 80vh;
   }
 

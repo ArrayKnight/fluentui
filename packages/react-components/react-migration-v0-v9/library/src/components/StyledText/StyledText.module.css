@@ -8,38 +8,31 @@
   }
 
   .base100 {
-    font-size: var(--text-base-100);
-    line-height: var(--leading-base-100);
+    @apply text-base-100 leading-base-100;
   }
 
   .base200 {
-    font-size: var(--text-base-200);
-    line-height: var(--leading-base-200);
+    @apply text-base-200 leading-base-200;
   }
 
   .base300 {
-    font-size: var(--text-base-300);
-    line-height: var(--leading-base-300);
+    @apply text-base-300 leading-base-300;
   }
 
   .base400 {
-    font-size: var(--text-base-400);
-    line-height: var(--leading-base-400);
+    @apply text-base-400 leading-base-400;
   }
 
   .base500 {
-    font-size: var(--text-base-500);
-    line-height: var(--leading-base-500);
+    @apply text-base-500 leading-base-500;
   }
 
   .base600 {
-    font-size: var(--text-base-600);
-    line-height: var(--leading-base-600);
+    @apply text-base-600 leading-base-600;
   }
 
   .hero700 {
-    font-size: var(--text-hero-700);
-    line-height: var(--leading-hero-700);
+    @apply text-hero-700 leading-hero-700;
   }
 
   /* from useWeightStyles.* — raw numeric weights, not the Fluent fontWeight* tokens, so
@@ -53,19 +46,19 @@
   }
 
   .regular {
-    font-weight: 400;
+    @apply font-regular;
   }
 
   .medium {
-    font-weight: 500;
+    @apply font-medium;
   }
 
   .semibold {
-    font-weight: 600;
+    @apply font-semibold;
   }
 
   .bold {
-    font-weight: 700;
+    @apply font-bold;
   }
 
   .nowrap {
@@ -95,9 +88,7 @@
   }
 
   .mention-me {
-    @apply text-palette-pumpkin-border-active;
-
-    font-weight: 700;
+    @apply font-bold text-palette-pumpkin-border-active;
   }
 
   .disabled {
@@ -109,9 +100,7 @@
   }
 
   .important {
-    @apply text-palette-dark-orange-foreground-3;
-
-    font-weight: 700;
+    @apply font-bold text-palette-dark-orange-foreground-3;
   }
 
   .success {

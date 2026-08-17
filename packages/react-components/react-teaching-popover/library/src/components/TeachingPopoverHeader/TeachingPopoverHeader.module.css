@@ -8,11 +8,7 @@
 
 @layer fui.components.l1 {
   .root {
-    @apply mt-horizontal-none mb-horizontal-none flex flex-row items-center pb-vertical-xs text-neutral-foreground-3;
-
-    font-weight: var(--font-weight-semibold);
-    font-size: var(--text-base-200);
-    line-height: var(--leading-base-200);
+    @apply mt-horizontal-none mb-horizontal-none flex flex-row items-center pb-vertical-xs text-base-200 leading-base-200 font-semibold text-neutral-foreground-3;
   }
 }
 
@@ -24,27 +20,15 @@
 
 @layer fui.components.l1 {
   .dismiss-button {
-    @apply box-border flex cursor-pointer items-center;
-
-    color: var(--color-neutral-foreground-2);
-    position: relative;
+    @apply relative ms-auto box-border flex cursor-pointer items-center bg-transparent-background ps-horizontal-xs pe-horizontal-xs pt-vertical-xs pb-vertical-xs font-base text-base-300 leading-base-300 font-regular text-neutral-foreground-2;
 
     border: var(--spacing-thin) solid var(--color-transparent-stroke);
 
     /* ...typographyStyles.body1 */
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-300);
-
-    background-color: var(--color-transparent-background);
 
     border-start-end-radius: var(--radius-none);
     border-end-end-radius: var(--radius-none);
     border-inline-end-style: none;
-
-    @apply ms-auto;
-    @apply ps-horizontal-xs pe-horizontal-xs pt-vertical-xs pb-vertical-xs;
 
     /* from createCustomFocusIndicatorStyle({ outline, borderRadius, borderColor('transparent') }) */
     @variant focus-visible-fui {
@@ -68,12 +52,10 @@
 
 @layer fui.components.l1 {
   .icon {
-    @apply relative me-horizontal-xs box-content inline-flex items-center justify-center bg-transparent-background text-neutral-foreground-2;
+    @apply relative me-horizontal-xs box-content inline-flex items-center justify-center bg-transparent-background text-base-200 leading-base-200 text-neutral-foreground-2;
 
     height: var(--text-base-200);
     width: var(--text-base-200);
-    line-height: var(--leading-base-200);
-    font-size: var(--text-base-200);
 
     text-decoration-line: none;
     vertical-align: middle;

@@ -10,15 +10,9 @@
 
 @layer fui.components.l1 {
   .root {
-    @apply box-border inline-block;
+    @apply box-border inline-block rounded-none border-t-neutral-stroke-1 border-r-neutral-stroke-1 border-b-neutral-stroke-1 border-l-neutral-stroke-1;
 
     /* shorthands.borderColor() — expanded to the four longhands Griffel compiled */
-    border-top-color: var(--color-neutral-stroke-1);
-    border-right-color: var(--color-neutral-stroke-1);
-    border-bottom-color: var(--color-neutral-stroke-1);
-    border-left-color: var(--color-neutral-stroke-1);
-
-    border-radius: var(--radius-none);
   }
 
   .block {
@@ -39,7 +33,7 @@
   }
 
   .shadow {
-    box-shadow: var(--shadow-4);
+    @apply shadow-4;
   }
 
   /*

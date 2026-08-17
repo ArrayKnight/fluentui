@@ -6,12 +6,7 @@
 
 @layer fui.components.l1 {
   .root {
-    @apply inline overflow-visible text-start text-clip whitespace-normal;
-
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-300);
+    @apply inline overflow-visible text-start font-base text-base-300 leading-base-300 font-regular text-clip whitespace-normal;
   }
 
   .nowrap {
@@ -44,69 +39,60 @@
 
   .root {
     @variant size-100 {
-      font-size: var(--text-base-100);
-      line-height: var(--leading-base-100);
+      @apply text-base-100 leading-base-100;
     }
 
     @variant size-200 {
-      font-size: var(--text-base-200);
-      line-height: var(--leading-base-200);
+      @apply text-base-200 leading-base-200;
     }
 
     @variant size-400 {
-      font-size: var(--text-base-400);
-      line-height: var(--leading-base-400);
+      @apply text-base-400 leading-base-400;
     }
 
     @variant size-500 {
-      font-size: var(--text-base-500);
-      line-height: var(--leading-base-500);
+      @apply text-base-500 leading-base-500;
     }
 
     @variant size-600 {
-      font-size: var(--text-base-600);
-      line-height: var(--leading-base-600);
+      @apply text-base-600 leading-base-600;
     }
 
     @variant size-700 {
-      font-size: var(--text-hero-700);
-      line-height: var(--leading-hero-700);
+      @apply text-hero-700 leading-hero-700;
     }
 
     @variant size-800 {
-      font-size: var(--text-hero-800);
-      line-height: var(--leading-hero-800);
+      @apply text-hero-800 leading-hero-800;
     }
 
     @variant size-900 {
-      font-size: var(--text-hero-900);
-      line-height: var(--leading-hero-900);
+      @apply text-hero-900 leading-hero-900;
     }
 
     @variant size-1000 {
-      font-size: var(--text-hero-1000);
-      line-height: var(--leading-hero-1000);
+      @apply text-hero-1000 leading-hero-1000;
     }
   }
 
   .monospace {
-    font-family: var(--font-monospace);
+    @apply font-monospace;
   }
 
   .numeric {
-    font-family: var(--font-numeric);
+    @apply font-numeric;
   }
 
   .medium {
-    font-weight: var(--font-weight-medium);
+    @apply font-medium;
   }
 
   .semibold {
-    font-weight: var(--font-weight-semibold);
+    @apply font-semibold;
   }
 
   .bold {
-    font-weight: var(--font-weight-bold);
+    @apply font-bold;
   }
 
   .center {

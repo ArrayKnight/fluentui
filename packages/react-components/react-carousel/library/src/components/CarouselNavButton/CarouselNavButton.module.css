@@ -7,15 +7,12 @@
 
 @layer fui.components.l1 {
   .root {
-    @apply box-content cursor-pointer;
-    @apply h-vertical-s w-horizontal-s;
-    @apply ps-horizontal-s pe-horizontal-s pt-vertical-s pb-vertical-s;
+    @apply box-content h-vertical-s w-horizontal-s cursor-pointer bg-transparent-background ps-horizontal-s pe-horizontal-s pt-vertical-s pb-vertical-s;
 
     /* `pointer-events: all` is not Tailwind's `pointer-events-auto`; the dots re-enable
        hit-testing inside CarouselNavContainer's `pointer-events: none` overlay. */
     pointer-events: all;
 
-    background-color: var(--color-transparent-background);
     border-block-start-width: 0;
     border-inline-end-width: 0;
     border-inline-start-width: 0;
@@ -60,8 +57,7 @@
     }
 
     @variant selected {
-      @apply w-horizontal-l;
-      @apply ps-horizontal-xs pe-horizontal-xs pt-vertical-s pb-vertical-s;
+      @apply w-horizontal-l ps-horizontal-xs pe-horizontal-xs pt-vertical-s pb-vertical-s;
 
       outline: var(--spacing-thin) solid transparent;
 

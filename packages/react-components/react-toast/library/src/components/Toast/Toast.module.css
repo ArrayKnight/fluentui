@@ -6,15 +6,12 @@
 
 @layer fui.base {
   .root {
-    @apply grid rounded-medium bg-neutral-background-1 p-horizontal-m text-neutral-foreground-1;
+    @apply grid rounded-medium bg-neutral-background-1 p-horizontal-m text-base-300 font-semibold text-neutral-foreground-1 shadow-8;
 
     grid-template-columns: auto 1fr auto;
 
     border: var(--spacing-thin) solid var(--color-transparent-stroke);
-    box-shadow: var(--shadow-8);
 
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-semibold);
     line-height: calc(20px * var(--base-scale));
   }
 }

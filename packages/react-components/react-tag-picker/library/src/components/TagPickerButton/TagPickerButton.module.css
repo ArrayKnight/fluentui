@@ -6,23 +6,14 @@
 
 @layer fui.components.l1 {
   .root {
-    @apply box-border flex min-h-32 grow items-center;
-
-    background-color: var(--color-transparent-background);
+    @apply box-border flex min-h-32 grow cursor-pointer items-center gap-x-horizontal-xxs bg-transparent-background text-start font-base text-neutral-foreground-1;
 
     /* compiled `border:none` — TagPickerControl draws the field's border */
     border-style: none;
 
-    color: var(--color-neutral-foreground-1);
-    cursor: pointer;
-
-    font-family: var(--font-base);
-
     /* `columnGap: tokens.spacingHorizontalXXS` — `extra-large` overrides it below */
-    @apply gap-x-horizontal-xxs;
 
     /* compiled `[ltr, rtl]` pair `left`/`right` → logical */
-    text-align: start;
 
     /* disable the default browser outline */
     @variant focus {
@@ -34,36 +25,27 @@
 @layer fui.components.l1 {
   .root {
     @variant size-medium {
-      @apply py-3 ps-horizontal-s pe-horizontal-s-nudge;
+      @apply py-3 ps-horizontal-s pe-horizontal-s-nudge text-base-200 leading-base-200 font-regular;
 
       /* typographyStyles.caption1 */
-      font-size: var(--text-base-200);
-      font-weight: var(--font-weight-regular);
-      line-height: var(--leading-base-200);
 
       /* SNudge (6) + XXS (2) = 8px, exactly the S step */
     }
 
     @variant size-large {
-      @apply py-5 ps-horizontal-m pe-horizontal-m-nudge;
+      @apply py-5 ps-horizontal-m pe-horizontal-m-nudge text-base-300 leading-base-300 font-regular;
 
       /* typographyStyles.body1 */
-      font-size: var(--text-base-300);
-      font-weight: var(--font-weight-regular);
-      line-height: var(--leading-base-300);
 
       /* MNudge (10) + XXS (2) = 12px, exactly the M step */
     }
 
     @variant size-extra-large {
-      @apply gap-x-horizontal-s-nudge py-7 ps-18 pe-horizontal-m;
+      @apply gap-x-horizontal-s-nudge py-7 ps-18 pe-horizontal-m text-base-400 leading-base-400 font-regular;
 
       /* `columnGap: tokens.spacingHorizontalSNudge` overrides the root's XXS */
 
       /* typographyStyles.body2 */
-      font-size: var(--text-base-400);
-      font-weight: var(--font-weight-regular);
-      line-height: var(--leading-base-400);
 
       /* M (12) + SNudge (6) = 18px, which matches NO spacing step, so the numeric utility is
          the sanctioned fallback (D4 amendment) — same scale, `ps-18` === `calc(18px * var(--base-scale))`. */

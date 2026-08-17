@@ -108,17 +108,12 @@
 
 @layer fui.base {
   .popup-surface {
-    @apply inline-flex rounded-medium border-transparent-stroke bg-neutral-background-1 text-neutral-foreground-1;
+    @apply inline-flex rounded-medium border-transparent-stroke bg-neutral-background-1 font-base text-base-300 leading-base-300 font-regular text-neutral-foreground-1 shadow-16;
 
-    box-shadow: var(--shadow-16);
     border-width: 1px;
     border-style: solid;
 
     /* typographyStyles.body1 */
-    font-family: var(--font-base);
-    font-size: var(--text-base-300);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--leading-base-300);
   }
 }
 
@@ -130,8 +125,7 @@
 
 @layer fui.components.l2 {
   .root {
-    position: relative;
-    cursor: pointer;
+    @apply relative cursor-pointer;
 
     & input {
       @apply cursor-pointer;
@@ -141,7 +135,7 @@
 
 @layer fui.components.l2 {
   .disabled {
-    cursor: default;
+    @apply cursor-default;
 
     & input {
       @apply cursor-default;
