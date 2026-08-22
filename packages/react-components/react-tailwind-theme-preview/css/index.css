@@ -1,0 +1,64 @@
+/**
+ * The `#theme` reference target for component `*.module.css` files.
+ *
+ * Library constraints (deliberately unlike an app Tailwind setup):
+ * - No preflight — a component library must not ship global resets. Utilities reach
+ *   consumers only inlined through `@apply`.
+ * - Tokens register via `@theme inline` (./tokens.css), substituting `var(--token)`
+ *   into each utility so values stay per-element CSS custom properties. A non-inline
+ *   `@theme` alias would freeze resolution at `:root` and must not be used.
+ */
+
+/*
+ * One cascade-layer family. fui.base is levelless (resets); l1 = base components,
+ * l2 = compositions, l3–l5 = consumer space. Winner order within a level is in-file
+ * source order (all selectors are :where()-flat). fui.utilities beats component styles
+ * but loses to unlayered consumer CSS.
+ */
+@layer fui.theme, fui.base, fui.components, fui.components.l1, fui.components.l2, fui.components.l3, fui.components.l4, fui.components.l5, fui.utilities;
+
+@import 'tailwindcss/theme.css' layer(fui.theme);
+@import 'tailwindcss/utilities.css' layer(fui.utilities);
+
+@import './variants.css';
+@import './utilities.css';
+
+@theme static {
+  --base-scale: calc(1rem / 16px);
+
+  /*
+   * Numeric spacing utilities (p-12, gap-8, …) read as px but compute to rem via
+   * --base-scale, scaling with the root font-size. ./tokens.css re-adds the named
+   * Fluent spacing steps as aliases of the same numeric axis, so both forms share the
+   * one density knob below. Stroke widths are the exception: literal base-scale values
+   * under --stroke-width-* (borders must not thin with layout density).
+   */
+  --spacing-*: initial;
+  --spacing: calc(1px * var(--base-scale));
+
+  /* Drop Tailwind's default palette/typography so a stray text-red-500 fails the build
+     instead of diverging from Fluent tokens. Structural utilities remain. */
+  --color-*: initial;
+  --font-*: initial;
+  --text-*: initial;
+  --font-weight-*: initial;
+  --tracking-*: initial;
+  --leading-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+  --inset-shadow-*: initial;
+  --drop-shadow-*: initial;
+  --blur-*: initial;
+  --animate-*: initial;
+}
+
+/*
+ * Generated Fluent token registration (`bg-neutral-background-1`, `rounded-medium`, …).
+ * Must stay AFTER the `@theme static` block — the `initial` resets above clear only
+ * what is registered before them.
+ */
+@import './tokens.css';
+
+/* Generated theme classes (.fui-theme-web-dark, …), custom properties only; the
+   `:root, :host` defaults in tokens.css stay web light. */
+@import './themes.css';

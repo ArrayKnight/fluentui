@@ -1,0 +1,256 @@
+{
+  "name": "@fluentui/react-windmod-preview",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Fluent UI React components styled with Tailwind v4 + CSS Modules ('windmod'). Composes @fluentui/react-headless-components-preview hooks (useX → useXStyles → renderX) with build-time-compiled CSS Modules that replicate the Griffel suite's visuals; theming is pure CSS via @fluentui/react-tailwind-theme-preview theme classes applied by ThemeProvider.",
+  "type": "module",
+  "main": "lib-commonjs/index.cjs",
+  "module": "lib/index.js",
+  "typings": "./dist/index.d.ts",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "*.md",
+    "dist/*.d.ts",
+    "dist/*.d.cts",
+    "dist/styles.css",
+    "lib",
+    "lib-commonjs",
+    "src/variants.css"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microsoft/fluentui"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@fluentui/react-headless-components-preview": "^0.2.5",
+    "@fluentui/react-icons": "^2.0.245",
+    "@fluentui/react-shared-contexts": "^9.26.3",
+    "@fluentui/react-tailwind-theme-preview": "^9.0.0-alpha.0",
+    "@fluentui/react-utilities": "^9.26.6",
+    "@swc/helpers": "^0.5.1",
+    "clsx": "^2.1.1"
+  },
+  "peerDependencies": {
+    "@types/react": ">=16.14.0 <20.0.0",
+    "@types/react-dom": ">=16.9.0 <20.0.0",
+    "react": ">=16.14.0 <20.0.0",
+    "react-dom": ">=16.14.0 <20.0.0"
+  },
+  "imports": {
+    "#theme": "./src/theme.css"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./lib/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./lib-commonjs/index.cjs"
+      }
+    },
+    "./badge": {
+      "import": {
+        "types": "./dist/badge.d.ts",
+        "default": "./lib/badge.js"
+      },
+      "require": {
+        "types": "./dist/badge.d.cts",
+        "default": "./lib-commonjs/badge.cjs"
+      }
+    },
+    "./button": {
+      "import": {
+        "types": "./dist/button.d.ts",
+        "default": "./lib/button.js"
+      },
+      "require": {
+        "types": "./dist/button.d.cts",
+        "default": "./lib-commonjs/button.cjs"
+      }
+    },
+    "./compound-button": {
+      "import": {
+        "types": "./dist/compound-button.d.ts",
+        "default": "./lib/compound-button.js"
+      },
+      "require": {
+        "types": "./dist/compound-button.d.cts",
+        "default": "./lib-commonjs/compound-button.cjs"
+      }
+    },
+    "./divider": {
+      "import": {
+        "types": "./dist/divider.d.ts",
+        "default": "./lib/divider.js"
+      },
+      "require": {
+        "types": "./dist/divider.d.cts",
+        "default": "./lib-commonjs/divider.cjs"
+      }
+    },
+    "./image": {
+      "import": {
+        "types": "./dist/image.d.ts",
+        "default": "./lib/image.js"
+      },
+      "require": {
+        "types": "./dist/image.d.cts",
+        "default": "./lib-commonjs/image.cjs"
+      }
+    },
+    "./input": {
+      "import": {
+        "types": "./dist/input.d.ts",
+        "default": "./lib/input.js"
+      },
+      "require": {
+        "types": "./dist/input.d.cts",
+        "default": "./lib-commonjs/input.cjs"
+      }
+    },
+    "./label": {
+      "import": {
+        "types": "./dist/label.d.ts",
+        "default": "./lib/label.js"
+      },
+      "require": {
+        "types": "./dist/label.d.cts",
+        "default": "./lib-commonjs/label.cjs"
+      }
+    },
+    "./link": {
+      "import": {
+        "types": "./dist/link.d.ts",
+        "default": "./lib/link.js"
+      },
+      "require": {
+        "types": "./dist/link.d.cts",
+        "default": "./lib-commonjs/link.cjs"
+      }
+    },
+    "./progress-bar": {
+      "import": {
+        "types": "./dist/progress-bar.d.ts",
+        "default": "./lib/progress-bar.js"
+      },
+      "require": {
+        "types": "./dist/progress-bar.d.cts",
+        "default": "./lib-commonjs/progress-bar.cjs"
+      }
+    },
+    "./provider": {
+      "import": {
+        "types": "./dist/provider.d.ts",
+        "default": "./lib/provider.js"
+      },
+      "require": {
+        "types": "./dist/provider.d.cts",
+        "default": "./lib-commonjs/provider.cjs"
+      }
+    },
+    "./rating-display": {
+      "import": {
+        "types": "./dist/rating-display.d.ts",
+        "default": "./lib/rating-display.js"
+      },
+      "require": {
+        "types": "./dist/rating-display.d.cts",
+        "default": "./lib-commonjs/rating-display.cjs"
+      }
+    },
+    "./rating-item": {
+      "import": {
+        "types": "./dist/rating-item.d.ts",
+        "default": "./lib/rating-item.js"
+      },
+      "require": {
+        "types": "./dist/rating-item.d.cts",
+        "default": "./lib-commonjs/rating-item.cjs"
+      }
+    },
+    "./skeleton": {
+      "import": {
+        "types": "./dist/skeleton.d.ts",
+        "default": "./lib/skeleton.js"
+      },
+      "require": {
+        "types": "./dist/skeleton.d.cts",
+        "default": "./lib-commonjs/skeleton.cjs"
+      }
+    },
+    "./skeleton-item": {
+      "import": {
+        "types": "./dist/skeleton-item.d.ts",
+        "default": "./lib/skeleton-item.js"
+      },
+      "require": {
+        "types": "./dist/skeleton-item.d.cts",
+        "default": "./lib-commonjs/skeleton-item.cjs"
+      }
+    },
+    "./slider": {
+      "import": {
+        "types": "./dist/slider.d.ts",
+        "default": "./lib/slider.js"
+      },
+      "require": {
+        "types": "./dist/slider.d.cts",
+        "default": "./lib-commonjs/slider.cjs"
+      }
+    },
+    "./spinner": {
+      "import": {
+        "types": "./dist/spinner.d.ts",
+        "default": "./lib/spinner.js"
+      },
+      "require": {
+        "types": "./dist/spinner.d.cts",
+        "default": "./lib-commonjs/spinner.cjs"
+      }
+    },
+    "./textarea": {
+      "import": {
+        "types": "./dist/textarea.d.ts",
+        "default": "./lib/textarea.js"
+      },
+      "require": {
+        "types": "./dist/textarea.d.cts",
+        "default": "./lib-commonjs/textarea.cjs"
+      }
+    },
+    "./toggle-button": {
+      "import": {
+        "types": "./dist/toggle-button.d.ts",
+        "default": "./lib/toggle-button.js"
+      },
+      "require": {
+        "types": "./dist/toggle-button.d.cts",
+        "default": "./lib-commonjs/toggle-button.cjs"
+      }
+    },
+    "./tooltip": {
+      "import": {
+        "types": "./dist/tooltip.d.ts",
+        "default": "./lib/tooltip.js"
+      },
+      "require": {
+        "types": "./dist/tooltip.d.cts",
+        "default": "./lib-commonjs/tooltip.cjs"
+      }
+    },
+    "./styles.css": "./dist/styles.css",
+    "./variants.css": "./src/variants.css",
+    "./package.json": "./package.json"
+  },
+  "beachball": {
+    "disallowedChangeTypes": [
+      "major",
+      "prerelease"
+    ]
+  }
+}

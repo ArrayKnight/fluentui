@@ -1,0 +1,13 @@
+/*
+ * Emits the shared Tailwind theme layer once per storybook document — every preview
+ * imports this (directly or via the root preview). Component `*.module.css` files only
+ * `@reference` the theme, so without this emission spacing computes to 0px and tokens
+ * resolve to nothing. `source(none)` keeps Tailwind from content-scanning, so the file
+ * emits variables only and cannot affect unconverted packages.
+ * Routed through Tailwind by `rules.tailwindThemeRule` (matched by filename).
+ */
+@import '@fluentui/react-tailwind-theme-preview' source(none);
+
+/* Headless icons stylesheet, layered at l1 for the same reasons as the theme package's
+   own emit.css (which serves published consumers; this copy serves storybooks). */
+@import '@fluentui/react-icons/headless/styles.css' layer(fui.components.l1);

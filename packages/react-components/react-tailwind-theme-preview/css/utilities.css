@@ -1,0 +1,62 @@
+/*
+ * Focus-ring utilities (CSS replacement for react-tabster's Griffel focus factories).
+ *
+ * `@utility` on purpose: `@apply` inlines the declarations at the call site inside the
+ * caller's `fui.*` layer — nothing lands in Tailwind's `utilities` layer, which would
+ * outrank every component layer. Declarations only; the caller supplies the selector via
+ * the `focus-visible` / `focus-within` variants.
+ *
+ * Parameterisation: the `--fui-focus-*` custom properties are knobs with `var()`
+ * fallbacks reproducing the compiled Griffel defaults. Each utility resets its knobs to
+ * `initial` (guaranteed-invalid for unregistered properties) so an ancestor's knob never
+ * leaks into a nested component (SplitButton nests Buttons); override a knob AFTER the
+ * `@apply`, from a higher layer, or (for fui-focus-outline) on the ::after itself.
+ *
+ * Knobs are deliberately NOT `@property`-registered: any non-empty registry puts Blink's
+ * transition-start on a page-global slow path (~9.4 µs per started transition). Do not
+ * reintroduce `@property` without re-running that perf gate.
+ */
+
+/* Default ring (`createFocusOutlineStyle()`): a ::after inset by the outline width. */
+@utility fui-focus-outline {
+  --fui-focus-outline-width: initial;
+  --fui-focus-outline-color: initial;
+  --fui-focus-outline-radius: initial;
+  --fui-focus-outline-offset: initial;
+
+  @apply border-transparent;
+
+  @variant after {
+    @apply pointer-events-none absolute z-1;
+
+    border: var(--fui-focus-outline-width, 2px) solid var(--fui-focus-outline-color, var(--color-stroke-focus-2));
+    border-radius: var(--fui-focus-outline-radius, var(--radius-medium));
+    inset: calc(0px - var(--fui-focus-outline-width, 2px) - var(--fui-focus-outline-offset, 0px));
+  }
+
+  @variant forced-colors {
+    @variant after {
+      @apply border-[Highlight];
+    }
+  }
+}
+
+/* Button-family ring (`createCustomFocusIndicatorStyle()`): own border + inset shadow.
+   Declaration order matters against a lower-layer `border:` shorthand. */
+@utility fui-focus-ring {
+  --fui-focus-ring-color: initial;
+  --fui-focus-ring-radius: initial;
+  --fui-focus-ring-width: initial;
+  --fui-focus-ring-inset-width: initial;
+
+  border-color: var(--fui-focus-ring-color, var(--color-stroke-focus-2));
+  border-radius: var(--fui-focus-ring-radius, var(--radius-medium));
+  border-width: var(--fui-focus-ring-width, 1px);
+
+  @apply outline-(length:--spacing-thick) outline-transparent-stroke outline-solid;
+
+  box-shadow: 0 0 0 var(--fui-focus-ring-inset-width, var(--spacing-thin))
+    var(--fui-focus-ring-color, var(--color-stroke-focus-2)) inset;
+
+  @apply z-1;
+}
