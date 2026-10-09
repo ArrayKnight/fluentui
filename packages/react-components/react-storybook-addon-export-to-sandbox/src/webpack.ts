@@ -16,10 +16,15 @@ export function webpack(config: WebpackFinalConfig, options: WebpackFinalOptions
 }
 
 const identity = <T extends unknown>(value: T) => value;
-const addonFilePattern = /react-storybook-addon-export-to-sandbox\/[a-z/]+.[jt]s$/;
+// Both path separators on purpose: on Windows the registered preset name is an absolute
+// path with backslashes (e.g. `...\react-storybook-addon-export-to-sandbox\temp\preset.ts`);
+// a forward-slash-only pattern fails to find the registration, silently drops the addon
+// options, and the full-source babel plugin then crashes on undefined `importMappings`.
+const addonFilePattern = /react-storybook-addon-export-to-sandbox[\\/][a-z\\/]+.[jt]s$/;
 const defaultOptions = {
   webpackRule: {},
   babelLoaderOptionsUpdater: identity,
+  storyGranularity: 'file' as const,
   cssModules: false,
 };
 
@@ -29,9 +34,9 @@ const PLUGIN_PATH =
     : '@fluentui/babel-preset-storybook-full-source';
 
 function createBabelLoaderRule(config: Required<PresetConfig>): import('webpack').RuleSetRule {
-  const { babelLoaderOptionsUpdater, importMappings, webpackRule, cssModules } = config;
+  const { babelLoaderOptionsUpdater, importMappings, webpackRule, storyGranularity, cssModules } = config;
 
-  const plugin = [require.resolve(PLUGIN_PATH), { importMappings, cssModules }];
+  const plugin = [require.resolve(PLUGIN_PATH), { importMappings, storyGranularity, cssModules }];
 
   return {
     test: /\.stories\.(jsx?$|tsx?$)/,
