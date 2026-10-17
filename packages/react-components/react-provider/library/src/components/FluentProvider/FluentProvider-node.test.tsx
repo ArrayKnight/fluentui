@@ -32,10 +32,10 @@ describe('FluentProvider (node)', () => {
     resetIdsForTests();
   });
 
-  it('should render CSS variables as inline style', () => {
+  it('should render CSS variables as inline style', async () => {
     const html = renderToStaticMarkup(<FluentProvider theme={testTheme} />);
 
-    expect(parseHTMLString(html)).toMatchInlineSnapshot(`
+    expect(await parseHTMLString(html)).toMatchInlineSnapshot(`
       "<div
         dir="ltr"
         class="fui-FluentProvider fui-FluentProvider1"
@@ -50,7 +50,7 @@ describe('FluentProvider (node)', () => {
     `);
   });
 
-  it('renders nonce with SSR style element', () => {
+  it('renders nonce with SSR style element', async () => {
     const nonce = 'random';
     const renderer = createDOMRenderer(undefined, {
       styleElementAttributes: { nonce },
@@ -62,7 +62,7 @@ describe('FluentProvider (node)', () => {
       </RendererProvider>,
     );
 
-    expect(parseHTMLString(html)).toMatchInlineSnapshot(`
+    expect(await parseHTMLString(html)).toMatchInlineSnapshot(`
       "<div
         dir="ltr"
         class="fui-FluentProvider fui-FluentProvider1"
@@ -75,5 +75,62 @@ describe('FluentProvider (node)', () => {
         </style>
       </div>"
     `);
+  });
+
+  it.each([
+    '"unfinished',
+    'red /* unfinished',
+    'calc(1px',
+    'red\\',
+    'red;}</style><script>bad</script>',
+    '<url(/*)',
+    '<url(a{)',
+    '>url(a{)',
+    ';url(a{)',
+    '"</style><script>text</script>"',
+    'calc(var(--custom-size) * 2)',
+    'url(a"b)c"d)',
+    'custom((nested))',
+  ])('omits unsupported theme values in server-rendered style output for %j', value => {
+    const logWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => undefined);
+    try {
+      const html = renderToStaticMarkup(
+        <FluentProvider theme={{ fontFamilyBase: value, colorBrandBackground: 'blue' }} />,
+      );
+
+      expect(html.match(/<style\b/g)).toHaveLength(1);
+      expect(html.match(/<\/style>/g)).toHaveLength(1);
+      expect(html).not.toContain('<script>');
+      expect(html).not.toContain('--fontFamilyBase:');
+      expect(html).toContain('--colorBrandBackground: blue;');
+      expect(logWarnSpy).toHaveBeenCalled();
+    } finally {
+      logWarnSpy.mockRestore();
+    }
+  });
+
+  it.each([
+    "'Segoe UI Web (West European)', sans-serif",
+    'linear-gradient(red, blue)',
+    'attr(data-color)',
+    'unsupportedrgb(0,0,0)',
+    'custom-function(anything / else: value)',
+    'url(images/icon.svg)',
+  ])('preserves values without a function-name allowlist during SSR for %j', value => {
+    const logWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => undefined);
+    try {
+      const html = renderToStaticMarkup(
+        <FluentProvider theme={{ fontFamilyBase: value, colorBrandBackground: 'blue' }} />,
+      );
+
+      expect(html.match(/<style\b/g)).toHaveLength(1);
+      expect(html.match(/<\/style>/g)).toHaveLength(1);
+      expect(html).not.toContain('<script>');
+      expect(html).toContain(`--fontFamilyBase: ${value};`);
+      expect(html).toContain('--colorBrandBackground: blue;');
+      expect(logWarnSpy).not.toHaveBeenCalled();
+    } finally {
+      logWarnSpy.mockRestore();
+    }
   });
 });

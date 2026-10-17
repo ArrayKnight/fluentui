@@ -11,6 +11,7 @@ import { renderToastTitle } from './renderToastTitle';
  */
 export const ToastTitle: ForwardRefComponent<ToastTitleProps> = React.forwardRef((props, ref) => {
   const state = useToastTitle(props, ref);
+
   return renderToastTitle(state);
 });
 
