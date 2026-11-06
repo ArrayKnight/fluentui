@@ -327,9 +327,7 @@ async function installDependenciesAtReactRoot(reactVersionRootPath: string) {
 }
 
 type EnsureDepsMode =
-  | { kind: 'reuse-run' }
-  | { kind: 'prepare-only-no-install' }
-  | { kind: 'run-install'; scaffoldRoot: string };
+  { kind: 'reuse-run' } | { kind: 'prepare-only-no-install' } | { kind: 'run-install'; scaffoldRoot: string };
 
 async function ensureDependencies(params: {
   reactRootPath: string;
@@ -497,6 +495,11 @@ export async function setup(
       join(__dirname, 'files', 'jest.mock-snapshots.js.template'),
       metadata.tmpl,
       join(projectPath, 'jest.mock-snapshots.js'),
+    );
+    renderTemplateToFile(
+      join(__dirname, 'files', 'jest.snapshot-resolver.js.template'),
+      metadata.tmpl,
+      join(projectPath, 'jest.snapshot-resolver.js'),
     );
     renderTemplateToFile(join(__dirname, 'files', '.swcrc.template'), metadata.tmpl, join(projectPath, '.swcrc'));
   }
