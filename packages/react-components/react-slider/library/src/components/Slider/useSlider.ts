@@ -12,6 +12,11 @@ export const useSlider_unstable = (props: SliderProps, ref: React.Ref<HTMLInputE
 
   const baseState = useSliderBase_unstable(baseProps, ref);
 
+  // Focus-within ref drives the styled focus outline; applied here rather than in the base hook
+  // so the base hook does not depend on react-tabster (keyborg).
+  // eslint-disable-next-line react-hooks/immutability
+  baseState.root.ref = useMergedRefs(baseState.root.ref, useFocusWithin<HTMLDivElement>());
+
   return {
     ...baseState,
     size,
@@ -72,7 +77,10 @@ export const useSliderBase_unstable = (props: SliderBaseProps, ref: React.Ref<HT
     thumb: slot.always(thumb, { elementType: 'div' }),
   };
 
-  state.root.ref = useMergedRefs(state.root.ref, useFocusWithin<HTMLDivElement>());
+  // Apply after slot resolution so an explicitly undefined slot attribute also receives the default.
+  if (state.input['aria-orientation'] === undefined) {
+    state.input['aria-orientation'] = state.vertical ? 'vertical' : 'horizontal';
+  }
 
   useSliderState_unstable(state, props);
 

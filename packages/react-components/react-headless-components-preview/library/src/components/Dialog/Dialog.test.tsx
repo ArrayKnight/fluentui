@@ -106,6 +106,178 @@ describe('Dialog', () => {
     expect(dialog).not.toHaveAttribute('aria-labelledby');
   });
 
+  describe('scroll lock', () => {
+    // jsdom reports clientWidth 0, which would read as a scrollbar on every page.
+    const setScrollbarWidth = (width: number) =>
+      Object.defineProperty(document.documentElement, 'clientWidth', {
+        configurable: true,
+        value: window.innerWidth - width,
+      });
+
+    afterEach(() => {
+      Reflect.deleteProperty(document.documentElement, 'clientWidth');
+      document.documentElement.style.removeProperty('scrollbar-gutter');
+      document.body.style.removeProperty('overflow');
+    });
+
+    const renderModal = () =>
+      render(
+        <Dialog unmountOnClose={false}>
+          <DialogTrigger>
+            <button>Open dialog</button>
+          </DialogTrigger>
+          <DialogSurface>
+            <DialogTitle>Dialog title</DialogTitle>
+            <DialogActions>
+              <DialogTrigger>
+                <button>Close dialog</button>
+              </DialogTrigger>
+            </DialogActions>
+          </DialogSurface>
+        </Dialog>,
+      );
+
+    it('reserves the scrollbar gutter while a modal holds the lock', () => {
+      setScrollbarWidth(15);
+      const result = renderModal();
+
+      fireEvent.click(result.getByRole('button', { name: 'Open dialog' }));
+
+      expect(document.body.style.overflow).toBe('visible clip');
+      // On <html>, not <body>: scrollbar-gutter does not propagate to the viewport.
+      expect(document.documentElement.style.scrollbarGutter).toBe('stable');
+
+      fireEvent.click(result.getByRole('button', { name: 'Close dialog' }));
+
+      expect(document.documentElement.style.scrollbarGutter).toBe('');
+    });
+
+    it('reserves nothing when the scrollbar takes no layout width', () => {
+      setScrollbarWidth(0);
+      const result = renderModal();
+
+      fireEvent.click(result.getByRole('button', { name: 'Open dialog' }));
+
+      expect(document.body.style.overflow).toBe('visible clip');
+      expect(document.documentElement.style.scrollbarGutter).toBe('');
+    });
+
+    it.each(['stable', 'stable both-edges'])('preserves an inline %s gutter during and after the lock', gutter => {
+      setScrollbarWidth(15);
+      document.documentElement.style.scrollbarGutter = gutter;
+      const result = renderModal();
+
+      fireEvent.click(result.getByRole('button', { name: 'Open dialog' }));
+
+      expect(document.documentElement.style.scrollbarGutter).toBe(gutter);
+
+      fireEvent.click(result.getByRole('button', { name: 'Close dialog' }));
+
+      expect(document.documentElement.style.scrollbarGutter).toBe(gutter);
+    });
+
+    it('preserves a stable both-edges gutter supplied by a stylesheet', () => {
+      setScrollbarWidth(15);
+      const stylesheet = document.createElement('style');
+      stylesheet.textContent = 'html { scrollbar-gutter: stable both-edges; }';
+      document.head.appendChild(stylesheet);
+      try {
+        const result = renderModal();
+        expect(window.getComputedStyle(document.documentElement).scrollbarGutter).toBe('stable both-edges');
+
+        fireEvent.click(result.getByRole('button', { name: 'Open dialog' }));
+
+        expect(document.documentElement.style.scrollbarGutter).toBe('');
+        expect(window.getComputedStyle(document.documentElement).scrollbarGutter).toBe('stable both-edges');
+
+        fireEvent.click(result.getByRole('button', { name: 'Close dialog' }));
+
+        expect(document.documentElement.style.scrollbarGutter).toBe('');
+        expect(window.getComputedStyle(document.documentElement).scrollbarGutter).toBe('stable both-edges');
+      } finally {
+        stylesheet.remove();
+      }
+    });
+
+    it('leaves a non-modal dialog out of the lock entirely', () => {
+      setScrollbarWidth(15);
+      const result = render(
+        <Dialog defaultOpen modalType="non-modal">
+          <DialogSurface>
+            <DialogTitle>Non-modal title</DialogTitle>
+          </DialogSurface>
+        </Dialog>,
+      );
+
+      expect(result.container.querySelector('dialog')).toHaveAttribute('data-open');
+      expect(document.body.style.overflow).toBe('');
+      expect(document.documentElement.style.scrollbarGutter).toBe('');
+    });
+  });
+
+  it('reports a native modal close, e.g. from a form with method="dialog"', () => {
+    const onOpenChange = jest.fn();
+    const { getByRole } = render(
+      <Dialog open onOpenChange={onOpenChange}>
+        <DialogSurface aria-label="Dialog">Content</DialogSurface>
+      </Dialog>,
+    );
+    const surface = getByRole('dialog', { hidden: true });
+
+    surface.removeAttribute('open');
+    fireEvent(surface, new Event('close'));
+
+    expect(onOpenChange).toHaveBeenCalledTimes(1);
+    expect(onOpenChange).toHaveBeenCalledWith(
+      expect.anything(),
+      expect.objectContaining({ type: 'surfaceToggle', open: false }),
+    );
+  });
+
+  it('reports Escape once as escapeKeyDown and keeps the dialog open for the consumer to decide', () => {
+    const onOpenChange = jest.fn();
+    const { getByRole, getByText } = render(
+      <Dialog open onOpenChange={onOpenChange}>
+        <DialogSurface aria-label="Dialog">
+          <button>Inside</button>
+        </DialogSurface>
+      </Dialog>,
+    );
+    const surface = getByRole('dialog', { hidden: true });
+
+    fireEvent.keyDown(getByText('Inside'), { key: 'Escape' });
+    const cancelEvent = new Event('cancel', { cancelable: true });
+    fireEvent(surface, cancelEvent);
+
+    expect(cancelEvent.defaultPrevented).toBe(true);
+    expect(onOpenChange).toHaveBeenCalledTimes(1);
+    expect(onOpenChange).toHaveBeenCalledWith(
+      expect.anything(),
+      expect.objectContaining({ type: 'escapeKeyDown', open: false }),
+    );
+  });
+
+  it('returns focus to the element focused before opening a non-modal dialog, even if focus moved outside', () => {
+    const Example = ({ open }: { open: boolean }) => (
+      <>
+        <button>Trigger</button>
+        <input aria-label="Elsewhere" />
+        <Dialog open={open} modalType="non-modal">
+          <DialogSurface aria-label="Dialog">Content</DialogSurface>
+        </Dialog>
+      </>
+    );
+    const { getByText, getByLabelText, rerender } = render(<Example open={false} />);
+    const trigger = getByText('Trigger');
+    trigger.focus();
+
+    rerender(<Example open />);
+    getByLabelText('Elsewhere').focus();
+    rerender(<Example open={false} />);
+
+    expect(trigger).toHaveFocus();
+  });
+
   it('keeps dialog mounted after close when unmountOnClose is false', () => {
     const result = render(
       <Dialog unmountOnClose={false}>
@@ -135,5 +307,22 @@ describe('Dialog', () => {
 
     expect(dialogElement).toBeInTheDocument();
     expect(dialogElement).not.toHaveAttribute('open');
+  });
+
+  it('mounts a closed surface when unmountOnClose changes to false', () => {
+    const result = render(
+      <Dialog>
+        <DialogSurface>Preserved content</DialogSurface>
+      </Dialog>,
+    );
+    expect(result.container.querySelector('dialog')).not.toBeInTheDocument();
+
+    result.rerender(
+      <Dialog unmountOnClose={false}>
+        <DialogSurface>Preserved content</DialogSurface>
+      </Dialog>,
+    );
+    expect(result.container.querySelector('dialog')).toBeInTheDocument();
+    expect(result.container.querySelector('dialog')).not.toHaveAttribute('open');
   });
 });
