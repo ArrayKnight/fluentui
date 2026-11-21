@@ -1,6 +1,6 @@
 /* eslint-disable dot-notation */
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
-import { join, relative } from 'node:path';
+import { join, relative, sep } from 'node:path';
 import { execSync } from 'node:child_process';
 
 import * as ejs from 'ejs';
@@ -327,9 +327,7 @@ async function installDependenciesAtReactRoot(reactVersionRootPath: string) {
 }
 
 type EnsureDepsMode =
-  | { kind: 'reuse-run' }
-  | { kind: 'prepare-only-no-install' }
-  | { kind: 'run-install'; scaffoldRoot: string };
+  { kind: 'reuse-run' } | { kind: 'prepare-only-no-install' } | { kind: 'run-install'; scaffoldRoot: string };
 
 async function ensureDependencies(params: {
   reactRootPath: string;
@@ -467,6 +465,7 @@ export async function setup(
       },
       cypress: {
         pathToProjectConfig: templatePrepared.configs['e2e'],
+        pathSeparator: sep,
       },
     },
   };
@@ -497,6 +496,11 @@ export async function setup(
       join(__dirname, 'files', 'jest.mock-snapshots.js.template'),
       metadata.tmpl,
       join(projectPath, 'jest.mock-snapshots.js'),
+    );
+    renderTemplateToFile(
+      join(__dirname, 'files', 'jest.snapshot-resolver.js.template'),
+      metadata.tmpl,
+      join(projectPath, 'jest.snapshot-resolver.js'),
     );
     renderTemplateToFile(join(__dirname, 'files', '.swcrc.template'), metadata.tmpl, join(projectPath, '.swcrc'));
   }

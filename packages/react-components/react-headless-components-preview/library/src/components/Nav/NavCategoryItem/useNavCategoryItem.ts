@@ -42,6 +42,7 @@ export const useNavCategoryItem = (
     root: slot.always(
       getIntrinsicElementProps('button', {
         ref,
+        type: 'button',
         ...props,
         'aria-current': validAriaCurrent,
         'aria-expanded': open,
@@ -53,6 +54,7 @@ export const useNavCategoryItem = (
       elementType: 'span',
     }),
     expandIcon: slot.optional(expandIcon, {
+      defaultProps: { 'aria-hidden': true },
       elementType: 'span',
     }),
     components: {
@@ -62,7 +64,8 @@ export const useNavCategoryItem = (
     },
   };
 
-  state.root['data-open'] = toDataAttributeValue(state.open);
+  state.root['data-disabled'] = toDataAttributeValue(state.root.disabled || state.root['aria-disabled']);
+  state.root['data-expanded'] = toDataAttributeValue(state.open);
   state.root['data-selected'] = toDataAttributeValue(state.selected);
 
   return state;
